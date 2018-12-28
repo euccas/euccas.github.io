@@ -18,6 +18,6 @@ One thing I did when learning Golang was creating a mind mapping diagram. The mi
 
 {% img center /images/post_images/2018/20181227-golang.png 600px %}
 
-If you are also learning Golang, you can take a look at the Golang Mindmap [here on my github](https://github.com/euccas/gogocode/tree/master/doc). It mainly covers Golang syntax, flow control, data structures, methods, functions, interfaces and basic concurrency. One thing it doesn't have yet is Go Modules, which was added in Go 1.11 (released in August 2018). As Go dev team announced, current module support is priliminary. In Go 1.12, scheduled for February 2019, they will refine module support. I will update this mind map to add Go Modules then.
+If you are also learning Golang, you can take a look at the Golang mind map [here on my github](https://github.com/euccas/gogocode/tree/master/doc). It mainly covers Golang syntax, flow control, data structures, methods, functions, interfaces and basic concurrency. One thing it doesn't have yet is Go Modules, which was added in Go 1.11 (released in August 2018). As Go dev team announced, current module support is priliminary. In Go 1.12, scheduled for February 2019, they will refine module support. I will update this mind map to add Go Modules then.
 
 Lastly, 2019 is around the corner. Happy New Year!
