@@ -9,6 +9,7 @@ description: learn golang mindmap
 ---
 
 Earlier this year I started to learn Golang. There were three good reasons why I wanted to learn this programming language.
+
 1. For work: Some of the projects my team have worked on, or planned to work on, use Golang to improve applications' performance.
 2. For better understanding cloud infrastructure: Some of the key cloud infrastructure open source projects, including Kubernetes and Docker, are written in Golang.
 3. For using it to easily create multithreaded and concurrent programs.
