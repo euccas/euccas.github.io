@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Reading Notes - Designing Distributed Systems - euccas.github.io</title>
+  <title>Category: Golang - euccas.github.io</title>
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="reading notes distributed systems design patterns">
-  <meta name="keywords" content="reading notes distributed systems design patterns">
+  <meta name="description" content="Category: golang">
+  
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://euccas.github.io/blog/20180513/read-designing-distributed-systems.html">
+  <link rel="canonical" href="http://euccas.github.io/categories/golang/index.html">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="euccas.github.io" type="application/atom+xml">
@@ -99,138 +99,46 @@
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+<article role="article">
   
   <header>
-    
-      
-        <h1 class="entry-title">Reading Notes - Designing Distributed Systems</h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2018-05-13T18:22:12-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>6:22 pm</span></time>
-        
-         | <a href="#disqus_thread">Comments</a>
-        
-        
-      </p>
+    <h1 class="entry-title">Category: Golang</h1>
     
   </header>
-
-
-<div class="entry-content"><p>Recently I read a book <a href="http://shop.oreilly.com/product/0636920072768.do">Designing Distributed Systems</a>, which is written by <a href="https://twitter.com/brendandburns">Brendan Burns</a>, and published by O’Reilly earlier this year. This book introduces the patterns and components used in the development of distributed systems.</p>
-
-<p>Before I started to read this book, I had three questions in my mind, and try to find the answers from the book. Those three questions are:</p>
-
-<ol>
-  <li>What’s the most important difference between designing distributed systems and single machine systems?</li>
-  <li>Why container technology, such as docker, kubernates, is so popular? How could it be helpful?</li>
-  <li>What are the common patterns used in distributed systems design, and when shall I use them?</li>
-</ol>
-
-<p>This book does give me the answers, at least partial ones. I put my reading notes into a Google Slides, and  <a href="https://docs.google.com/presentation/d/1srX9hRS9tbtrEx7T1abxbHiD1gASkvllf1_W2SjuadA/edit?usp=sharing">you can find it here to read the details</a>. A PDF version in light background color is <a href="https://github.com/euccas/euccas.github.io/blob/source/data/read-2018-design_distributed_systems_lightver.pdf">available here</a>.</p>
-
-<p>The short answers to my questions are as in the following:</p>
-
-<!--more-->
-
-<h2 id="whats-the-most-important-difference-between-designing-distributed-systems-and-single-machine-systems">What’s the most important difference between designing distributed systems and single machine systems?</h2>
-
-<ul>
-  <li>Designing distributed systems can be significantly more complicated to design, build, and debug correctly.</li>
-  <li>Designing distributed systems need much more efforts in designing for scalability and reliability.</li>
-  <li>In a distributed system, tasks/data are spreaded to multiple workers. It requires techniques like containers and load balancing to utilize parallelisation</li>
-</ul>
-
-<h2 id="why-container-technology-docker-kubernetes-is-so-popular-how-could-they-be-helpful">Why container technology (docker, kubernetes) is so popular? How could they be helpful?</h2>
-
-<ul>
-  <li>Containers are not only useful for applications which have components running on multiple machines, but also for single machine applications.</li>
-  <li>The goal of containerization is to <strong>establish boundaries</strong> around specific resources, team ownership, separation of concerns.</li>
-  <li>The benefits include <strong>resource isolation</strong>, <strong>scaling teams</strong>, <strong>reuse components and modules</strong>, <strong>break big problems</strong> into smaller ones (Small, focused applications are easier to understand, be tested, updated and deployed)</li>
-</ul>
-
-<h2 id="what-are-the-common-patterns-used-in-distributed-systems-design-and-when-shall-i-use-them">What are the common patterns used in distributed systems design, and when shall I use them?</h2>
-
-<p>The book describes three types of patterns.</p>
-
-<ul>
-  <li><strong>Single node</strong> patterns: sidecar, ambassadors, adapters</li>
-  <li><strong>Serving</strong> patterns: sharded services, scatter/gather, FaaS, etc.</li>
-  <li><strong>Batch computational</strong> patterns: Work queue, Event-driven batch processing, coordinated batch processsing, etc.</li>
-</ul>
-
-<p>You can find more detailed description of each design pattern in my reading notes.</p>
-
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
   
+  <div id="blog-archives" class="category">
 
 
 
-  <span class="byline author vcard">Authored by <span class="fn">
   
-    euccas
+  <h2>2018</h2>
+
+<article>
   
-  </span></span>
+<h1><a href="/blog/20181227/golang-mindmap.html">Learn Golang - a Mindmap</a></h1>
+<time datetime="2018-12-27T21:29:12-08:00" pubdate><span class='month'>Dec</span> <span class='day'>27</span> <span class='year'>2018</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/categories/golang/'>golang</a></span>
+</footer>
 
 
-      
-
-
-
-
-<time class='entry-date' datetime='2018-05-13T18:22:12-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>6:22 pm</span></time>
-      
-      
-
-<span class="categories">
-  
-    <a class='category' href='/categories/reading/'>reading</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://euccas.github.io/blog/20180513/read-designing-distributed-systems.html" data-via="euccas" data-counturl="http://euccas.github.io/blog/20180513/read-designing-distributed-systems.html" >Tweet</a>
-  
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/20180213/performance-profiling-tools-on-windows.html" title="Previous Post: Performance Profiling Tools on Windows">&laquo; Performance Profiling Tools on Windows</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/20181227/golang-mindmap.html" title="Next Post: Learn Golang - a Mindmap">Learn Golang - a Mindmap &raquo;</a>
-      
-    </p>
-  </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
+
+  
+</article>
 
 
 </div>
+
+<aside class="sidebar">
+  
+    
+  
+</aside>
+
 
     </div>
   </div>
@@ -246,10 +154,7 @@
       var disqus_shortname = 'euccas-github-io';
       
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://euccas.github.io/blog/20180513/read-designing-distributed-systems.html';
-        var disqus_url = 'http://euccas.github.io/blog/20180513/read-designing-distributed-systems.html';
-        var disqus_script = 'embed.js';
+        var disqus_script = 'count.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

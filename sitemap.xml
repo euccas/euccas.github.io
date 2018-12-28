@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://euccas.github.io/blog/20181227/golang-mindmap.html</loc>
+<lastmod>2018-12-27T21:29:12-08:00</lastmod>
+</url>
+<url>
 <loc>http://euccas.github.io/blog/20180513/read-designing-distributed-systems.html</loc>
 <lastmod>2018-05-13T18:22:12-07:00</lastmod>
 </url>
@@ -236,5 +240,8 @@
 </url>
 <url>
 <loc>http://euccas.github.io/categories/reading/</loc>
+</url>
+<url>
+<loc>http://euccas.github.io/categories/golang/</loc>
 </url>
 </urlset>

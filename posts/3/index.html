@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="This post was written in 2013, when I thought it was necessary to summarize infrastructure tools and flows needed in SoC design and verification, &hellip;">
+  <meta name="description" content="Recently I spent a whole lot of time on file compression and decompression with zlib. Thought I’d better write something about it. But before that, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20170227/string-in-c-plus-plus.html">String in C++</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-02-27T20:39:46-08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>8:39 pm</span></time>
+        
+         | <a href="/blog/20170227/string-in-c-plus-plus.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Recently I spent a whole lot of time on file compression and decompression with zlib. Thought I’d better write something about it. But before that, let me finish the review of C++ fundamentals. Today I’ll write about Strings in C++.</p>
+
+<p>Two types of String are available in C++: C-Strings (C-style Strings), and STL Strings.</p>
+
+<h1 id="c-string">C-String</h1>
+
+<p>C-String is a fundamental type in C++. Comparing to STL String, C-String is small, simple and fast. A C-String is a special case of an array of characters terminated with a 0. This is sometimes called an null-terminated string. A C-String can be printed out with a <code>printf</code> statement using the <code>%s</code> format string. We can access the individual characters in a C-String just as we do in an array.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/20170227/string-in-c-plus-plus.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -281,49 +324,6 @@
 <p>Euccas</p>
 </div>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20170115/c-plus-plus-functors.html">C++ Functors</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-01-15T20:20:07-08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>8:20 pm</span></time>
-        
-         | <a href="/blog/20170115/c-plus-plus-functors.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>A <strong>functor</strong> is a powerful C++ entity that everyone who wants to master C++ needs to know. A functor, which is short for “<strong>function object</strong>”, is a C++ class that acts like a function. Functors can be called using the familiar function call syntax, and can yield values and accept parameters just like regular functions.</p>
-
-<p>To create a functor, we create a class (or a struct) that overloads the function <code>operator()</code>. Note here the function is called <code>operator()</code>, and it’s not the <code>operator</code> function, i.e. <code>()</code>. We then create an instance of this class (or struct) to use the created functor.</p>
-
-<h1 id="create-and-use-functors">Create and use functors</h1>
-
-<p>Let’s look at two examples of creating and using a functor. In the first example, a functor is created with a <code>class</code>, and in the second example we use a <code>struct</code> to create the functor.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20170115/c-plus-plus-functors.html">Read on &rarr;</a>
-    </footer>
   
 
 

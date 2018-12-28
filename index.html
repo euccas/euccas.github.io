@@ -9,7 +9,8 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="Recently I read a book Designing Distributed Systems, which is written by Brendan Burns, and published by O’Reilly earlier this year. This book &hellip;">
+  <meta name="description" content="Earlier this year I started to learn Golang. There were three good reasons why I wanted to learn this programming language.
+1. For work: Some of the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -106,6 +107,49 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/20181227/golang-mindmap.html">Learn Golang - a Mindmap</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-12-27T21:29:12-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>9:29 pm</span></time>
+        
+         | <a href="/blog/20181227/golang-mindmap.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Earlier this year I started to learn Golang. There were three good reasons why I wanted to learn this programming language.
+1. For work: Some of the projects my team have worked on, or planned to work on, use Golang to improve applications’ performance.
+2. For better understanding cloud infrastructure: Some of the key cloud infrastructure open source projects, including Kubernetes and Docker, are written in Golang.
+3. For using it to easily create multithreaded and concurrent programs.</p>
+
+<p>One thing I did when learning Golang was creating a mind mapping diagram. The mind map helps me to organize the different topics of Golang that I need to learn about, and to dig into each part without getting lost in too many details. It also makes it much easier to remember information.</p>
+
+<p><img class="center" src="/images/post_images/2018/20181227-golang.png" width="600" /></p>
+
+<p>If you are also learning Golang, you can take a look at the Golang Mindmap <a href="https://github.com/euccas/gogocode/tree/master/doc">here on my github</a>. It mainly covers Golang syntax, flow control, data structures, methods, functions, interfaces and basic concurrency. One thing it doesn’t have yet is Go Modules, which was added in Go 1.11 (released in August 2018). As Go dev team announced, current module support is priliminary. In Go 1.12, scheduled for February 2019, they will refine module support. I will update this mind map to add Go Modules then.</p>
+
+<p>Lastly, 2019 is around the corner. Happy New Year!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/20180513/read-designing-distributed-systems.html">Reading Notes - Designing Distributed Systems</a></h1>
     
     
@@ -139,36 +183,12 @@
 
 <p>The short answers to my questions are as in the following:</p>
 
-<h2 id="whats-the-most-important-difference-between-designing-distributed-systems-and-single-machine-systems">What’s the most important difference between designing distributed systems and single machine systems?</h2>
-
-<ul>
-  <li>Designing distributed systems can be significantly more complicated to design, build, and debug correctly.</li>
-  <li>Designing distributed systems need much more efforts in designing for scalability and reliability.</li>
-  <li>In a distributed system, tasks/data are spreaded to multiple workers. It requires techniques like containers and load balancing to utilize parallelisation</li>
-</ul>
-
-<h2 id="why-container-technology-docker-kubernetes-is-so-popular-how-could-they-be-helpful">Why container technology (docker, kubernetes) is so popular? How could they be helpful?</h2>
-
-<ul>
-  <li>Containers are not only useful for applications which have components running on multiple machines, but also for single machine applications.</li>
-  <li>The goal of containerization is to <strong>establish boundaries</strong> around specific resources, team ownership, separation of concerns.</li>
-  <li>The benefits include <strong>resource isolation</strong>, <strong>scaling teams</strong>, <strong>reuse components and modules</strong>, <strong>break big problems</strong> into smaller ones (Small, focused applications are easier to understand, be tested, updated and deployed)</li>
-</ul>
-
-<h2 id="what-are-the-common-patterns-used-in-distributed-systems-design-and-when-shall-i-use-them">What are the common patterns used in distributed systems design, and when shall I use them?</h2>
-
-<p>The book describes three types of patterns.</p>
-
-<ul>
-  <li><strong>Single node</strong> patterns: sidecar, ambassadors, adapters</li>
-  <li><strong>Serving</strong> patterns: sharded services, scatter/gather, FaaS, etc.</li>
-  <li><strong>Batch computational</strong> patterns: Work queue, Event-driven batch processing, coordinated batch processsing, etc.</li>
-</ul>
-
-<p>You can find more detailed description of each design pattern in my reading notes.</p>
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/20180513/read-designing-distributed-systems.html">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -305,49 +325,6 @@
   
     <footer>
       <a rel="full-article" href="/blog/20171129/python-why-decorators-are-useful.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20170827/cpu-profiling-tools-on-linux.html">CPU Profiling Tools on Linux</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-08-27T14:23:21-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>2:23 pm</span></time>
-        
-         | <a href="/blog/20170827/cpu-profiling-tools-on-linux.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Profiling is an effective method to provide measurements for the performance of software applications. With profiling, you get fine grained information for the components of an application, such as how often a function is called, how long a routine takes to execute and how much time are spent of different spots in the code. With these information, you could identify the performance bottlenecks and the poorly implemented parts in a software application, and find effective methods to improve them.</p>
-
-<p>In this post I’ll write a brief summary of two profiling methods: <strong>Instrumentation</strong> and <strong>Sampling</strong>, and four CPU profiling tools on Linux: <strong>perf</strong>, <strong>gprof</strong>, <strong>Valgrind</strong> and Google’s <strong>gperftools</strong>.</p>
-
-<h1 id="profiling-methods">Profiling Methods</h1>
-
-<p>Different profiling methods use different ways to measure the performance of an application when it is executed. <strong>Instrumentation</strong> and <strong>Sampling</strong> are the two categories that profiling methods fall into.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20170827/cpu-profiling-tools-on-linux.html">Read on &rarr;</a>
     </footer>
   
 

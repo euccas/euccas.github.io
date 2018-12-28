@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="In last year’s Facebook F8 conference, Sachin Kulkarni, who worked on Facebook’s Video Infrastructure, gave a talk (watch it here) to introduce the &hellip;">
+  <meta name="description" content="Profiling is an effective method to provide measurements for the performance of software applications. With profiling, you get fine grained &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20170827/cpu-profiling-tools-on-linux.html">CPU Profiling Tools on Linux</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-08-27T14:23:21-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>2:23 pm</span></time>
+        
+         | <a href="/blog/20170827/cpu-profiling-tools-on-linux.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Profiling is an effective method to provide measurements for the performance of software applications. With profiling, you get fine grained information for the components of an application, such as how often a function is called, how long a routine takes to execute and how much time are spent of different spots in the code. With these information, you could identify the performance bottlenecks and the poorly implemented parts in a software application, and find effective methods to improve them.</p>
+
+<p>In this post I’ll write a brief summary of two profiling methods: <strong>Instrumentation</strong> and <strong>Sampling</strong>, and four CPU profiling tools on Linux: <strong>perf</strong>, <strong>gprof</strong>, <strong>Valgrind</strong> and Google’s <strong>gperftools</strong>.</p>
+
+<h1 id="profiling-methods">Profiling Methods</h1>
+
+<p>Different profiling methods use different ways to measure the performance of an application when it is executed. <strong>Instrumentation</strong> and <strong>Sampling</strong> are the two categories that profiling methods fall into.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/20170827/cpu-profiling-tools-on-linux.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -285,49 +328,6 @@
   
     <footer>
       <a rel="full-article" href="/blog/20170422/on-wechat-mini-program.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20170227/string-in-c-plus-plus.html">String in C++</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-02-27T20:39:46-08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>8:39 pm</span></time>
-        
-         | <a href="/blog/20170227/string-in-c-plus-plus.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Recently I spent a whole lot of time on file compression and decompression with zlib. Thought I’d better write something about it. But before that, let me finish the review of C++ fundamentals. Today I’ll write about Strings in C++.</p>
-
-<p>Two types of String are available in C++: C-Strings (C-style Strings), and STL Strings.</p>
-
-<h1 id="c-string">C-String</h1>
-
-<p>C-String is a fundamental type in C++. Comparing to STL String, C-String is small, simple and fast. A C-String is a special case of an array of characters terminated with a 0. This is sometimes called an null-terminated string. A C-String can be printed out with a <code>printf</code> statement using the <code>%s</code> format string. We can access the individual characters in a C-String just as we do in an array.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20170227/string-in-c-plus-plus.html">Read on &rarr;</a>
     </footer>
   
 

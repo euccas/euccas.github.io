@@ -4,7 +4,7 @@
   <title><![CDATA[euccas.github.io]]></title>
   <link href="http://euccas.github.io/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2018-05-13T21:07:08-07:00</updated>
+  <updated>2018-12-27T22:41:23-08:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Golang - a Mindmap]]></title>
+    <link href="http://euccas.github.io/blog/20181227/golang-mindmap.html"/>
+    <updated>2018-12-27T21:29:12-08:00</updated>
+    <id>http://euccas.github.io/blog/20181227/golang-mindmap</id>
+    <content type="html"><![CDATA[<p>Earlier this year I started to learn Golang. There were three good reasons why I wanted to learn this programming language.
+1. For work: Some of the projects my team have worked on, or planned to work on, use Golang to improve applications’ performance.
+2. For better understanding cloud infrastructure: Some of the key cloud infrastructure open source projects, including Kubernetes and Docker, are written in Golang.
+3. For using it to easily create multithreaded and concurrent programs.</p>
+
+<p>One thing I did when learning Golang was creating a mind mapping diagram. The mind map helps me to organize the different topics of Golang that I need to learn about, and to dig into each part without getting lost in too many details. It also makes it much easier to remember information.</p>
+
+<p><img class="center" src="http://euccas.github.io/images/post_images/2018/20181227-golang.png" width="600" /></p>
+
+<p>If you are also learning Golang, you can take a look at the Golang Mindmap <a href="https://github.com/euccas/gogocode/tree/master/doc">here on my github</a>. It mainly covers Golang syntax, flow control, data structures, methods, functions, interfaces and basic concurrency. One thing it doesn’t have yet is Go Modules, which was added in Go 1.11 (released in August 2018). As Go dev team announced, current module support is priliminary. In Go 1.12, scheduled for February 2019, they will refine module support. I will update this mind map to add Go Modules then.</p>
+
+<p>Lastly, 2019 is around the corner. Happy New Year!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading Notes - Designing Distributed Systems]]></title>
@@ -31,6 +51,8 @@
 <p>This book does give me the answers, at least partial ones. I put my reading notes into a Google Slides, and  <a href="https://docs.google.com/presentation/d/1srX9hRS9tbtrEx7T1abxbHiD1gASkvllf1_W2SjuadA/edit?usp=sharing">you can find it here to read the details</a>. A PDF version in light background color is <a href="https://github.com/euccas/euccas.github.io/blob/source/data/read-2018-design_distributed_systems_lightver.pdf">available here</a>.</p>
 
 <p>The short answers to my questions are as in the following:</p>
+
+<!--more-->
 
 <h2 id="whats-the-most-important-difference-between-designing-distributed-systems-and-single-machine-systems">What’s the most important difference between designing distributed systems and single machine systems?</h2>
 
@@ -2101,42 +2123,6 @@ The second time when you call function <code>is_prime</code> with the same input
 
 <p>A few other generator examples can be found on my <a href="https://github.com/euccas/IntermediatePython/tree/master/iteration/generator">GitHub repo <em>IntermediatePython</em></a></p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PostgreSQL: Understand PG Errors]]></title>
-    <link href="http://euccas.github.io/blog/20161217/postgresql-understand-pg-errors.html"/>
-    <updated>2016-12-17T09:06:21-08:00</updated>
-    <id>http://euccas.github.io/blog/20161217/postgresql-understand-pg-errors</id>
-    <content type="html"><![CDATA[<p>When using Ruby Gem <code>pg</code> and establish database connections to a PostgreSQL database, you’ll see PG errors when the database connection becomes problematic. In my experience, two typical PG errors are <code>PG::AdminShutdown</code> and <code>PG::UnableToSend</code>.</p>
-
-<h1 id="error-pgadminshutdown">Error PG::AdminShutdown</h1>
-
-<p>The error message contains the following information:</p>
-
-<p><code>
-FATAL:  terminating connection due to administrator command (PG::AdminShutdown) server closed the connection unexpectedly
-      This probably means the server terminated abnormally
-      before or while processing the request.
-</code></p>
-
-<!--more-->
-
-<p>The PG::AdminShutdown error could be caused by database server receiving SIGTERM/SIGINT/SIGQUIT or kill command on the connection process. Each system signal shut down server processes in different manners, see the <a href="https://www.pgadmin.org/docs/1.4/pg/postmaster-shutdown.html">pgadmin document</a> to know the details.</p>
-
-<p>When you hit the PG::AdminShutdown error, you’ll like to check if the database server gets restarted and if the server resumes to the normal state.</p>
-
-<h1 id="error-pgunabletosend">Error PG::UnabletoSend</h1>
-
-<p>The error message looks like:</p>
-
-<p><code>
-server closed the connection unexpectedly (PG::UnableToSend)
-This probably means the server terminated abnormally before or while processing the request.
-</code></p>
-
-<p>The PG::UnabletoSend error usually means a connection timeout or network issue. It could be a temporary issue though. You can check if the other connections to the database server work well or not.</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Reading | euccas.github.io]]></title>
   <link href="http://euccas.github.io/categories/reading/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2018-05-13T21:07:08-07:00</updated>
+  <updated>2018-12-27T22:41:23-08:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -31,6 +31,8 @@
 <p>This book does give me the answers, at least partial ones. I put my reading notes into a Google Slides, and  <a href="https://docs.google.com/presentation/d/1srX9hRS9tbtrEx7T1abxbHiD1gASkvllf1_W2SjuadA/edit?usp=sharing">you can find it here to read the details</a>. A PDF version in light background color is <a href="https://github.com/euccas/euccas.github.io/blob/source/data/read-2018-design_distributed_systems_lightver.pdf">available here</a>.</p>
 
 <p>The short answers to my questions are as in the following:</p>
+
+<!--more-->
 
 <h2 id="whats-the-most-important-difference-between-designing-distributed-systems-and-single-machine-systems">What’s the most important difference between designing distributed systems and single machine systems?</h2>
 
