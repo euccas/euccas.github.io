@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Learn Golang - a Mindmap"
+title: "Learn Golang - a mind map"
 date: 2018-12-27 21:29:12 -0800
 comments: true
 categories: golang
