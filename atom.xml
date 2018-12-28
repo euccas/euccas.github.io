@@ -4,7 +4,7 @@
   <title><![CDATA[euccas.github.io]]></title>
   <link href="http://euccas.github.io/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2018-12-27T22:41:23-08:00</updated>
+  <updated>2018-12-27T22:43:00-08:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -18,10 +18,13 @@
     <link href="http://euccas.github.io/blog/20181227/golang-mindmap.html"/>
     <updated>2018-12-27T21:29:12-08:00</updated>
     <id>http://euccas.github.io/blog/20181227/golang-mindmap</id>
-    <content type="html"><![CDATA[<p>Earlier this year I started to learn Golang. There were three good reasons why I wanted to learn this programming language.
-1. For work: Some of the projects my team have worked on, or planned to work on, use Golang to improve applications’ performance.
-2. For better understanding cloud infrastructure: Some of the key cloud infrastructure open source projects, including Kubernetes and Docker, are written in Golang.
-3. For using it to easily create multithreaded and concurrent programs.</p>
+    <content type="html"><![CDATA[<p>Earlier this year I started to learn Golang. There were three good reasons why I wanted to learn this programming language.</p>
+
+<ol>
+  <li>For work: Some of the projects my team have worked on, or planned to work on, use Golang to improve applications’ performance.</li>
+  <li>For better understanding cloud infrastructure: Some of the key cloud infrastructure open source projects, including Kubernetes and Docker, are written in Golang.</li>
+  <li>For using it to easily create multithreaded and concurrent programs.</li>
+</ol>
 
 <p>One thing I did when learning Golang was creating a mind mapping diagram. The mind map helps me to organize the different topics of Golang that I need to learn about, and to dig into each part without getting lost in too many details. It also makes it much easier to remember information.</p>
 
