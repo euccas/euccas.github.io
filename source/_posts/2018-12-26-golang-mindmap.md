@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Learn Golang - the Mindmap"
-date: 2018-12-26 18:29:12 -0800
+title: "Learn Golang - a Mindmap"
+date: 2018-12-27 21:29:12 -0800
 comments: true
 categories: golang
 keywords: learn golang mindmap
@@ -15,8 +15,8 @@ Earlier this year I started to learn Golang. There were three good reasons why I
 
 One thing I did when learning Golang was creating a mind mapping diagram. The mind map helps me to organize the different topics of Golang that I need to learn about, and to dig into each part without getting lost in too many details. It also makes it much easier to remember information.
 
-If you are also learning Golang, you can take a look at the Golang Mindmap here on my github. It mainly covers Golang syntax, flow control, data structures, methods, functions, interfaces and basic concurrency. One thing it doesn't have yet is Go Modules, which was added in Go 1.11 (released in August 2018). As Go dev team announced, current module support is priliminary. In Go 1.12, scheduled for February 2019, they will refine module support. I will update this mind map to add Go Modules then.
+{% img center /images/post_images/2018/20181227-golang.png 600px %}
 
-Lastly, 2019 is around the corner. Happy new year!
+If you are also learning Golang, you can take a look at the Golang Mindmap [here on my github](https://github.com/euccas/gogocode/tree/master/doc). It mainly covers Golang syntax, flow control, data structures, methods, functions, interfaces and basic concurrency. One thing it doesn't have yet is Go Modules, which was added in Go 1.11 (released in August 2018). As Go dev team announced, current module support is priliminary. In Go 1.12, scheduled for February 2019, they will refine module support. I will update this mind map to add Go Modules then.
 
-
+Lastly, 2019 is around the corner. Happy New Year!

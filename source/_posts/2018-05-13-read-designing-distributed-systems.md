@@ -20,6 +20,8 @@ This book does give me the answers, at least partial ones. I put my reading note
  
 The short answers to my questions are as in the following:
 
+<!--more--> 
+
 ## What’s the most important difference between designing distributed systems and single machine systems?
 
 - Designing distributed systems can be significantly more complicated to design, build, and debug correctly.
