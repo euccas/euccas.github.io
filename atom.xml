@@ -4,7 +4,7 @@
   <title><![CDATA[euccas.github.io]]></title>
   <link href="http://euccas.github.io/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2018-12-27T22:48:15-08:00</updated>
+  <updated>2019-01-24T23:44:39-08:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<p>Earlier this year I started to learn Golang. There were three good reasons why I wanted to learn this programming language.</p>
 
 <ol>
-  <li>For work: Some of the projects my team have worked on, or planned to work on, use Golang to improve applications’ performance.</li>
+  <li>For work: Some of the projects my team worked on, or planned to work on, use Golang to improve applications’ performance.</li>
   <li>For better understanding cloud infrastructure: Some of the key cloud infrastructure open source projects, including Kubernetes and Docker, are written in Golang.</li>
   <li>For using it to easily create multithreaded and concurrent programs.</li>
 </ol>
