@@ -4,7 +4,7 @@
   <title><![CDATA[euccas.github.io]]></title>
   <link href="http://euccas.github.io/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2019-01-24T23:44:39-08:00</updated>
+  <updated>2021-03-06T08:40:34-08:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<p>Earlier this year I started to learn Golang. There were three good reasons why I wanted to learn this programming language.</p>
 
 <ol>
-  <li>For work: Some of the projects my team worked on, or planned to work on, use Golang to improve applications’ performance.</li>
+  <li>For work: Some of the projects my team have worked on, or planned to work on, use Golang to improve applications’ performance.</li>
   <li>For better understanding cloud infrastructure: Some of the key cloud infrastructure open source projects, including Kubernetes and Docker, are written in Golang.</li>
   <li>For using it to easily create multithreaded and concurrent programs.</li>
 </ol>
@@ -785,9 +785,9 @@ The second time when you call function <code>is_prime</code> with the same input
   
   <entry>
     <title type="html"><![CDATA[谈谈微信小程序的入口设计 | on WeChat Design for Mini Programs]]></title>
-    <link href="http://euccas.github.io/blog/20170422/on-wechat-mini-program.html"/>
-    <updated>2017-04-22T23:24:14-07:00</updated>
-    <id>http://euccas.github.io/blog/20170422/on-wechat-mini-program</id>
+    <link href="http://euccas.github.io/blog/20170423/on-wechat-mini-program.html"/>
+    <updated>2017-04-23T14:24:14+08:00</updated>
+    <id>http://euccas.github.io/blog/20170423/on-wechat-mini-program</id>
     <content type="html"><![CDATA[<p>现在流传的中国互联网圈四大热点是：百度的丑闻，支付宝的社交，微信的功能和网易的猪肉。这大概是个调侃的笑话，但是其中“微信的功能”，确实是我会特别留意和关心的，原因在于两点：</p>
 
 <ol>

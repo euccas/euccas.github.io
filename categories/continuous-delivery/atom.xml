@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Continuous-delivery | euccas.github.io]]></title>
   <link href="http://euccas.github.io/categories/continuous-delivery/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2019-01-24T23:44:39-08:00</updated>
+  <updated>2021-03-06T08:40:34-08:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -164,7 +164,7 @@
   <entry>
     <title type="html"><![CDATA[高效Jenkins用户的第4个习惯]]></title>
     <link href="http://euccas.github.io/blog/20161010/jenkins-user-habits-4.html"/>
-    <updated>2016-10-10T21:32:01-07:00</updated>
+    <updated>2016-10-10T20:32:01-08:00</updated>
     <id>http://euccas.github.io/blog/20161010/jenkins-user-habits-4</id>
     <content type="html"><![CDATA[<p>本文内容部分来源于<strong>Andrew Bayer</strong>发布在SlideShare上的 <a href="http://www.slideshare.net/andrewbayer/seven-habits-of-highly-effective-jenkins-users-2014-edition"><em>7 habits of highly productive Jenkins Users (2014 Edition)</em></a>.</p>
 
