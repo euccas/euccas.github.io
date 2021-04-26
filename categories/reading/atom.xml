@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Reading, | euccas.github.io]]></title>
+  <title><![CDATA[Category: Reading | euccas.github.io]]></title>
   <link href="http://euccas.github.io/categories/reading/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2021-04-25T20:08:34-07:00</updated>
+  <updated>2021-04-25T20:09:51-07:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -67,6 +67,58 @@ d3.select("circle").node();
 <p>Chapter 9 covers how to using D3 with React. The challenge of integrating D3 with React is that React and D3 both want to control the DOM. The entire select/enter/exit/update pattern with D3 is in direct conflict with React and its virtual DOM. The way most people use D3 with React is to use React to build the structure of the application, and to render traditional HTML elements, and then when it comes to the data visualization section, they pass a DOM container (typically an <code>&lt;svg&gt;</code>) over to D3 and use D3 to create and destroy and update elements.</p>
 
 <p>Chapter 10 and 11 are advanced usages about customizing layouts and components, and mixed mode rendering in HTML canvas.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Reading Notes - Designing Distributed Systems]]></title>
+    <link href="http://euccas.github.io/blog/20180513/read-designing-distributed-systems.html"/>
+    <updated>2018-05-13T18:22:12-07:00</updated>
+    <id>http://euccas.github.io/blog/20180513/read-designing-distributed-systems</id>
+    <content type="html"><![CDATA[<p>Recently I read a book <a href="http://shop.oreilly.com/product/0636920072768.do">Designing Distributed Systems</a>, which is written by <a href="https://twitter.com/brendandburns">Brendan Burns</a>, and published by O’Reilly earlier this year. This book introduces the patterns and components used in the development of distributed systems.</p>
+
+<p>Before I started to read this book, I had three questions in my mind, and try to find the answers from the book. Those three questions are:</p>
+
+<ol>
+  <li>What’s the most important difference between designing distributed systems and single machine systems?</li>
+  <li>Why container technology, such as docker, kubernates, is so popular? How could it be helpful?</li>
+  <li>What are the common patterns used in distributed systems design, and when shall I use them?</li>
+</ol>
+
+<p>This book does give me the answers, at least partial ones. I put my reading notes into a Google Slides, and  <a href="https://docs.google.com/presentation/d/1srX9hRS9tbtrEx7T1abxbHiD1gASkvllf1_W2SjuadA/edit?usp=sharing">you can find it here to read the details</a>. A PDF version in light background color is <a href="https://github.com/euccas/euccas.github.io/blob/source/data/read-2018-design_distributed_systems_lightver.pdf">available here</a>.</p>
+
+<p>The short answers to my questions are as in the following:</p>
+
+<!--more-->
+
+<h2 id="whats-the-most-important-difference-between-designing-distributed-systems-and-single-machine-systems">What’s the most important difference between designing distributed systems and single machine systems?</h2>
+
+<ul>
+  <li>Designing distributed systems can be significantly more complicated to design, build, and debug correctly.</li>
+  <li>Designing distributed systems need much more efforts in designing for scalability and reliability.</li>
+  <li>In a distributed system, tasks/data are spreaded to multiple workers. It requires techniques like containers and load balancing to utilize parallelisation</li>
+</ul>
+
+<h2 id="why-container-technology-docker-kubernetes-is-so-popular-how-could-they-be-helpful">Why container technology (docker, kubernetes) is so popular? How could they be helpful?</h2>
+
+<ul>
+  <li>Containers are not only useful for applications which have components running on multiple machines, but also for single machine applications.</li>
+  <li>The goal of containerization is to <strong>establish boundaries</strong> around specific resources, team ownership, separation of concerns.</li>
+  <li>The benefits include <strong>resource isolation</strong>, <strong>scaling teams</strong>, <strong>reuse components and modules</strong>, <strong>break big problems</strong> into smaller ones (Small, focused applications are easier to understand, be tested, updated and deployed)</li>
+</ul>
+
+<h2 id="what-are-the-common-patterns-used-in-distributed-systems-design-and-when-shall-i-use-them">What are the common patterns used in distributed systems design, and when shall I use them?</h2>
+
+<p>The book describes three types of patterns.</p>
+
+<ul>
+  <li><strong>Single node</strong> patterns: sidecar, ambassadors, adapters</li>
+  <li><strong>Serving</strong> patterns: sharded services, scatter/gather, FaaS, etc.</li>
+  <li><strong>Batch computational</strong> patterns: Work queue, Event-driven batch processing, coordinated batch processsing, etc.</li>
+</ul>
+
+<p>You can find more detailed description of each design pattern in my reading notes.</p>
+
 ]]></content>
   </entry>
   
