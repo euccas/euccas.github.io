@@ -8,7 +8,9 @@ keywords: javascript d3.js frontend
 description: book D3.js in Action reading notes
 ---
 
-Recently at work, I have been working on developing a few features on top of [Apache Airflow](https://airflow.apache.org/). Some of the features are UI heavy, and require some amount of the data visualization using [D3.js](https://d3js.org/). While working on those features, I thought it could be a good chance to spend some time on learning D3.js in-depth, so I chose to read this book [D3.js in Action](https://www.manning.com/books/d3js-in-action-second-edition) on manning.com. Here comes a summary of this book, and some notes I took while reading.
+Recently at work, I have been working on developing a few features on top of [Apache Airflow](https://airflow.apache.org/). Some of the features are UI heavy, and require some amount of the data visualization using [D3.js](https://d3js.org/). While working on those features, I thought it could be a good chance to spend some time on learning D3.js in-depth, so I chose to read this book [**D3.js in Action**](https://www.manning.com/books/d3js-in-action-second-edition) on manning.com. Here comes a summary of this book, and some notes I took while reading.
+
+{% img center /images/post_images/2021/20210425-d3js-book.png 360px %}
 
 Overall I find this book is easy to read as long as you have some knowledge in JavaScript.  In this book, a few key concepts in D3.js are clearly laid out,  and the examples cover a good set of common usages and tactics you need to know for building data visualization features using D3.js.
 
