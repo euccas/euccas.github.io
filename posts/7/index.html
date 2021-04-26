@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="When is the best time to start unit testing in your Python project? My answer is before you writing the first line of code of this project. Unit &hellip;">
+  <meta name="description" content="In the previous post about Python Unittest, I wrote about the basic steps needed for setting up unit testing for your Python program with the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,45 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20160807/python-unittest-handle-command-line-arguments.html">Python Unittest: Handle the Command Line Arguments</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-07T11:57:32-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>11:57 am</span></time>
+        
+         | <a href="/blog/20160807/python-unittest-handle-command-line-arguments.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In the previous post about <a href="http://euccas.github.io/blog/20160711/start-unit-testing-in-python.html">Python Unittest</a>, I wrote about the basic steps needed for setting up unit testing for your Python program with the <code>unittest</code> module. In this post, I’ll discuss about handling the command line parameters that your program need while you’re using Python <code>unittest</code>.</p>
+
+<p>Unit testing is meant for testing basic functionality of the application. The target of <a href="https://en.wikipedia.org/wiki/Unit_testing">Unit testing</a> is expected to be each function of your program. When your program has command line arguments, ideally the unit tests should not accept arguments from the command line because unit tests are supposed to be very specific and not testing on the <a href="https://en.wikipedia.org/wiki/Integration_testing">Integration level</a> (i.e. across multiple functions in your program).</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/20160807/python-unittest-handle-command-line-arguments.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -267,61 +306,6 @@
   
     <footer>
       <a rel="full-article" href="/blog/20160607/ruby-class-and-instance-methods.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20160523/jenkins-user-habits-3.html">高效Jenkins用户的第3个习惯</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2016-05-23T20:54:36-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2016</span></span> <span class='time'>8:54 pm</span></time>
-        
-         | <a href="/blog/20160523/jenkins-user-habits-3.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>本文内容部分来源于<strong>Andrew Bayer</strong>发布在SlideShare上的 <a href="http://www.slideshare.net/andrewbayer/seven-habits-of-highly-effective-jenkins-users-2014-edition"><em>7 habits of highly productive Jenkins Users (2014 Edition)</em></a>.</p>
-
-<h1 id="jenkins">习惯 3: 让Jenkins任务自动化</h1>
-
-<h2 id="script-console--scriptler-">1. Script Console 和 Scriptler 插件</h2>
-
-<p>使用(Scriptler插件)[https://wiki.jenkins-ci.org/display/JENKINS/Scriptler+Plugin]，保存和重用Groovy脚本</p>
-
-<h2 id="scriptler">2. 一些Scriptler可以做的事情的例子</h2>
-
-<ul>
-  <li>通过匹配，控制一些job的开关 (enable, disable)</li>
-  <li>清除build queue</li>
-  <li>为所有的jobs设置log rotation/discard old builds等等配置参数：如果采用手工的方法，需要分别对每一个job进行配置，步骤繁琐</li>
-  <li>对所有的jobs设置取消夜晚时间的SCM Polling: 这个功能其实就是批量设置jobs schedule</li>
-  <li>对所有jobs执行log rotator</li>
-</ul>
-
-<p>这只是一些例子。可以看出，使用scriptler可以方便对job的配置进行批量操作</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20160523/jenkins-user-habits-3.html">Read on &rarr;</a>
     </footer>
   
 

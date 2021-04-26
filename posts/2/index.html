@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="Profiling is an effective method to provide measurements for the performance of software applications. With profiling, you get fine grained &hellip;">
+  <meta name="description" content="In Python, by definition decorators are functions that accept a function as an argument, and return a new function as their return value. The reason &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20171129/python-why-decorators-are-useful.html">Python: Why Decorators Are Useful</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-11-29T22:41:51-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>10:41 pm</span></time>
+        
+         | <a href="/blog/20171129/python-why-decorators-are-useful.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In Python, by definition <em>decorators</em> are <em>functions</em> that <em>accept a function</em> as an argument, and <em>return a new function</em> as their return value. The reason why decorators exist in Python, but not in other similar language such as Ruby, is that <em>functions</em> are <em>objects</em> in Python. Functions can be assigned to variables and passed around the same as other object in Python. For example, a list can have functions as its elements, and functions can take other functions as arguments. Functions can be defined inside another function, and this forms closures.</p>
+
+<h1 id="when-to-use-decorators">When to use decorators?</h1>
+
+<p>It’s easy to understand what decorators are, while the real question you may have is: Why decorators are useful? When shall I use decorators in my Python program?</p>
+
+<p>In some way, I see decorator functions are useful whenever you need process or extend the inputs or outputs of a given function (or more often, multiple functions) in some way you want. Here I list three usages of decorators that I can think of:</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/20171129/python-why-decorators-are-useful.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -282,52 +325,6 @@
   
     <footer>
       <a rel="full-article" href="/blog/20170529/cmake-linker-options.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20170423/on-wechat-mini-program.html">谈谈微信小程序的入口设计 | on WeChat Design for Mini Programs</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-04-23T14:24:14+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2017</span></span> <span class='time'>2:24 pm</span></time>
-        
-         | <a href="/blog/20170423/on-wechat-mini-program.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>现在流传的中国互联网圈四大热点是：百度的丑闻，支付宝的社交，微信的功能和网易的猪肉。这大概是个调侃的笑话，但是其中“微信的功能”，确实是我会特别留意和关心的，原因在于两点：</p>
-
-<ol>
-  <li>对微信产品设计的认可和关注</li>
-  <li>对张小龙产品设计理念的好奇与学习</li>
-</ol>
-
-<p>最近几个月来微信最引人注目的功能变化，无疑是“微信小程序”的推出和初步推广。微信小程序，英文版名称为Mini Program，其实是微信推出的类似于React和Weex的以Javascript为基础的程序框架。微信小程序为开发者提供了各种UI组件和调用底层的API。通过小程序实现的App，无需安装就可以在微信平台使用。</p>
-
-<p>微信小程序的入口，设置在微信底部4个固定Tab之一的”发现“菜单中。从功能上来看，微信小程序的入口类似于Apple App Store，但它的设计和App Store完全不同。下面是一些比较。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20170423/on-wechat-mini-program.html">Read on &rarr;</a>
     </footer>
   
 

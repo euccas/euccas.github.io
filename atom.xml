@@ -4,7 +4,7 @@
   <title><![CDATA[euccas.github.io]]></title>
   <link href="http://euccas.github.io/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2021-03-06T08:52:31-08:00</updated>
+  <updated>2021-04-25T19:56:44-07:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Read D3.js in Action]]></title>
+    <link href="http://euccas.github.io/blog/20210425/read-d3-dot-js-in-action.html"/>
+    <updated>2021-04-25T17:56:43-07:00</updated>
+    <id>http://euccas.github.io/blog/20210425/read-d3-dot-js-in-action</id>
+    <content type="html"><![CDATA[<p>Recently at work, I have been working on developing a few features on top of <a href="https://airflow.apache.org/">Apache Airflow</a>. Some of the features are UI heavy, and require some amount of the data visualization using D3.js. While working on those features, I thought it could be a good chance to spend some time on learning D3.js in-depth, so I chose to read this book <a href="https://www.manning.com/books/d3js-in-action-second-edition">D3.js in Action</a> on manning.com. Here comes a summary of this book, and some notes I took while reading.</p>
+
+<p>Overall I find this book is easy to read as long as you have some knowledge in JavaScript.  In this book, a few key concepts in D3.js are clearly laid out,  and the examples cover a good set of common usages and tactics you need to know for building data visualization features using D3.js.</p>
+
+<p>This book has 11 chapters. Chapter 1, 2 and 3 are introduction to D3.js, the high level flow and common operations of using D3.js for information visualization, and how to structure a data visualization project with D3.js.</p>
+
+<p>In the first three chapters, alongside with the basic concepts, a few tactics I find worth learning from the very beginning are:</p>
+
+<ul>
+  <li>
+    <p><strong>Integrate scales in data binding</strong>: D3.js provides handy scale functions to normalize data values for better display. Example built-in scale functions include: <code>d3.scaleLinear()</code>, <code>d3.scaleSequential()</code>, <code>d3.scaleQuantize()</code> and so on. A D3 scale has two primary functions: .<code>.domain()</code> and <code>.range()</code>, both of which expect arrays and must have arrays of the same length to get the right results. The array in <code>.domain()</code> indicates the series of values being mapped to <code>.range()</code>.</p>
+  </li>
+  <li>
+    <p><strong>Enter, update, merge, and exit to update DOM elements</strong>: Understanding how to create, change, and move elements using <code>enter()</code>, <code>exit()</code>, and selections is the basis for all the complex D3 functionality. One note here is D3 doesn’t follow the convention that when the data changes, the corresponding display is updated; you need to build that functionality yourself.</p>
+  </li>
+  <li>
+    <p><strong>Getting access to the actual DOM element</strong> in the selection can be accomplished in one of two ways:</p>
+    <ul>
+      <li>Using <code>this</code> in the inline functions (cannot be used with arrow functions)</li>
+      <li>Using the <code>.node()</code> function</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Using <code>this</code></p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">d3.select("circle").each(function(d,i) {
+</span><span class="line">    console.log(d);console.log(i);console.log(this);
+</span><span class="line">})</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>Using <code>.node()</code> function</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">d3.select("circle").node();</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>Chapter 4, 5, 6, 7 and 8 introduce the methods and details of building specific types of visualization for specific types of data: chart components, layouts, complex hierarchical data visualization,  network visualization, and visualizing geospatial information.</p>
+
+<ul>
+  <li>One note about <strong>Layouts</strong>: D3 contains a variety of functions, referred to as layouts, that help you format your data so that it can be presented using a popular charting method. D3 layouts don’t result in charts; they result in the settings necessary for charts. Example D3 built-in layouts: <code>d3.layout.histogram()</code>, <code>d3.layout.pie()</code>, <code>d3.layout.tree()</code> etc.</li>
+</ul>
+
+<p>Chapter 9 covers how to using D3 with React. The challenge of integrating D3 with React is that React and D3 both want to control the DOM. The entire select/enter/exit/update pattern with D3 is in direct conflict with React and its virtual DOM. The way most people use D3 with React is to use React to build the structure of the application, and to render traditional HTML elements, and then when it comes to the data visualization section, they pass a DOM container (typically an <code>&lt;svg&gt;</code>) over to D3 and use D3 to create and destroy and update elements.</p>
+
+<p>Chapter 10 and 11 are advanced usages about customizing layouts and components, and mixed mode rendering in HTML canvas.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learn Golang - a Mind Map]]></title>
@@ -2041,90 +2096,6 @@ The second time when you call function <code>is_prime</code> with the same input
 <p>When the solutions from the previous three levels are not good enough, you’ll need some magic to get a better one. This can be hard. You will need some clever new ideas and unique insights of the problem you’re trying to solve. Even if you don’t get a magic solution in the end, the thought process will be beneficial.</p>
 
 <p>Sometimes when I finish a project, I do have the feeling that the way I do it is just not good enough, even though the project has been proved to be successful, useful and solved a particular technical challenge we faced. Looking at the “Levels of Design”, I believe what I need to do is spending more efforts on the higher levels. Actually what you really need for getting a really good solution is not magic. What you need is mastering more existing good standard techniques, exploring the possibility for optimization, and a deep understanding of the problem you want to solve.</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Python Generators]]></title>
-    <link href="http://euccas.github.io/blog/20161223/python-generators.html"/>
-    <updated>2016-12-23T08:48:45-08:00</updated>
-    <id>http://euccas.github.io/blog/20161223/python-generators</id>
-    <content type="html"><![CDATA[<p>Generators is a powerful weapon of Python. Generators help you write concise code, give you lazy evaluation, and improve the efficience for calculating large sets of results. Personally I think it’s a good habit to use generators in Python whenever you can, if you really want your code to be Pythonic.</p>
-
-<h1 id="how-to-create-a-generator">How to create a generator</h1>
-
-<p>There are mainly two ways to create a generator: using the <code>yield</code> keyword in the function, or using the <code>()</code> as a generator expression.</p>
-
-<ul>
-  <li>The <code>yield</code> keyword makes the function yields control back to the calling function on every iteration</li>
-  <li>The <code>()</code> expression returns a generator object</li>
-</ul>
-
-<!--more-->
-
-<h1 id="how-to-refactor-a-function-to-use-a-generator">How to refactor a function to use a generator</h1>
-
-<p>Functions that construct a list or another iterable and returns it can be turned into a generator by:</p>
-
-<ol>
-  <li>Converting the list append into a <code>yield</code></li>
-  <li>Removing the empty list creation</li>
-  <li>Removing the return</li>
-</ol>
-
-<h1 id="a-generator-example">A generator example</h1>
-<p>Let’s see an example: implement a function that takes a list and return a list of the current running mean. For example, given the input list <code>[8, 4, 3, 1, 3, 5]</code>, the expected return result is <code>[8.0, 6.0, 5.0, 4.0, 3.8, 4.0]</code>.</p>
-
-<p>First we’ll implement it without using generators.</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="k">def</span> <span class="nf">running_mean</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
-</span><span class="line">	<span class="n">average</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span class="line">	<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class="line">	<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
-</span><span class="line">		<span class="nb">sum</span> <span class="o">+=</span> <span class="n">num</span>
-</span><span class="line">		<span class="n">average</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="o">/</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mf">1.0</span><span class="p">))</span>
-</span><span class="line">	<span class="k">return</span> <span class="n">average</span>
-</span><span class="line">
-</span><span class="line"><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-</span><span class="line"><span class="k">print</span><span class="p">(</span><span class="n">running_mean</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>Now we can refactor the above implementation to use a generator:</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="k">def</span> <span class="nf">running_mean</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
-</span><span class="line">	<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class="line">	<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">num</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
-</span><span class="line">		<span class="nb">sum</span> <span class="o">+=</span> <span class="n">num</span>
-</span><span class="line">		<span class="k">yield</span> <span class="nb">sum</span><span class="o">/</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mf">1.0</span><span class="p">)</span>
-</span><span class="line">
-</span><span class="line"><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-</span><span class="line"><span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">running_mean</span><span class="p">(</span><span class="n">numbers</span><span class="p">)))</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>What we did in the refactoring was: replacing the list appending with a yield (<code>average.append()</code>), removing the empty list creation (<code>average = []</code>), and replacing the return statement with a yield statement.</p>
-
-<p>One important property of Python generator object is it is a single-use object. In other words, a generator keeps yielding answers forever. The looping in a generator only ends when the calling function decides to end it. Meanwhile a generator can only be called once.</p>
-
-<p>A few other generator examples can be found on my <a href="https://github.com/euccas/IntermediatePython/tree/master/iteration/generator">GitHub repo <em>IntermediatePython</em></a></p>
 
 ]]></content>
   </entry>

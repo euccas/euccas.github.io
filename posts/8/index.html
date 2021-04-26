@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="Log4r is a Ruby gem that features a heirachical logging system of any number of levels, custom level names, multiple output destinations per log &hellip;">
+  <meta name="description" content="本文内容部分来源于Andrew Bayer发布在SlideShare上的 7 habits of highly productive Jenkins Users (2014 Edition). 习惯 3: 让Jenkins任务自动化 1. Script Console 和 Scriptler 插件 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,61 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20160523/jenkins-user-habits-3.html">高效Jenkins用户的第3个习惯</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-05-23T20:54:36-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2016</span></span> <span class='time'>8:54 pm</span></time>
+        
+         | <a href="/blog/20160523/jenkins-user-habits-3.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>本文内容部分来源于<strong>Andrew Bayer</strong>发布在SlideShare上的 <a href="http://www.slideshare.net/andrewbayer/seven-habits-of-highly-effective-jenkins-users-2014-edition"><em>7 habits of highly productive Jenkins Users (2014 Edition)</em></a>.</p>
+
+<h1 id="jenkins">习惯 3: 让Jenkins任务自动化</h1>
+
+<h2 id="script-console--scriptler-">1. Script Console 和 Scriptler 插件</h2>
+
+<p>使用(Scriptler插件)[https://wiki.jenkins-ci.org/display/JENKINS/Scriptler+Plugin]，保存和重用Groovy脚本</p>
+
+<h2 id="scriptler">2. 一些Scriptler可以做的事情的例子</h2>
+
+<ul>
+  <li>通过匹配，控制一些job的开关 (enable, disable)</li>
+  <li>清除build queue</li>
+  <li>为所有的jobs设置log rotation/discard old builds等等配置参数：如果采用手工的方法，需要分别对每一个job进行配置，步骤繁琐</li>
+  <li>对所有的jobs设置取消夜晚时间的SCM Polling: 这个功能其实就是批量设置jobs schedule</li>
+  <li>对所有jobs执行log rotator</li>
+</ul>
+
+<p>这只是一些例子。可以看出，使用scriptler可以方便对job的配置进行批量操作</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/20160523/jenkins-user-habits-3.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -292,52 +347,9 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20140531/the-elements-of-linux-screen.html">The Elements of Linux Screen</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-05-31T14:51:54-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2014</span></span> <span class='time'>2:51 pm</span></time>
-        
-         | <a href="/blog/20140531/the-elements-of-linux-screen.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The Element of Linux Screen</p>
-
-<p><a href="http://aperiodic.net/screen/start">Linux Screen</a> is a tool installed in Linux system with which you can manage multiple interactive shell processes. With Screen, you can have multiple shells in the same window. You can detach shell processes and attach them when you log into the system from other sessions. With Screen, you don’t need worry about losing your half-way tasks when the terminal exit. I use the Screen on a daily basis, and here I write down the commands and usages that are most commonly used in my everyday work.</p>
-
-<h1 id="start-screen">Start Screen</h1>
-
-<p>In a system where screen is installed, type “screen” in a terminal will invoke it.</p>
-
-<p>If screen isn’t installed in your system, Google “install screen in Linux” to find the solution.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20140531/the-elements-of-linux-screen.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/posts/9">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     

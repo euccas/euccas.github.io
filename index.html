@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="Earlier this year I started to learn Golang. There were three good reasons why I wanted to learn this programming language. For work: Some of the &hellip;">
+  <meta name="description" content="Recently at work, I have been working on developing a few features on top of Apache Airflow. Some of the features are UI heavy, and require some &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,84 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20210425/read-d3-dot-js-in-action.html">Read D3.js in Action</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2021-04-25T17:56:43-07:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2021</span></span> <span class='time'>5:56 pm</span></time>
+        
+         | <a href="/blog/20210425/read-d3-dot-js-in-action.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Recently at work, I have been working on developing a few features on top of <a href="https://airflow.apache.org/">Apache Airflow</a>. Some of the features are UI heavy, and require some amount of the data visualization using D3.js. While working on those features, I thought it could be a good chance to spend some time on learning D3.js in-depth, so I chose to read this book <a href="https://www.manning.com/books/d3js-in-action-second-edition">D3.js in Action</a> on manning.com. Here comes a summary of this book, and some notes I took while reading.</p>
+
+<p>Overall I find this book is easy to read as long as you have some knowledge in JavaScript.  In this book, a few key concepts in D3.js are clearly laid out,  and the examples cover a good set of common usages and tactics you need to know for building data visualization features using D3.js.</p>
+
+<p>This book has 11 chapters. Chapter 1, 2 and 3 are introduction to D3.js, the high level flow and common operations of using D3.js for information visualization, and how to structure a data visualization project with D3.js.</p>
+
+<p>In the first three chapters, alongside with the basic concepts, a few tactics I find worth learning from the very beginning are:</p>
+
+<ul>
+  <li>
+    <p><strong>Integrate scales in data binding</strong>: D3.js provides handy scale functions to normalize data values for better display. Example built-in scale functions include: <code>d3.scaleLinear()</code>, <code>d3.scaleSequential()</code>, <code>d3.scaleQuantize()</code> and so on. A D3 scale has two primary functions: .<code>.domain()</code> and <code>.range()</code>, both of which expect arrays and must have arrays of the same length to get the right results. The array in <code>.domain()</code> indicates the series of values being mapped to <code>.range()</code>.</p>
+  </li>
+  <li>
+    <p><strong>Enter, update, merge, and exit to update DOM elements</strong>: Understanding how to create, change, and move elements using <code>enter()</code>, <code>exit()</code>, and selections is the basis for all the complex D3 functionality. One note here is D3 doesn’t follow the convention that when the data changes, the corresponding display is updated; you need to build that functionality yourself.</p>
+  </li>
+  <li>
+    <p><strong>Getting access to the actual DOM element</strong> in the selection can be accomplished in one of two ways:</p>
+    <ul>
+      <li>Using <code>this</code> in the inline functions (cannot be used with arrow functions)</li>
+      <li>Using the <code>.node()</code> function</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Using <code>this</code></p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">d3.select("circle").each(function(d,i) {
+</span><span class="line">    console.log(d);console.log(i);console.log(this);
+</span><span class="line">})</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>Using <code>.node()</code> function</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">d3.select("circle").node();</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>Chapter 4, 5, 6, 7 and 8 introduce the methods and details of building specific types of visualization for specific types of data: chart components, layouts, complex hierarchical data visualization,  network visualization, and visualizing geospatial information.</p>
+
+<ul>
+  <li>One note about <strong>Layouts</strong>: D3 contains a variety of functions, referred to as layouts, that help you format your data so that it can be presented using a popular charting method. D3 layouts don’t result in charts; they result in the settings necessary for charts. Example D3 built-in layouts: <code>d3.layout.histogram()</code>, <code>d3.layout.pie()</code>, <code>d3.layout.tree()</code> etc.</li>
+</ul>
+
+<p>Chapter 9 covers how to using D3 with React. The challenge of integrating D3 with React is that React and D3 both want to control the DOM. The entire select/enter/exit/update pattern with D3 is in direct conflict with React and its virtual DOM. The way most people use D3 with React is to use React to build the structure of the application, and to render traditional HTML elements, and then when it comes to the data visualization section, they pass a DOM container (typically an <code>&lt;svg&gt;</code>) over to D3 and use D3 to create and destroy and update elements.</p>
+
+<p>Chapter 10 and 11 are advanced usages about customizing layouts and components, and mixed mode rendering in HTML canvas.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -284,49 +362,6 @@
   
     <footer>
       <a rel="full-article" href="/blog/20171203/effective-jenkins-plugins-1.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20171129/python-why-decorators-are-useful.html">Python: Why Decorators Are Useful</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-11-29T22:41:51-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>10:41 pm</span></time>
-        
-         | <a href="/blog/20171129/python-why-decorators-are-useful.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In Python, by definition <em>decorators</em> are <em>functions</em> that <em>accept a function</em> as an argument, and <em>return a new function</em> as their return value. The reason why decorators exist in Python, but not in other similar language such as Ruby, is that <em>functions</em> are <em>objects</em> in Python. Functions can be assigned to variables and passed around the same as other object in Python. For example, a list can have functions as its elements, and functions can take other functions as arguments. Functions can be defined inside another function, and this forms closures.</p>
-
-<h1 id="when-to-use-decorators">When to use decorators?</h1>
-
-<p>It’s easy to understand what decorators are, while the real question you may have is: Why decorators are useful? When shall I use decorators in my Python program?</p>
-
-<p>In some way, I see decorator functions are useful whenever you need process or extend the inputs or outputs of a given function (or more often, multiple functions) in some way you want. Here I list three usages of decorators that I can think of:</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20171129/python-why-decorators-are-useful.html">Read on &rarr;</a>
     </footer>
   
 
