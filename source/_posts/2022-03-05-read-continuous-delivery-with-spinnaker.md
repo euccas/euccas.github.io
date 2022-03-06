@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Read Continuous Delivery with Spinnaker"
-date: 2022-03-06 22:30:58 -0800
+date: 2022-03-05 22:30:58 -0800
 comments: true
 categories: Reading Continuous-Delivery
 keywords: continuous delivery spinnaker CICD
@@ -9,7 +9,7 @@ description: continuous delivery with Spinnaker CICD Teletraan
 ---
 [Spinnaker](https://spinnaker.io/) is an open-source, multi-cloud continuous delivery platform originally developed by Netflix. Today, Spinnaker has built a community and many companies adopted it to power their Continous Delivery. Pinterest also uses Spinnaker to deploy some of its core services, including web and API. Recently I read this eBook: [Continuous Delivery with Spinnaker](https://spinnaker.io/docs/concepts/ebook/). What I like about this short eBook is that it explains the key design considerations of Spinnaker, and those are, as I think of them, what really matter when designing a good cloud CD platform. In this post, I will share a few topics mentioned in this eBook together with my thoughts after reading.
 
-# Cloud Deployment Considerations
+## Cloud Deployment Considerations
 
 Important things to consider:
 
@@ -23,7 +23,7 @@ Important things to consider:
 
 When you work on designing a CD platform, pay attention to where do you focus on. When I joined Pinterest back in 2019, I was working on the Continuous Delivery Platform team initially and I started designing Pinterest's new CD platform. For that project, the team and I put a lot of focus on the developer experience and making the new system easy to use. While I think that was good, I also think we should more thoughts into the other areas such as credentials management, autoscaling, deploy policy support, different ways of triggering a deployment, etc.
 
-# Structuring Deployments as Pipelines
+## Structuring Deployments as Pipelines
 
 Benefits of flexible user-defined pipelines: allowing each team to build and maintain their own deployment pipeline from the building blocks the platform provides lets engineers experiment freely according to their needs.
 
@@ -37,7 +37,7 @@ Encapsulate the built-in features as platform defined pipeline stages:
 
 Continuous delivery is a complex process. I think using *pipeline* and *stage* as the two core concepts in Spinnaker's design is an awesome idea. It abstracts the complexity of various type of deployments, and allows enough flexibility and extensibility by having both the *managed stages* and *customized stages*. On a side note, [Apache Airflow](https://airflow.apache.org/), the data pipeline orchestration system uses a similar principle in its design by providing *operators*. I may delve into the design of Airflow in another post later.
 
-# Working with Cloud VMs and Kubernetes
+## Working with Cloud VMs and Kubernetes
 
 For continuous deployment into Amazon’s EC2 virtual machine–based cloud, Spinnaker models a well-known set of operations as pipeline stages. Other VMbased cloud providers have similar functionality. Those operations mainly include:
 
