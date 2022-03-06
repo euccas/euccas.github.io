@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Jenkins | euccas.github.io]]></title>
   <link href="http://euccas.github.io/categories/jenkins/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2021-04-25T20:09:51-07:00</updated>
+  <updated>2022-03-06T01:26:17-08:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -294,7 +294,7 @@
 
 <h1 id="jenkins">习惯 3: 让Jenkins任务自动化</h1>
 
-<h2 id="script-console--scriptler-">1. Script Console 和 Scriptler 插件</h2>
+<h2 id="script-console--scriptler-">1. Script Console 和 Scriptler 插件##</h2>
 
 <p>使用(Scriptler插件)[https://wiki.jenkins-ci.org/display/JENKINS/Scriptler+Plugin]，保存和重用Groovy脚本</p>
 
