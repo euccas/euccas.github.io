@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://euccas.github.io/blog/20220306/read-continuous-delivery-with-spinnaker.html">
+  <link rel="canonical" href="http://euccas.github.io/blog/20220305/read-continuous-delivery-with-spinnaker.html">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="euccas.github.io" type="application/atom+xml">
@@ -114,7 +114,7 @@
 
 
 
-<time class='entry-date' datetime='2022-03-06T22:30:58-08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2022</span></span> <span class='time'>10:30 pm</span></time>
+<time class='entry-date' datetime='2022-03-05T22:30:58-08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2022</span></span> <span class='time'>10:30 pm</span></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -126,7 +126,7 @@
 
 <div class="entry-content"><p><a href="https://spinnaker.io/">Spinnaker</a> is an open-source, multi-cloud continuous delivery platform originally developed by Netflix. Today, Spinnaker has built a community and many companies adopted it to power their Continous Delivery. Pinterest also uses Spinnaker to deploy some of its core services, including web and API. Recently I read this eBook: <a href="https://spinnaker.io/docs/concepts/ebook/">Continuous Delivery with Spinnaker</a>. What I like about this short eBook is that it explains the key design considerations of Spinnaker, and those are, as I think of them, what really matter when designing a good cloud CD platform. In this post, I will share a few topics mentioned in this eBook together with my thoughts after reading.</p>
 
-<h1 id="cloud-deployment-considerations">Cloud Deployment Considerations</h1>
+<h2 id="cloud-deployment-considerations">Cloud Deployment Considerations</h2>
 
 <p>Important things to consider:</p>
 
@@ -142,7 +142,7 @@
 
 <p>When you work on designing a CD platform, pay attention to where do you focus on. When I joined Pinterest back in 2019, I was working on the Continuous Delivery Platform team initially and I started designing Pinterest’s new CD platform. For that project, the team and I put a lot of focus on the developer experience and making the new system easy to use. While I think that was good, I also think we should more thoughts into the other areas such as credentials management, autoscaling, deploy policy support, different ways of triggering a deployment, etc.</p>
 
-<h1 id="structuring-deployments-as-pipelines">Structuring Deployments as Pipelines</h1>
+<h2 id="structuring-deployments-as-pipelines">Structuring Deployments as Pipelines</h2>
 
 <p>Benefits of flexible user-defined pipelines: allowing each team to build and maintain their own deployment pipeline from the building blocks the platform provides lets engineers experiment freely according to their needs.</p>
 
@@ -158,7 +158,7 @@
 
 <p>Continuous delivery is a complex process. I think using <em>pipeline</em> and <em>stage</em> as the two core concepts in Spinnaker’s design is an awesome idea. It abstracts the complexity of various type of deployments, and allows enough flexibility and extensibility by having both the <em>managed stages</em> and <em>customized stages</em>. On a side note, <a href="https://airflow.apache.org/">Apache Airflow</a>, the data pipeline orchestration system uses a similar principle in its design by providing <em>operators</em>. I may delve into the design of Airflow in another post later.</p>
 
-<h1 id="working-with-cloud-vms-and-kubernetes">Working with Cloud VMs and Kubernetes</h1>
+<h2 id="working-with-cloud-vms-and-kubernetes">Working with Cloud VMs and Kubernetes</h2>
 
 <p>For continuous deployment into Amazon’s EC2 virtual machine–based cloud, Spinnaker models a well-known set of operations as pipeline stages. Other VMbased cloud providers have similar functionality. Those operations mainly include:</p>
 
@@ -205,7 +205,7 @@
 
 
 
-<time class='entry-date' datetime='2022-03-06T22:30:58-08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2022</span></span> <span class='time'>10:30 pm</span></time>
+<time class='entry-date' datetime='2022-03-05T22:30:58-08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2022</span></span> <span class='time'>10:30 pm</span></time>
       
       
 
@@ -220,7 +220,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://euccas.github.io/blog/20220306/read-continuous-delivery-with-spinnaker.html" data-via="" data-counturl="http://euccas.github.io/blog/20220306/read-continuous-delivery-with-spinnaker.html" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://euccas.github.io/blog/20220305/read-continuous-delivery-with-spinnaker.html" data-via="" data-counturl="http://euccas.github.io/blog/20220305/read-continuous-delivery-with-spinnaker.html" >Tweet</a>
   
   
   
@@ -260,8 +260,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://euccas.github.io/blog/20220306/read-continuous-delivery-with-spinnaker.html';
-        var disqus_url = 'http://euccas.github.io/blog/20220306/read-continuous-delivery-with-spinnaker.html';
+        var disqus_identifier = 'http://euccas.github.io/blog/20220305/read-continuous-delivery-with-spinnaker.html';
+        var disqus_url = 'http://euccas.github.io/blog/20220305/read-continuous-delivery-with-spinnaker.html';
         var disqus_script = 'embed.js';
       
     (function () {
