@@ -3,7 +3,7 @@ layout: post
 title: "Read Continuous Delivery with Spinnaker"
 date: 2022-03-05 22:30:58 -0800
 comments: true
-categories: Reading Continuous-Delivery
+categories: Reading Continuous-Delivery System-Design
 keywords: continuous delivery spinnaker CICD
 description: continuous delivery with Spinnaker CICD Teletraan
 ---
@@ -21,7 +21,7 @@ Important things to consider:
 - Using multiple clouds
 - Abstracting cloud operations from users
 
-When you work on designing a CD platform, pay attention to where do you focus on. When I joined Pinterest back in 2019, I was working on the Continuous Delivery Platform team initially and I started designing Pinterest's new CD platform. For that project, the team and I put a lot of focus on the developer experience and making the new system easy to use. While I think that was good, I also think we should more thoughts into the other areas such as credentials management, autoscaling, deploy policy support, different ways of triggering a deployment, etc.
+When you work on designing a CD platform, pay attention to where do you focus on. When I joined Pinterest back in 2019, I was working on the Continuous Delivery Platform team initially and I started designing Pinterest's new CD platform. For that project, the team and I put a lot of focus on the developer experience and making the new system easy to use. While I think that was good, I also think we should have put more thoughts into the other areas such as credentials management, autoscaling, deploy policy support, different ways of triggering a deployment, in the design phase.
 
 ## Structuring Deployments as Pipelines
 
