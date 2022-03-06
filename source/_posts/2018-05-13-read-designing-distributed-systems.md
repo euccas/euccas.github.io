@@ -3,7 +3,7 @@ layout: post
 title: "Reading Notes - Designing Distributed Systems"
 date: 2018-05-13 18:22:12 -0700
 comments: true
-categories: reading
+categories: Reading System-Design
 keywords: reading notes distributed systems design patterns
 description: reading notes distributed systems design patterns
 ---

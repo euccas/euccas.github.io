@@ -3,7 +3,7 @@ layout: post
 title: "Facebook Infrastructure: Streaming Video Engine (SVE)"
 date: 2017-06-27 22:16:02 -0700
 comments: true
-categories: Infrastructure System-Design
+categories: infrastructure wystem-design
 keywords: Facebook Infrastructure Streaming Video Engine System Design
 description: Inside Facebook's Media Infrastructure the design of Streaming Video Engine
 ---

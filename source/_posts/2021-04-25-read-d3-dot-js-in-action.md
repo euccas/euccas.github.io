@@ -3,7 +3,7 @@ layout: post
 title: "Read D3.js in Action"
 date: 2021-04-25 17:56:43 -0700
 comments: true
-categories: frontend reading javascript
+categories: Reading Javascript
 keywords: javascript d3.js frontend
 description: book D3.js in Action reading notes
 ---

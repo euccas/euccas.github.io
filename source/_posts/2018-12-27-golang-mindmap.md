@@ -3,7 +3,7 @@ layout: post
 title: "Learn Golang - a mind map"
 date: 2018-12-27 21:29:12 -0800
 comments: true
-categories: golang
+categories: Golang
 keywords: learn golang mindmap
 description: learn golang mindmap
 ---

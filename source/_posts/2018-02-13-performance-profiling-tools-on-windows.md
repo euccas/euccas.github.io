@@ -3,7 +3,7 @@ layout: post
 title: "Performance Profiling Tools on Windows"
 date: 2018-02-13 17:21:11 -0800
 comments: true
-categories: performance
+categories: Performance
 keywords: performance profiling
 description: system performance profiling on windows
 ---

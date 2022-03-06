@@ -6,12 +6,18 @@ Check out [Octopress.org](http://octopress.org/docs) for guides and documentatio
 
 ## How to update files in the master branch
 
+- Clone source branch.
+- Clone master branch in `_deploy`: `git clone <path> _deploy`
 - Make changes in the source branch.
 - bundle exec rake gen_deploy
 
 ## How to create a new post
 
 - bundle exec rake new_post
+
+## What works
+
+- ruby version: 2.6.3
 
 ## Changelog
 
