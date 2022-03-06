@@ -4,7 +4,7 @@
   <title><![CDATA[Category: System-design | euccas.github.io]]></title>
   <link href="http://euccas.github.io/categories/system-design/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2022-03-06T01:26:17-08:00</updated>
+  <updated>2022-03-06T13:23:07-08:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -14,122 +14,53 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Facebook Infrastructure: Streaming Video Engine (SVE)]]></title>
-    <link href="http://euccas.github.io/blog/20170627/facebook-infrastructure-streaming-video-engine-sve.html"/>
-    <updated>2017-06-27T22:16:02-07:00</updated>
-    <id>http://euccas.github.io/blog/20170627/facebook-infrastructure-streaming-video-engine-sve</id>
-    <content type="html"><![CDATA[<p>In last year’s <a href="https://developers.facebook.com/videos/?category=f8_2016"><strong>Facebook F8 conference</strong></a>, Sachin Kulkarni, who worked on Facebook’s Video Infrastructure, gave a talk (<a href="https://developers.facebook.com/videos/f8-2016/inside-look-at-facebook-media-infrastructure/">watch it here</a>) to introduce the design of Facebook’s <strong>Streaming Video Engine System (SVE)</strong>. I found this talk particularly interesting because it revealed, in a very well structured, concise yet informative way, how Facebook infrastructure team came up with a solution to build a video system solving user frustrations by reviewing the end-to-end process, and how such a design meet the goal of being <strong>fast</strong>, <strong>flexible</strong>, <strong>scalable</strong>, and <strong>efficient</strong>. After watching the presentation video for a few times, I thought it would be helpful to write down some notes here, for my own reviewing in the future, and for people who might be interested in Facebook’s media infrastructure.</p>
+    <title type="html"><![CDATA[Reading Notes - Designing Distributed Systems]]></title>
+    <link href="http://euccas.github.io/blog/20180513/read-designing-distributed-systems.html"/>
+    <updated>2018-05-13T18:22:12-07:00</updated>
+    <id>http://euccas.github.io/blog/20180513/read-designing-distributed-systems</id>
+    <content type="html"><![CDATA[<p>Recently I read a book <a href="http://shop.oreilly.com/product/0636920072768.do">Designing Distributed Systems</a>, which is written by <a href="https://twitter.com/brendandburns">Brendan Burns</a>, and published by O’Reilly earlier this year. This book introduces the patterns and components used in the development of distributed systems.</p>
 
-<p>Sharing on Facebook started from largely text, and quickly changed to be largely photos. Since 2014, more videos started to be posted and shared among users. The challenge was, building a video processing system is much harder than building a text or image processing system. Videos are greedy, they will consume all your resources: CPU, memory, disk, network, and anything else.</p>
+<p>Before I started to read this book, I had three questions in my mind, and try to find the answers from the book. Those three questions are:</p>
 
-<p>Before building the Streaming Video Engine system, the team started by reviewing Facebook’s existing video uploading and processing process, which was slow and not scalable. They found several problems need change or improvement:</p>
+<ol>
+  <li>What’s the most important difference between designing distributed systems and single machine systems?</li>
+  <li>Why container technology, such as docker, kubernates, is so popular? How could it be helpful?</li>
+  <li>What are the common patterns used in distributed systems design, and when shall I use them?</li>
+</ol>
+
+<p>This book does give me the answers, at least partial ones. I put my reading notes into a Google Slides, and  <a href="https://docs.google.com/presentation/d/1srX9hRS9tbtrEx7T1abxbHiD1gASkvllf1_W2SjuadA/edit?usp=sharing">you can find it here to read the details</a>. A PDF version in light background color is <a href="https://github.com/euccas/euccas.github.io/blob/source/data/read-2018-design_distributed_systems_lightver.pdf">available here</a>.</p>
+
+<p>The short answers to my questions are as in the following:</p>
 
 <!--more-->
 
-<ul>
-  <li>No unified clients</li>
-  <li>Several disk reads and writes in the critical path</li>
-  <li>Was doing serial processing throughout</li>
-  <li>Read a video as one single big file, instead of splitting it up to chunks</li>
-</ul>
-
-<p>The new Streaming Video Engine (SVE) is expected to solve the aforementioned problems, and to meet the four design goals:</p>
+<h2 id="whats-the-most-important-difference-between-designing-distributed-systems-and-single-machine-systems">What’s the most important difference between designing distributed systems and single machine systems?</h2>
 
 <ul>
-  <li>Fast: make users upload their videos super fast</li>
-  <li>Flexible: usable for different Facebook products</li>
-  <li>Scalable: everything at Facebook has to scale</li>
-  <li>Efficient: storage efficiency, processing efficiency, and more importantly consume less bytes of users’ data plan</li>
+  <li>Designing distributed systems can be significantly more complicated to design, build, and debug correctly.</li>
+  <li>Designing distributed systems need much more efforts in designing for scalability and reliability.</li>
+  <li>In a distributed system, tasks/data are spreaded to multiple workers. It requires techniques like containers and load balancing to utilize parallelisation</li>
 </ul>
 
-<p>These four design goals, in my opinion, are also the most common goals applicable to most engineering infrastructure systems.</p>
-
-<p>Let’s take a deep dive to see how SVE was designed to meet these goals.</p>
-
-<h1 id="fast">Fast</h1>
+<h2 id="why-container-technology-docker-kubernetes-is-so-popular-how-could-they-be-helpful">Why container technology (docker, kubernetes) is so popular? How could they be helpful?</h2>
 
 <ul>
-  <li>First step is build a common library (for video uploading) that could be used for the clients cross platforms (Web, Mobile, Android, etc.). With the common library, optimizations on video uploading can be applied to all platforms.</li>
-  <li>The uploading library has functions to split a video by GOP (Group of Pictures, a GOP roughly is a scene in the video) alignment. So any given video can be split to segments, which can have multiple GOPs.</li>
-  <li>Uploading process starts as soon as the clients split a video into segaments. The <strong>client</strong> uploads one segment a time to the <strong>web server</strong>.</li>
-  <li>Web server sends out segments to the <strong>preprocessor</strong>, which is a write-through cache.</li>
-  <li>Proprocessor handles:
-    <ul>
-      <li>Normalize the video (segment) if it needs to</li>
-      <li>Notify the <strong>scheduler</strong> that there are video segments available to be encoded</li>
-      <li>Write the video (segment) to the <strong>original storage</strong></li>
-      <li>Further split the video segment into GOPs</li>
-    </ul>
-  </li>
-  <li>Scheduler will find workers to encode videos. Multiple works can be utilized and each worker will process one or multiple GOPs.</li>
-  <li>Overlapped upload and encoding process: While proprocessor, scheduler and works are working, the uploading process is still ongoing. Clients continues splitting videos into segments and uploading to the web server.</li>
+  <li>Containers are not only useful for applications which have components running on multiple machines, but also for single machine applications.</li>
+  <li>The goal of containerization is to <strong>establish boundaries</strong> around specific resources, team ownership, separation of concerns.</li>
+  <li>The benefits include <strong>resource isolation</strong>, <strong>scaling teams</strong>, <strong>reuse components and modules</strong>, <strong>break big problems</strong> into smaller ones (Small, focused applications are easier to understand, be tested, updated and deployed)</li>
 </ul>
 
-<p><img class="center" src="/images/post_images/2017/20170627-fb_00.png" width="600"></p>
+<h2 id="what-are-the-common-patterns-used-in-distributed-systems-design-and-when-shall-i-use-them">What are the common patterns used in distributed systems design, and when shall I use them?</h2>
 
-<p>With this design, the process speedup reached 2.3x (small videos &lt; 3MB) ~ 9.3x (large videos &gt; 1G).</p>
-
-<h1 id="flexible">Flexible</h1>
+<p>The book describes three types of patterns.</p>
 
 <ul>
-  <li>The key insight that allows SVE to be flexible is, all the video processing pipelines can be represented as a DAG (Directed Acyclic Graph).</li>
-  <li>Arbitrary dependencies can be added between the tasks in the video processing pipepline. The added tasks can be executed in parallel while the main pipeline tasks are running.</li>
-  <li>SVE provides very simple API functions for the video pipeline (Ideally, you can add a video processing pipeline in your product in less than 10 lines of code).</li>
+  <li><strong>Single node</strong> patterns: sidecar, ambassadors, adapters</li>
+  <li><strong>Serving</strong> patterns: sharded services, scatter/gather, FaaS, etc.</li>
+  <li><strong>Batch computational</strong> patterns: Work queue, Event-driven batch processing, coordinated batch processsing, etc.</li>
 </ul>
 
-<p><img class="center" src="/images/post_images/2017/20170627-fb_01.png" width="600"></p>
-
-<h1 id="scalable">Scalable</h1>
-
-<ul>
-  <li>SVE was designed to prepare for overloads, such as handling the worldwide uploading “spike” on New Year’s Eve (could be 3x video uploads).</li>
-  <li>Building a scalable system is relevant only when the system is <strong>robust</strong>. When the system gets overloaded, it must <strong>gracefully degrade</strong>. It cannot crash and burn.</li>
-  <li>Prepare for overload along two dimensions: at the pipeline level, and the task level.</li>
-  <li>Pipeline level, when uploads overwhelm the system:
-    <ul>
-      <li>Do not cache original videos in upload: Preprocessor stops caching original videos. Workers then need fetch videos from the original storage, not from preprocessor. The cost here is disk latency is added to the critical path.</li>
-      <li>Delay pipeline generation for incoming video. Distinguish the critical video pipeline requests and the non-critical ones, then delay the non-critical ones.</li>
-      <li>Reroute traffic to a different (less busy) region (Asia, Europe, US west, etc.)</li>
-    </ul>
-  </li>
-  <li>Task level (the tasks executed by <strong>workers</strong> in the pipeline), when too many tasks are running:
-    <ul>
-      <li>Push back non latency-sensitive jobs</li>
-      <li>Turn off A/B tests, which try to figure out the best encoding for the given video</li>
-      <li>Add more workers (this requires making it easy to add capacity to SVE)</li>
-    </ul>
-  </li>
-</ul>
-
-<h1 id="efficient">Efficient</h1>
-
-<ul>
-  <li>The high level problem statement here is: If we could use 100% CPU, how can we make the encoded video as small as possible?</li>
-  <li>Find the optimal encoding settings to get the best balance between encoded video file size and time spent on encoding. The difficult part is modern encoders can have hundreds of settings for one video. Chance of picking optimal combination is extremely low.</li>
-  <li>The adopted solution is:
-    <ul>
-      <li>Categorize each scene such as “minimal motion”, “rapid movement”, and “complex crowded scene”.</li>
-      <li>Build a Neural Network Model and a large training data set to train the network.</li>
-      <li>In SVE, video scene segments are sent to a Fingerprint generator, which generates fingerprints and sends them to the Neural Network Model.</li>
-      <li>The neural network figures out optimal encoding settings (could be multiple) for each scene, and sends the encoding settings to encoders.</li>
-      <li>the encoder takes the settings, and encodes the video scenes in multiple ways. Then discard the encoded videos which are below quality bar.</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img class="center" src="/images/post_images/2017/20170627-fb_02.png" width="600"></p>
-
-<p>SVE achieved 20% smaller video file sizes. This is a huge saving of user’s data plans.</p>
-
-<p>This Streaming Video Engine was designed, coded and tested in roughly 9 months. The most important learnings are:</p>
-
-<ul>
-  <li>E2E view: To find an optimal solution, we need look at the flow end to end</li>
-  <li>Multi-dimensional flexibility is a key for making the system most useful</li>
-  <li>Parallel and shadow mode testing to find correctness and scalability issues before production</li>
-  <li>Design the ability to handle extreme products such as 360 videos</li>
-  <li>Track direct measures (latency, reliability, etc.) and indirect measures (number of videos uploaded, watch times, etc.). Mapping indirect measures to direct measures could give you a good view in figuring out what you could do better next.</li>
-</ul>
+<p>You can find more detailed description of each design pattern in my reading notes.</p>
 
 ]]></content>
   </entry>

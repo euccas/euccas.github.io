@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="For people who need use portable Python on Windows, WinPython is a good choice. WinPython is a free open-source portable distribution of Python. The &hellip;">
+  <meta name="description" content="使用Octopress搭建这个blog已经有一段时间了，记录几个使用中需要注意的Tips. Tip 1: Clone Repo 如果需要重新复制一份已经存在的blog repo，在重新复制的blog repo上继续发布更新blog，那么需要注意： 首先需要复制的repo是source branch &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20161011/octopress-tips.html">Octopress Tips</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-10-11T22:36:44-07:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>10:36 pm</span></time>
+        
+         | <a href="/blog/20161011/octopress-tips.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>使用Octopress搭建这个blog已经有一段时间了，记录几个使用中需要注意的Tips.</p>
+
+<h1 id="tip-1-clone-repo">Tip 1: Clone Repo</h1>
+
+<p>如果需要重新复制一份已经存在的blog repo，在重新复制的blog repo上继续发布更新blog，那么需要注意：</p>
+
+<p>首先需要复制的repo是source branch.</p>
+
+<p>如果repo的默认branch已经设定为source branch:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git clone &lt;repo url&gt;</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/20161011/octopress-tips.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -271,49 +319,6 @@
   
     <footer>
       <a rel="full-article" href="/blog/20160920/python-dunder-methods.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20160815/how-to-check-changes-in-a-commit-and-invoke-ci-tasks.html">How to Check Changes in a Commit and Invoke CI Tasks</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2016-08-15T19:43:21-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>7:43 pm</span></time>
-        
-         | <a href="/blog/20160815/how-to-check-changes-in-a-commit-and-invoke-ci-tasks.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h1 id="problem-description">Problem Description</h1>
-
-<p>Suppose one task in your Continuous Integration (CI) pipeline is triggered on every commit to the project repository. Some the files in the repository require passing the check of the CI task, while some other files do not require passing the check. What should the CI task do to decide if it is needed to perform the needed checking on the commit?</p>
-
-<h1 id="design-the-ci-task">Design the CI task</h1>
-
-<p>The CI task need have the ability to analyze the files included in the commit, and decide whether the commit requires passing a check, or not. We need tell the CI task which files require passing a check through configurations.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20160815/how-to-check-changes-in-a-commit-and-invoke-ci-tasks.html">Read on &rarr;</a>
     </footer>
   
 

@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="现在流传的中国互联网圈四大热点是：百度的丑闻，支付宝的社交，微信的功能和网易的猪肉。这大概是个调侃的笑话，但是其中“微信的功能”，确实是我会特别留意和关心的，原因在于两点： 对微信产品设计的认可和关注 对张小龙产品设计理念的好奇与学习 最近几个月来微信最引人注目的功能变化，无疑是“微信小程序” &hellip;">
+  <meta name="description" content="A few months ago when I worked on a project using zlib to compress and decompress files, I once met linker errors complaining about unable to resolve &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,62 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20170529/cmake-linker-options.html">CMake: Use the Correct Options to Solve Linker Errors</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-05-29T22:30:46-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>10:30 pm</span></time>
+        
+         | <a href="/blog/20170529/cmake-linker-options.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A few months ago when I worked on a project using <a href="https://www.zlib.net/">zlib</a> to compress and decompress files, I once met linker errors complaining about unable to resolve symbols of zlib functions:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">cannot resolve symbols _gzbuffer, _gzopen, ...</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>In the end I fixed these linker errors by using <code>TARGET_LINK_LIBRARIES</code> command in the project’s CMakefile to specify the linker package dependency, as the following:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">TARGET_LINK_LIBRARIES(myProject zlibstatic)</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>When I was looking for solutions to fix those linker errors, I found several related CMake commands which look quite similar and could be confusing in terms of their functions and when to use them. Here is a quick summary of these commands.</p>
+
+<p>Related CMake commands:</p>
+
+<ul>
+  <li>add_dependencies</li>
+  <li>link_directories</li>
+  <li>link_libraries</li>
+  <li>target_link_libraries</li>
+</ul>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/20170529/cmake-linker-options.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -278,57 +334,6 @@
   
     <footer>
       <a rel="full-article" href="/blog/20170205/c-plus-plus-pointer-and-reference.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20170130/c-plus-plus-qualifiers.html">C++ Qualifiers</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-01-30T21:41:11-08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>9:41 pm</span></time>
-        
-         | <a href="/blog/20170130/c-plus-plus-qualifiers.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Recently I’m doing a review on C++ programming language. During the process, I found a few topics which are worth paying more attention to. I’ll write several posts about the related C++ tips and tactics.</p>
-
-<p>The first topic I’ll write about here is: <strong>Qualifiers</strong></p>
-
-<p>C++ uses Qualifiers to adjust qualities of a variable or an object. In C++, there are two types of qualifiers: CV qualifiers and storage qualifiers.</p>
-
-<h1 id="cv-qualifiers">CV Qualifiers</h1>
-
-<p>CV qualifiers stands for Const and Volatile Qualifier. There are three types of CV qualifiers:</p>
-
-<ul>
-  <li>const</li>
-  <li>volatile</li>
-  <li>mutable</li>
-</ul>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20170130/c-plus-plus-qualifiers.html">Read on &rarr;</a>
     </footer>
   
 

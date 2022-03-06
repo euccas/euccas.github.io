@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Continuous-delivery | euccas.github.io]]></title>
   <link href="http://euccas.github.io/categories/continuous-delivery/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2022-03-06T01:26:17-08:00</updated>
+  <updated>2022-03-06T13:23:07-08:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Read Continuous Delivery With Spinnaker]]></title>
+    <link href="http://euccas.github.io/blog/20220306/read-continuous-delivery-with-spinnaker.html"/>
+    <updated>2022-03-06T22:30:58-08:00</updated>
+    <id>http://euccas.github.io/blog/20220306/read-continuous-delivery-with-spinnaker</id>
+    <content type="html"><![CDATA[<p><a href="https://spinnaker.io/">Spinnaker</a> is an open-source, multi-cloud continuous delivery platform originally developed by Netflix. Today, Spinnaker has built a community and many companies adopted it to power their Continous Delivery. Pinterest also uses Spinnaker to deploy some of its core services, including web and API. Recently I read this eBook: <a href="https://spinnaker.io/docs/concepts/ebook/">Continuous Delivery with Spinnaker</a>. What I like about this short eBook is that it explains the key design considerations of Spinnaker, and those are, as I think of them, what really matter when designing a good cloud CD platform. In this post, I will share a few topics mentioned in this eBook together with my thoughts after reading.</p>
+
+<h1 id="cloud-deployment-considerations">Cloud Deployment Considerations</h1>
+
+<p>Important things to consider:
+- Credentials management
+- Regional isolation
+- Autoscaling
+- Immutable infrastructure and data persistence
+- Service discovery
+- Using multiple clouds
+- Abstracting cloud operations from users</p>
+
+<p>When you work on designing a CD platform, pay attention to where do you focus on. When I joined Pinterest back in 2019, I was working on the Continuous Delivery Platform team initially and I started designing Pinterest’s new CD platform. For that project, the team and I put a lot of focus on the developer experience and making the new system easy to use. While I think that was good, I also think we should more thoughts into the other areas such as credentials management, autoscaling, deploy policy support, different ways of triggering a deployment, etc.</p>
+
+<h1 id="structuring-deployments-as-pipelines">Structuring Deployments as Pipelines</h1>
+
+<p>Benefits of flexible user-defined pipelines: allowing each team to build and maintain their own deployment pipeline from the building blocks the platform provides lets engineers experiment freely according to their needs.</p>
+
+<p>Encapsulate the built-in features as platform defined pipeline stages:
+- Infrastructure stages: operate on the underlying cloud infrastructure by creating, updating, or deleting resources.
+- External systems integration stages: examples are integrations with CI (Jenkins/Travis CI), run job, webhook.
+- Testing stages: Chaos automation platform, Canary + ACA
+- Controlling flow stages: allows to control the flow of pipelines, whether that is authorization, timing, or branching logic.
+- Triggers stages: controls how a pipeline is started, eg. time-based triggers, event-based triggers.</p>
+
+<p>Continuous delivery is a complex process. I think using <em>pipeline</em> and <em>stage</em> as the two core concepts in Spinnaker’s design is an awesome idea. It abstracts the complexity of various type of deployments, and allows enough flexibility and extensibility by having both the <em>managed stages</em> and <em>customized stages</em>. On a side note, <a href="https://airflow.apache.org/">Apache Airflow</a>, the data pipeline orchestration system uses a similar principle in its design by providing <em>operators</em>. I may delve into the design of Airflow in another post later.</p>
+
+<h1 id="working-with-cloud-vms-and-kubernetes">Working with Cloud VMs and Kubernetes</h1>
+
+<p>For continuous deployment into Amazon’s EC2 virtual machine–based cloud, Spinnaker models a well-known set of operations as pipeline stages. Other VMbased cloud providers have similar functionality. Those operations mainly include:
+- Baking AMIs
+- Tagging AMIs
+- Deploying in EC2
+- Availability zones
+- Health checks
+- Autoscaling</p>
+
+<p>Kubernetes makes deployment to the cloud much easier because of some of its advantages comparing to the VM-based cloud platform:
+- Faster: provisioning resources in Kubernetes takes seconds, while provisioning a VM can take minutes.
+- Declarative: Kubernetes uses manifest files (YAML) to provide a declarative description of your infrastructure, and this is central to how Kubernetes works.
+- Multi-cloud: whether Kubernetes is running in Google’s cloud or Amazon’s, in your on-premise datacenter or on your laptop, it exposes the same interface and behavior for running your workloads. This makes it trivial to deploy the same application to multiple clouds and regions, when you can treat each as being identical.
+- Native deployment orchestration: when a change is submitted to a running Kubernetes workload, it orchestrates a rollout of your change according to policies you specify. In some cases, this becomes the only deployment orchestration that you need.</p>
+
+<p>Pinterest has an internal deployment system <a href="https://github.com/pinterest/teletraan">Teletraan</a>, and it was designed and used for deploying services to VMs (Amazon EC2). After joining Pinterest, I learned that a major user pain point of Teletraan was the complicated configurations needed for setting up a deployment environment for user’s services. For example, in Teletraan users need to configure AMI, place AZs, etc. I agree that Teletraan’s UI can be improved to make the experience better, but I think this problem is a result of the complexity of VM deployment. To solve it, we could either choose to move to Kubernetes, or redesign some parts of Teletraan to have a better abstraction model, similar to what Spinnaker did. In short, reducing the complexity in developer experience cannot be done just by fixing the UI.</p>
+
+<p>Right now I’m no longer working on the Continuous delivery platform, but I still like to think about the problems and solutions in this area because I used to work on it, built a new system from scratch when I didn’t really have much knowledge in the cloud deployment space, had many questions and learned lessons (and got some wins too). If you happen to read this and want to continue the discussion with me on a specific topic, please feel free to drop me a line.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Effective Jenkins Plugins (1)]]></title>
@@ -432,68 +487,6 @@ return need_check
 
 <p>```</p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[高效Jenkins用户的第3个习惯]]></title>
-    <link href="http://euccas.github.io/blog/20160523/jenkins-user-habits-3.html"/>
-    <updated>2016-05-23T20:54:36-07:00</updated>
-    <id>http://euccas.github.io/blog/20160523/jenkins-user-habits-3</id>
-    <content type="html"><![CDATA[<p>本文内容部分来源于<strong>Andrew Bayer</strong>发布在SlideShare上的 <a href="http://www.slideshare.net/andrewbayer/seven-habits-of-highly-effective-jenkins-users-2014-edition"><em>7 habits of highly productive Jenkins Users (2014 Edition)</em></a>.</p>
-
-<h1 id="jenkins">习惯 3: 让Jenkins任务自动化</h1>
-
-<h2 id="script-console--scriptler-">1. Script Console 和 Scriptler 插件##</h2>
-
-<p>使用(Scriptler插件)[https://wiki.jenkins-ci.org/display/JENKINS/Scriptler+Plugin]，保存和重用Groovy脚本</p>
-
-<h2 id="scriptler">2. 一些Scriptler可以做的事情的例子</h2>
-
-<ul>
-  <li>通过匹配，控制一些job的开关 (enable, disable)</li>
-  <li>清除build queue</li>
-  <li>为所有的jobs设置log rotation/discard old builds等等配置参数：如果采用手工的方法，需要分别对每一个job进行配置，步骤繁琐</li>
-  <li>对所有的jobs设置取消夜晚时间的SCM Polling: 这个功能其实就是批量设置jobs schedule</li>
-  <li>对所有jobs执行log rotator</li>
-</ul>
-
-<p>这只是一些例子。可以看出，使用scriptler可以方便对job的配置进行批量操作</p>
-
-<!--more-->
-
-<h2 id="system-groovy-build-steps">3. System Groovy build steps</h2>
-
-<ul>
-  <li>Groovy build steps 是在build中去执行system Groovy的脚本。需要注意的是，要保证Jenkins有权限执行build的全过程。</li>
-  <li>利用Groovy build steps, 可以方便地做一些类似于plugin的功能，或者作为在开发一个plugin之前的测试</li>
-  <li>通过Scriptler scripts, 可以在多个builds中重用系统脚本</li>
-</ul>
-
-<h2 id="jenkins-jobs">4. 自动生成Jenkins jobs</h2>
-
-<ul>
-  <li>使用Jenkins REST API 和 CLI，可以创建新的job或者改变已有的job</li>
-  <li>可以使用DSL来定义job甚至包含多个job的workflow</li>
-</ul>
-
-<h2 id="dslplugin">5. 一些支持DSL的Plugin</h2>
-
-<ul>
-  <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Job+DSL+Plugin">Job DSL plugin</a></li>
-  <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/DotCi+Plugin">DotCI plugin</a></li>
-  <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin">Workflow plugin (Pipeline plugin)</a></li>
-</ul>
-
-<p><strong>阅读同主题内容</strong></p>
-
-<ul>
-  <li><a href="http://euccas.github.io/blog/20151210/jenkins-user-habits-1.html">高效Jenkins用户的第1个习惯</a></li>
-  <li><a href="http://euccas.github.io/blog/20151215/jenkins-user-habits-2.html">高效Jenkins用户的第2个习惯</a></li>
-  <li><a href="http://euccas.github.io/blog/20160523/jenkins-user-habits-3.html">高效Jenkins用户的第3个习惯</a></li>
-  <li><a href="http://euccas.github.io/blog/20161010/jenkins-user-habits-4.html">高效Jenkins用户的第4个习惯</a></li>
-  <li><a href="http://euccas.github.io/blog/20161216/jenkins-user-habits-5.html">高效Jenkins用户的第5个习惯</a></li>
-</ul>
 ]]></content>
   </entry>
   

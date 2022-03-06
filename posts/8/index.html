@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="本文内容部分来源于Andrew Bayer发布在SlideShare上的 7 habits of highly productive Jenkins Users (2014 Edition). 习惯 3: 让Jenkins任务自动化 1. Script Console 和 Scriptler 插件 &hellip;">
+  <meta name="description" content="If you ever get confused about Class Methods, Instance Methods, Class Variables and Instance Variables in Ruby, read this post and you’ll understand &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,55 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20160607/ruby-class-and-instance-methods.html">Ruby Class and Instance Methods</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-06-07T11:37:51-07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>11:37 am</span></time>
+        
+         | <a href="/blog/20160607/ruby-class-and-instance-methods.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you ever get confused about Class Methods, Instance Methods, Class Variables and Instance Variables in Ruby, read this post and you’ll understand it better :)</p>
+
+<h1 id="class-methods">Class Methods</h1>
+<ul>
+  <li>Class methods belong to a class in Ruby, and it can be used without instance any class object.</li>
+  <li>The definition of class methods has a “self” prefix.</li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">show_name</span>
+</span><span class="line"><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/20160607/ruby-class-and-instance-methods.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -288,59 +337,6 @@
   
     <footer>
       <a rel="full-article" href="/blog/20151215/jenkins-user-habits-2.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20151210/jenkins-user-habits-1.html">高效Jenkins用户的第1个习惯</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-12-10T19:32:57-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:32 pm</span></time>
-        
-         | <a href="/blog/20151210/jenkins-user-habits-1.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>本文内容部分来源于<strong>Andrew Bayer</strong>发布在SlideShare上的 <a href="http://www.slideshare.net/andrewbayer/seven-habits-of-highly-effective-jenkins-users-2014-edition"><em>7 habits of highly productive Jenkins Users (2014 Edition)</em></a>.</p>
-
-<h1 id="jenkins-master">习惯 1: 保持Jenkins Master的稳定与可恢复</h1>
-
-<h2 id="lts-release">1. 使用LTS Release</h2>
-
-<p>LTS release每12周发布一个新版本</p>
-
-<p>LTS release版本发布都会保证通过自动化的acceptance testing和手工testing matrix</p>
-
-<h2 id="plugins">2.不要急于升级plugins，保持谨慎</h2>
-
-<p>plugin的升级可能包含非常多的变化</p>
-
-<p>不是所有的升级都会保证向前兼容。比如最近Extended Email Plugin的升级，就造成之前的recipient/trigger配置不可用</p>
-
-<p>新功能也许不稳定</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20151210/jenkins-user-habits-1.html">Read on &rarr;</a>
     </footer>
   
 

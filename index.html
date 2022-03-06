@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="Recently at work, I have been working on developing a few features on top of Apache Airflow. Some of the features are UI heavy, and require some &hellip;">
+  <meta name="description" content="Spinnaker is an open-source, multi-cloud continuous delivery platform originally developed by Netflix. Today, Spinnaker has built a community and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -106,6 +106,84 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/20220306/read-continuous-delivery-with-spinnaker.html">Read Continuous Delivery With Spinnaker</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2022-03-06T22:30:58-08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2022</span></span> <span class='time'>10:30 pm</span></time>
+        
+         | <a href="/blog/20220306/read-continuous-delivery-with-spinnaker.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://spinnaker.io/">Spinnaker</a> is an open-source, multi-cloud continuous delivery platform originally developed by Netflix. Today, Spinnaker has built a community and many companies adopted it to power their Continous Delivery. Pinterest also uses Spinnaker to deploy some of its core services, including web and API. Recently I read this eBook: <a href="https://spinnaker.io/docs/concepts/ebook/">Continuous Delivery with Spinnaker</a>. What I like about this short eBook is that it explains the key design considerations of Spinnaker, and those are, as I think of them, what really matter when designing a good cloud CD platform. In this post, I will share a few topics mentioned in this eBook together with my thoughts after reading.</p>
+
+<h1 id="cloud-deployment-considerations">Cloud Deployment Considerations</h1>
+
+<p>Important things to consider:
+- Credentials management
+- Regional isolation
+- Autoscaling
+- Immutable infrastructure and data persistence
+- Service discovery
+- Using multiple clouds
+- Abstracting cloud operations from users</p>
+
+<p>When you work on designing a CD platform, pay attention to where do you focus on. When I joined Pinterest back in 2019, I was working on the Continuous Delivery Platform team initially and I started designing Pinterest’s new CD platform. For that project, the team and I put a lot of focus on the developer experience and making the new system easy to use. While I think that was good, I also think we should more thoughts into the other areas such as credentials management, autoscaling, deploy policy support, different ways of triggering a deployment, etc.</p>
+
+<h1 id="structuring-deployments-as-pipelines">Structuring Deployments as Pipelines</h1>
+
+<p>Benefits of flexible user-defined pipelines: allowing each team to build and maintain their own deployment pipeline from the building blocks the platform provides lets engineers experiment freely according to their needs.</p>
+
+<p>Encapsulate the built-in features as platform defined pipeline stages:
+- Infrastructure stages: operate on the underlying cloud infrastructure by creating, updating, or deleting resources.
+- External systems integration stages: examples are integrations with CI (Jenkins/Travis CI), run job, webhook.
+- Testing stages: Chaos automation platform, Canary + ACA
+- Controlling flow stages: allows to control the flow of pipelines, whether that is authorization, timing, or branching logic.
+- Triggers stages: controls how a pipeline is started, eg. time-based triggers, event-based triggers.</p>
+
+<p>Continuous delivery is a complex process. I think using <em>pipeline</em> and <em>stage</em> as the two core concepts in Spinnaker’s design is an awesome idea. It abstracts the complexity of various type of deployments, and allows enough flexibility and extensibility by having both the <em>managed stages</em> and <em>customized stages</em>. On a side note, <a href="https://airflow.apache.org/">Apache Airflow</a>, the data pipeline orchestration system uses a similar principle in its design by providing <em>operators</em>. I may delve into the design of Airflow in another post later.</p>
+
+<h1 id="working-with-cloud-vms-and-kubernetes">Working with Cloud VMs and Kubernetes</h1>
+
+<p>For continuous deployment into Amazon’s EC2 virtual machine–based cloud, Spinnaker models a well-known set of operations as pipeline stages. Other VMbased cloud providers have similar functionality. Those operations mainly include:
+- Baking AMIs
+- Tagging AMIs
+- Deploying in EC2
+- Availability zones
+- Health checks
+- Autoscaling</p>
+
+<p>Kubernetes makes deployment to the cloud much easier because of some of its advantages comparing to the VM-based cloud platform:
+- Faster: provisioning resources in Kubernetes takes seconds, while provisioning a VM can take minutes.
+- Declarative: Kubernetes uses manifest files (YAML) to provide a declarative description of your infrastructure, and this is central to how Kubernetes works.
+- Multi-cloud: whether Kubernetes is running in Google’s cloud or Amazon’s, in your on-premise datacenter or on your laptop, it exposes the same interface and behavior for running your workloads. This makes it trivial to deploy the same application to multiple clouds and regions, when you can treat each as being identical.
+- Native deployment orchestration: when a change is submitted to a running Kubernetes workload, it orchestrates a rollout of your change according to policies you specify. In some cases, this becomes the only deployment orchestration that you need.</p>
+
+<p>Pinterest has an internal deployment system <a href="https://github.com/pinterest/teletraan">Teletraan</a>, and it was designed and used for deploying services to VMs (Amazon EC2). After joining Pinterest, I learned that a major user pain point of Teletraan was the complicated configurations needed for setting up a deployment environment for user’s services. For example, in Teletraan users need to configure AMI, place AZs, etc. I agree that Teletraan’s UI can be improved to make the experience better, but I think this problem is a result of the complexity of VM deployment. To solve it, we could either choose to move to Kubernetes, or redesign some parts of Teletraan to have a better abstraction model, similar to what Spinnaker did. In short, reducing the complexity in developer experience cannot be done just by fixing the UI.</p>
+
+<p>Right now I’m no longer working on the Continuous delivery platform, but I still like to think about the problems and solutions in this area because I used to work on it, built a new system from scratch when I didn’t really have much knowledge in the cloud deployment space, had many questions and learned lessons (and got some wins too). If you happen to read this and want to continue the discussion with me on a specific topic, please feel free to drop me a line.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/20210425/read-d3-dot-js-in-action.html">Read D3.js in Action</a></h1>
     
     
@@ -131,51 +209,12 @@
 
 <p>Overall I find this book is easy to read as long as you have some knowledge in JavaScript.  In this book, a few key concepts in D3.js are clearly laid out,  and the examples cover a good set of common usages and tactics you need to know for building data visualization features using D3.js.</p>
 
-<p>This book has 11 chapters. Chapter 1, 2 and 3 are introduction to D3.js, the high level flow and common operations of using D3.js for information visualization, and how to structure a data visualization project with D3.js.</p>
-
-<p>In the first three chapters, alongside with the basic concepts, a few tactics I find worth learning from the very beginning are:</p>
-
-<ul>
-  <li>
-    <p><strong>Integrate scales in data binding</strong>: D3.js provides handy scale functions to normalize data values for better display. Example built-in scale functions include: <code>d3.scaleLinear()</code>, <code>d3.scaleSequential()</code>, <code>d3.scaleQuantize()</code> and so on. A D3 scale has two primary functions: .<code>.domain()</code> and <code>.range()</code>, both of which expect arrays and must have arrays of the same length to get the right results. The array in <code>.domain()</code> indicates the series of values being mapped to <code>.range()</code>.</p>
-  </li>
-  <li>
-    <p><strong>Enter, update, merge, and exit to update DOM elements</strong>: Understanding how to create, change, and move elements using <code>enter()</code>, <code>exit()</code>, and selections is the basis for all the complex D3 functionality. One note here is D3 doesn’t follow the convention that when the data changes, the corresponding display is updated; you need to build that functionality yourself.</p>
-  </li>
-  <li>
-    <p><strong>Getting access to the actual DOM element</strong> in the selection can be accomplished in one of two ways:</p>
-    <ul>
-      <li>Using <code>this</code> in the inline functions (cannot be used with arrow functions)</li>
-      <li>Using the <code>.node()</code> function</li>
-    </ul>
-  </li>
-</ul>
-
-<p>Using <code>this</code></p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">d3.select("circle").each(function(d,i) {
-</span><span class="line">    console.log(d);console.log(i);console.log(this);
-</span><span class="line">})</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>Using <code>.node()</code> function</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">d3.select("circle").node();</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>Chapter 4, 5, 6, 7 and 8 introduce the methods and details of building specific types of visualization for specific types of data: chart components, layouts, complex hierarchical data visualization,  network visualization, and visualizing geospatial information.</p>
-
-<ul>
-  <li>One note about <strong>Layouts</strong>: D3 contains a variety of functions, referred to as layouts, that help you format your data so that it can be presented using a popular charting method. D3 layouts don’t result in charts; they result in the settings necessary for charts. Example D3 built-in layouts: <code>d3.layout.histogram()</code>, <code>d3.layout.pie()</code>, <code>d3.layout.tree()</code> etc.</li>
-</ul>
-
-<p>Chapter 9 covers how to using D3 with React. The challenge of integrating D3 with React is that React and D3 both want to control the DOM. The entire select/enter/exit/update pattern with D3 is in direct conflict with React and its virtual DOM. The way most people use D3 with React is to use React to build the structure of the application, and to render traditional HTML elements, and then when it comes to the data visualization section, they pass a DOM container (typically an <code>&lt;svg&gt;</code>) over to D3 and use D3 to create and destroy and update elements.</p>
-
-<p>Chapter 10 and 11 are advanced usages about customizing layouts and components, and mixed mode rendering in HTML canvas.</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/20210425/read-d3-dot-js-in-action.html">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -213,15 +252,12 @@
   <li>For using it to easily create multithreaded and concurrent programs.</li>
 </ol>
 
-<p>One thing I did when learning Golang was creating a mind mapping diagram. The mind map helps me to organize the different topics of Golang that I need to learn about, and to dig into each part without getting lost in too many details. It also makes it much easier to remember information.</p>
-
-<p><img class="center" src="/images/post_images/2018/20181227-golang.png" width="600" /></p>
-
-<p>If you are also learning Golang, you can take a look at the Golang mind map <a href="https://github.com/euccas/gogocode/tree/master/doc">here on my github</a>. It mainly covers Golang syntax, flow control, data structures, methods, functions, interfaces and basic concurrency. One thing it doesn’t have yet is Go Modules, which was added in Go 1.11 (released in August 2018). As Go dev team announced, current module support is priliminary. In Go 1.12, scheduled for February 2019, they will refine module support. I will update this mind map to add Go Modules then.</p>
-
-<p>Lastly, 2019 is around the corner. Happy New Year!</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/20181227/golang-mindmap.html">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -317,53 +353,6 @@
   
     <footer>
       <a rel="full-article" href="/blog/20180213/performance-profiling-tools-on-windows.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20171203/effective-jenkins-plugins-1.html">Effective Jenkins Plugins (1)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-12-03T16:18:31-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2017</span></span> <span class='time'>4:18 pm</span></time>
-        
-         | <a href="/blog/20171203/effective-jenkins-plugins-1.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>(<em>Update 2018-05-13</em>: Here is a translation of this post in <a href="https://dealsdaddy.co.uk/translations/jenkinsplugins/">Hindi</a>, provided by Nikol @ DealsDaddy.)</p>
-
-<p><a href="https://jenkins.io/">Jenkins</a>, originally founded in 2006 as “Hudson”, is one of the leading automation applications which support building, deploying and automating software projects. One great advantage of Jenkins is there are hundreds of plugins available which enable various kinds of extended features needed in the Continous Integration and Continuous Delivery process. As I just checked on the <a href="https://plugins.jenkins.io/">Jenkins Plugins page</a>, there are 873 plugins that fall into five categories: Platforms, User interface, Administration, Source code management and Build management.</p>
-
-<p>Effectively using Jenkins plugins makes your experience with Jenkins more productive. I’m going to occasionally write about Jenkins plugins that I used or learned about. The first post will start from some of the plugins I used when I worked on building a Continuous Delivery system last year (from 2015 to 2016).</p>
-
-<h1 id="job-configuration-history">Job Configuration History</h1>
-
-<p><a href="https://plugins.jenkins.io/jobConfigHistory"><em>JobConfigHistory Plugin</em></a></p>
-
-<p>This plugin saves every change made to a job. It allows you to see the history of job configurations, compare configuration differences, and restore a particular version of config. You can also see which user makes a particular change if you configured a security policy.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20171203/effective-jenkins-plugins-1.html">Read on &rarr;</a>
     </footer>
   
 

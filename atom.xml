@@ -4,7 +4,7 @@
   <title><![CDATA[euccas.github.io]]></title>
   <link href="http://euccas.github.io/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2022-03-06T01:26:17-08:00</updated>
+  <updated>2022-03-06T13:23:07-08:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Read Continuous Delivery With Spinnaker]]></title>
+    <link href="http://euccas.github.io/blog/20220306/read-continuous-delivery-with-spinnaker.html"/>
+    <updated>2022-03-06T22:30:58-08:00</updated>
+    <id>http://euccas.github.io/blog/20220306/read-continuous-delivery-with-spinnaker</id>
+    <content type="html"><![CDATA[<p><a href="https://spinnaker.io/">Spinnaker</a> is an open-source, multi-cloud continuous delivery platform originally developed by Netflix. Today, Spinnaker has built a community and many companies adopted it to power their Continous Delivery. Pinterest also uses Spinnaker to deploy some of its core services, including web and API. Recently I read this eBook: <a href="https://spinnaker.io/docs/concepts/ebook/">Continuous Delivery with Spinnaker</a>. What I like about this short eBook is that it explains the key design considerations of Spinnaker, and those are, as I think of them, what really matter when designing a good cloud CD platform. In this post, I will share a few topics mentioned in this eBook together with my thoughts after reading.</p>
+
+<h1 id="cloud-deployment-considerations">Cloud Deployment Considerations</h1>
+
+<p>Important things to consider:
+- Credentials management
+- Regional isolation
+- Autoscaling
+- Immutable infrastructure and data persistence
+- Service discovery
+- Using multiple clouds
+- Abstracting cloud operations from users</p>
+
+<p>When you work on designing a CD platform, pay attention to where do you focus on. When I joined Pinterest back in 2019, I was working on the Continuous Delivery Platform team initially and I started designing Pinterest’s new CD platform. For that project, the team and I put a lot of focus on the developer experience and making the new system easy to use. While I think that was good, I also think we should more thoughts into the other areas such as credentials management, autoscaling, deploy policy support, different ways of triggering a deployment, etc.</p>
+
+<h1 id="structuring-deployments-as-pipelines">Structuring Deployments as Pipelines</h1>
+
+<p>Benefits of flexible user-defined pipelines: allowing each team to build and maintain their own deployment pipeline from the building blocks the platform provides lets engineers experiment freely according to their needs.</p>
+
+<p>Encapsulate the built-in features as platform defined pipeline stages:
+- Infrastructure stages: operate on the underlying cloud infrastructure by creating, updating, or deleting resources.
+- External systems integration stages: examples are integrations with CI (Jenkins/Travis CI), run job, webhook.
+- Testing stages: Chaos automation platform, Canary + ACA
+- Controlling flow stages: allows to control the flow of pipelines, whether that is authorization, timing, or branching logic.
+- Triggers stages: controls how a pipeline is started, eg. time-based triggers, event-based triggers.</p>
+
+<p>Continuous delivery is a complex process. I think using <em>pipeline</em> and <em>stage</em> as the two core concepts in Spinnaker’s design is an awesome idea. It abstracts the complexity of various type of deployments, and allows enough flexibility and extensibility by having both the <em>managed stages</em> and <em>customized stages</em>. On a side note, <a href="https://airflow.apache.org/">Apache Airflow</a>, the data pipeline orchestration system uses a similar principle in its design by providing <em>operators</em>. I may delve into the design of Airflow in another post later.</p>
+
+<h1 id="working-with-cloud-vms-and-kubernetes">Working with Cloud VMs and Kubernetes</h1>
+
+<p>For continuous deployment into Amazon’s EC2 virtual machine–based cloud, Spinnaker models a well-known set of operations as pipeline stages. Other VMbased cloud providers have similar functionality. Those operations mainly include:
+- Baking AMIs
+- Tagging AMIs
+- Deploying in EC2
+- Availability zones
+- Health checks
+- Autoscaling</p>
+
+<p>Kubernetes makes deployment to the cloud much easier because of some of its advantages comparing to the VM-based cloud platform:
+- Faster: provisioning resources in Kubernetes takes seconds, while provisioning a VM can take minutes.
+- Declarative: Kubernetes uses manifest files (YAML) to provide a declarative description of your infrastructure, and this is central to how Kubernetes works.
+- Multi-cloud: whether Kubernetes is running in Google’s cloud or Amazon’s, in your on-premise datacenter or on your laptop, it exposes the same interface and behavior for running your workloads. This makes it trivial to deploy the same application to multiple clouds and regions, when you can treat each as being identical.
+- Native deployment orchestration: when a change is submitted to a running Kubernetes workload, it orchestrates a rollout of your change according to policies you specify. In some cases, this becomes the only deployment orchestration that you need.</p>
+
+<p>Pinterest has an internal deployment system <a href="https://github.com/pinterest/teletraan">Teletraan</a>, and it was designed and used for deploying services to VMs (Amazon EC2). After joining Pinterest, I learned that a major user pain point of Teletraan was the complicated configurations needed for setting up a deployment environment for user’s services. For example, in Teletraan users need to configure AMI, place AZs, etc. I agree that Teletraan’s UI can be improved to make the experience better, but I think this problem is a result of the complexity of VM deployment. To solve it, we could either choose to move to Kubernetes, or redesign some parts of Teletraan to have a better abstraction model, similar to what Spinnaker did. In short, reducing the complexity in developer experience cannot be done just by fixing the UI.</p>
+
+<p>Right now I’m no longer working on the Continuous delivery platform, but I still like to think about the problems and solutions in this area because I used to work on it, built a new system from scratch when I didn’t really have much knowledge in the cloud deployment space, had many questions and learned lessons (and got some wins too). If you happen to read this and want to continue the discussion with me on a specific topic, please feel free to drop me a line.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Read D3.js in Action]]></title>
@@ -23,6 +78,8 @@
 <p><img class="center" src="http://euccas.github.io/images/post_images/2021/20210425-d3js-book.png" width="360" /></p>
 
 <p>Overall I find this book is easy to read as long as you have some knowledge in JavaScript.  In this book, a few key concepts in D3.js are clearly laid out,  and the examples cover a good set of common usages and tactics you need to know for building data visualization features using D3.js.</p>
+
+<!--more-->
 
 <p>This book has 11 chapters. Chapter 1, 2 and 3 are introduction to D3.js, the high level flow and common operations of using D3.js for information visualization, and how to structure a data visualization project with D3.js.</p>
 
@@ -82,6 +139,8 @@
   <li>For better understanding cloud infrastructure: Some of the key cloud infrastructure open source projects, including Kubernetes and Docker, are written in Golang.</li>
   <li>For using it to easily create multithreaded and concurrent programs.</li>
 </ol>
+
+<!--more-->
 
 <p>One thing I did when learning Golang was creating a mind mapping diagram. The mind map helps me to organize the different topics of Golang that I need to learn about, and to dig into each part without getting lost in too many details. It also makes it much easier to remember information.</p>
 
@@ -2062,42 +2121,6 @@ The second time when you call function <code>is_prime</code> with the same input
 <p>Another useful method provided by <code>multiprocessing</code> module is <code>cpu_count()</code>, which returns the number of CPUs in the current system. You can use this value to decide how many processes to create in a pool.</p>
 
 <p><em>This post is my last post in 2016. Happy new year!</em></p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Levels of Design]]></title>
-    <link href="http://euccas.github.io/blog/20161224/levels-of-design.html"/>
-    <updated>2016-12-24T09:52:07-08:00</updated>
-    <id>http://euccas.github.io/blog/20161224/levels-of-design</id>
-    <content type="html"><![CDATA[<p>Recently I’m taking a course <a href="https://www.coursera.org/learn/algorithmic-toolbox/home/welcome">“Algorithm Toolbox”</a> on Coursera. This course provides me a good chance to review and enhance my knowledge in the fundamental algorithms, which usually would help on achieving better system design. This morning I came across one slide of this course and thought it could be very useful. Sharing it here.</p>
-
-<p><img class="center" src="http://euccas.github.io/images/post_images/2016/20161224-levels-of-design-1.png" width="600" /></p>
-
-<p>It’s important to keep the <strong>levels of (algorithm) design</strong> in mind when solving a problem.</p>
-
-<!--more-->
-
-<h1 id="level-1-naive-algorithm">Level 1: Naive Algorithm</h1>
-
-<p>This is the solution that you can get just by taking the definition of a problem and turning it into an algorithm. This solution can solve the problem, but it is often very slow and inefficient.</p>
-
-<p>The way I see the naive algorithm is it gives you something that works, and might be used to verify if alternative solutions are correct or not. But it’s important to not stay at the this solution. You should keep looking for better solutions.</p>
-
-<h1 id="level-2-algorithm-by-way-of-standard-tools">Level 2: Algorithm by way of standard Tools</h1>
-
-<p>You can look at the standard techniques and see if any of it applies to solving your problem. On this level, your goal is finding some standard techniques that work, often that don’t involve too much effort on your part, and give you something that work very well (better than the naive algorithm).</p>
-
-<h1 id="level-3-optimized-algorithm">Level 3: Optimized Algorithm</h1>
-
-<p>Remember there are always lots of ways to improve an existing solution. If you get a pretty good solution on level 2, why not taking one more step and see what you can do to improve it? Could you reduce the runtime from n-cubed to n-squared or n-squred to n? Could you come up with a shorter solution by rearranging the order or cut out some of the work? Could you use a data structure to speed things up? Think about all these possiblities and see if you can get a even better solution. (Often you will)</p>
-
-<h1 id="level-4-magic-algorithm">Level 4: Magic Algorithm</h1>
-
-<p>When the solutions from the previous three levels are not good enough, you’ll need some magic to get a better one. This can be hard. You will need some clever new ideas and unique insights of the problem you’re trying to solve. Even if you don’t get a magic solution in the end, the thought process will be beneficial.</p>
-
-<p>Sometimes when I finish a project, I do have the feeling that the way I do it is just not good enough, even though the project has been proved to be successful, useful and solved a particular technical challenge we faced. Looking at the “Levels of Design”, I believe what I need to do is spending more efforts on the higher levels. Actually what you really need for getting a really good solution is not magic. What you need is mastering more existing good standard techniques, exploring the possibility for optimization, and a deep understanding of the problem you want to solve.</p>
 
 ]]></content>
   </entry>

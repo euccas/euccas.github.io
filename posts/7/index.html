@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="In the previous post about Python Unittest, I wrote about the basic steps needed for setting up unit testing for your Python program with the &hellip;">
+  <meta name="description" content="Problem Description Suppose one task in your Continuous Integration (CI) pipeline is triggered on every commit to the project repository. Some the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20160815/how-to-check-changes-in-a-commit-and-invoke-ci-tasks.html">How to Check Changes in a Commit and Invoke CI Tasks</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-15T19:43:21-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>7:43 pm</span></time>
+        
+         | <a href="/blog/20160815/how-to-check-changes-in-a-commit-and-invoke-ci-tasks.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h1 id="problem-description">Problem Description</h1>
+
+<p>Suppose one task in your Continuous Integration (CI) pipeline is triggered on every commit to the project repository. Some the files in the repository require passing the check of the CI task, while some other files do not require passing the check. What should the CI task do to decide if it is needed to perform the needed checking on the commit?</p>
+
+<h1 id="design-the-ci-task">Design the CI task</h1>
+
+<p>The CI task need have the ability to analyze the files included in the commit, and decide whether the commit requires passing a check, or not. We need tell the CI task which files require passing a check through configurations.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/20160815/how-to-check-changes-in-a-commit-and-invoke-ci-tasks.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -257,55 +300,6 @@
   
     <footer>
       <a rel="full-article" href="/blog/20160610/rails-get-data-without-model.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20160607/ruby-class-and-instance-methods.html">Ruby Class and Instance Methods</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2016-06-07T11:37:51-07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>11:37 am</span></time>
-        
-         | <a href="/blog/20160607/ruby-class-and-instance-methods.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>If you ever get confused about Class Methods, Instance Methods, Class Variables and Instance Variables in Ruby, read this post and you’ll understand it better :)</p>
-
-<h1 id="class-methods">Class Methods</h1>
-<ul>
-  <li>Class methods belong to a class in Ruby, and it can be used without instance any class object.</li>
-  <li>The definition of class methods has a “self” prefix.</li>
-</ul>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">show_name</span>
-</span><span class="line"><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20160607/ruby-class-and-instance-methods.html">Read on &rarr;</a>
     </footer>
   
 
