@@ -12,6 +12,7 @@ description: continuous delivery with Spinnaker CICD Teletraan
 # Cloud Deployment Considerations
 
 Important things to consider:
+
 - Credentials management
 - Regional isolation
 - Autoscaling
@@ -27,6 +28,7 @@ When you work on designing a CD platform, pay attention to where do you focus on
 Benefits of flexible user-defined pipelines: allowing each team to build and maintain their own deployment pipeline from the building blocks the platform provides lets engineers experiment freely according to their needs.
 
 Encapsulate the built-in features as platform defined pipeline stages:
+
 - Infrastructure stages: operate on the underlying cloud infrastructure by creating, updating, or deleting resources.
 - External systems integration stages: examples are integrations with CI (Jenkins/Travis CI), run job, webhook.
 - Testing stages: Chaos automation platform, Canary + ACA
@@ -38,6 +40,7 @@ Continuous delivery is a complex process. I think using *pipeline* and *stage* a
 # Working with Cloud VMs and Kubernetes
 
 For continuous deployment into Amazon’s EC2 virtual machine–based cloud, Spinnaker models a well-known set of operations as pipeline stages. Other VMbased cloud providers have similar functionality. Those operations mainly include:
+
 - Baking AMIs
 - Tagging AMIs
 - Deploying in EC2
@@ -46,6 +49,7 @@ For continuous deployment into Amazon’s EC2 virtual machine–based cloud, Spi
 - Autoscaling
 
 Kubernetes makes deployment to the cloud much easier because of some of its advantages comparing to the VM-based cloud platform:
+
 - Faster: provisioning resources in Kubernetes takes seconds, while provisioning a VM can take minutes.
 - Declarative: Kubernetes uses manifest files (YAML) to provide a declarative description of your infrastructure, and this is central to how Kubernetes works.
 - Multi-cloud: whether Kubernetes is running in Google’s cloud or Amazon’s, in your on-premise datacenter or on your laptop, it exposes the same interface and behavior for running your workloads. This makes it trivial to deploy the same application to multiple clouds and regions, when you can treat each as being identical.
