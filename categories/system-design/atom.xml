@@ -4,7 +4,7 @@
   <title><![CDATA[Category: System-design | euccas.github.io]]></title>
   <link href="http://euccas.github.io/categories/system-design/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2022-03-06T14:05:07-08:00</updated>
+  <updated>2022-03-06T15:19:01-08:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -12,6 +12,73 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Read Continuous Delivery With Spinnaker]]></title>
+    <link href="http://euccas.github.io/blog/20220305/read-continuous-delivery-with-spinnaker.html"/>
+    <updated>2022-03-05T22:30:58-08:00</updated>
+    <id>http://euccas.github.io/blog/20220305/read-continuous-delivery-with-spinnaker</id>
+    <content type="html"><![CDATA[<p><a href="https://spinnaker.io/">Spinnaker</a> is an open-source, multi-cloud continuous delivery platform originally developed by Netflix. Today, Spinnaker has built a community and many companies adopted it to power their Continous Delivery. Pinterest also uses Spinnaker to deploy some of its core services, including web and API. Recently I read this eBook: <a href="https://spinnaker.io/docs/concepts/ebook/">Continuous Delivery with Spinnaker</a>. What I like about this short eBook is that it explains the key design considerations of Spinnaker, and those are, as I think of them, what really matter when designing a good cloud CD platform. In this post, I will share a few topics mentioned in this eBook together with my thoughts after reading.</p>
+
+<h2 id="cloud-deployment-considerations">Cloud Deployment Considerations</h2>
+
+<p>Important things to consider:</p>
+
+<ul>
+  <li>Credentials management</li>
+  <li>Regional isolation</li>
+  <li>Autoscaling</li>
+  <li>Immutable infrastructure and data persistence</li>
+  <li>Service discovery</li>
+  <li>Using multiple clouds</li>
+  <li>Abstracting cloud operations from users</li>
+</ul>
+
+<p>When you work on designing a CD platform, pay attention to where do you focus on. When I joined Pinterest back in 2019, I was working on the Continuous Delivery Platform team initially and I started designing Pinterest’s new CD platform. For that project, the team and I put a lot of focus on the developer experience and making the new system easy to use. While I think that was good, I also think we should have put more thoughts into the other areas such as credentials management, autoscaling, deploy policy support, different ways of triggering a deployment, in the design phase.</p>
+
+<h2 id="structuring-deployments-as-pipelines">Structuring Deployments as Pipelines</h2>
+
+<p>Benefits of flexible user-defined pipelines: allowing each team to build and maintain their own deployment pipeline from the building blocks the platform provides lets engineers experiment freely according to their needs.</p>
+
+<p>Encapsulate the built-in features as platform defined pipeline stages:</p>
+
+<ul>
+  <li>Infrastructure stages: operate on the underlying cloud infrastructure by creating, updating, or deleting resources.</li>
+  <li>External systems integration stages: examples are integrations with CI (Jenkins/Travis CI), run job, webhook.</li>
+  <li>Testing stages: Chaos automation platform, Canary + ACA</li>
+  <li>Controlling flow stages: allows to control the flow of pipelines, whether that is authorization, timing, or branching logic.</li>
+  <li>Triggers stages: controls how a pipeline is started, eg. time-based triggers, event-based triggers.</li>
+</ul>
+
+<p>Continuous delivery is a complex process. I think using <em>pipeline</em> and <em>stage</em> as the two core concepts in Spinnaker’s design is an awesome idea. It abstracts the complexity of various type of deployments, and allows enough flexibility and extensibility by having both the <em>managed stages</em> and <em>customized stages</em>. On a side note, <a href="https://airflow.apache.org/">Apache Airflow</a>, the data pipeline orchestration system uses a similar principle in its design by providing <em>operators</em>. I may delve into the design of Airflow in another post later.</p>
+
+<h2 id="working-with-cloud-vms-and-kubernetes">Working with Cloud VMs and Kubernetes</h2>
+
+<p>For continuous deployment into Amazon’s EC2 virtual machine–based cloud, Spinnaker models a well-known set of operations as pipeline stages. Other VMbased cloud providers have similar functionality. Those operations mainly include:</p>
+
+<ul>
+  <li>Baking AMIs</li>
+  <li>Tagging AMIs</li>
+  <li>Deploying in EC2</li>
+  <li>Availability zones</li>
+  <li>Health checks</li>
+  <li>Autoscaling</li>
+</ul>
+
+<p>Kubernetes makes deployment to the cloud much easier because of some of its advantages comparing to the VM-based cloud platform:</p>
+
+<ul>
+  <li>Faster: provisioning resources in Kubernetes takes seconds, while provisioning a VM can take minutes.</li>
+  <li>Declarative: Kubernetes uses manifest files (YAML) to provide a declarative description of your infrastructure, and this is central to how Kubernetes works.</li>
+  <li>Multi-cloud: whether Kubernetes is running in Google’s cloud or Amazon’s, in your on-premise datacenter or on your laptop, it exposes the same interface and behavior for running your workloads. This makes it trivial to deploy the same application to multiple clouds and regions, when you can treat each as being identical.</li>
+  <li>Native deployment orchestration: when a change is submitted to a running Kubernetes workload, it orchestrates a rollout of your change according to policies you specify. In some cases, this becomes the only deployment orchestration that you need.</li>
+</ul>
+
+<p>Pinterest has an internal deployment system <a href="https://github.com/pinterest/teletraan">Teletraan</a>, and it was designed and used for deploying services to VMs (Amazon EC2). After joining Pinterest, I learned that a major user pain point of Teletraan was the complicated configurations needed for setting up a deployment environment for user’s services. For example, in Teletraan users need to configure AMI, place AZs, etc. I agree that Teletraan’s UI can be improved to make the experience better, but I think this problem is a result of the complexity of VM deployment. To solve it, we could either choose to move to Kubernetes, or redesign some parts of Teletraan to have a better abstraction model, similar to what Spinnaker did. In short, reducing the complexity in developer experience cannot be done just by fixing the UI.</p>
+
+<p>Right now I’m no longer working on the Continuous delivery platform, but I still like to think about the problems and solutions in this area because I used to work on it, built a new system from scratch when I didn’t really have much knowledge in the cloud deployment space, had many questions and learned lessons (and got some wins too). If you happen to read this and want to continue the discussion with me on a specific topic, please feel free to drop me a line.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading Notes - Designing Distributed Systems]]></title>
@@ -61,6 +128,127 @@
 </ul>
 
 <p>You can find more detailed description of each design pattern in my reading notes.</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Facebook Infrastructure: Streaming Video Engine (SVE)]]></title>
+    <link href="http://euccas.github.io/blog/20170627/facebook-infrastructure-streaming-video-engine-sve.html"/>
+    <updated>2017-06-27T22:16:02-07:00</updated>
+    <id>http://euccas.github.io/blog/20170627/facebook-infrastructure-streaming-video-engine-sve</id>
+    <content type="html"><![CDATA[<p>In last year’s <a href="https://developers.facebook.com/videos/?category=f8_2016"><strong>Facebook F8 conference</strong></a>, Sachin Kulkarni, who worked on Facebook’s Video Infrastructure, gave a talk (<a href="https://developers.facebook.com/videos/f8-2016/inside-look-at-facebook-media-infrastructure/">watch it here</a>) to introduce the design of Facebook’s <strong>Streaming Video Engine System (SVE)</strong>. I found this talk particularly interesting because it revealed, in a very well structured, concise yet informative way, how Facebook infrastructure team came up with a solution to build a video system solving user frustrations by reviewing the end-to-end process, and how such a design meet the goal of being <strong>fast</strong>, <strong>flexible</strong>, <strong>scalable</strong>, and <strong>efficient</strong>. After watching the presentation video for a few times, I thought it would be helpful to write down some notes here, for my own reviewing in the future, and for people who might be interested in Facebook’s media infrastructure.</p>
+
+<p>Sharing on Facebook started from largely text, and quickly changed to be largely photos. Since 2014, more videos started to be posted and shared among users. The challenge was, building a video processing system is much harder than building a text or image processing system. Videos are greedy, they will consume all your resources: CPU, memory, disk, network, and anything else.</p>
+
+<p>Before building the Streaming Video Engine system, the team started by reviewing Facebook’s existing video uploading and processing process, which was slow and not scalable. They found several problems need change or improvement:</p>
+
+<!--more-->
+
+<ul>
+  <li>No unified clients</li>
+  <li>Several disk reads and writes in the critical path</li>
+  <li>Was doing serial processing throughout</li>
+  <li>Read a video as one single big file, instead of splitting it up to chunks</li>
+</ul>
+
+<p>The new Streaming Video Engine (SVE) is expected to solve the aforementioned problems, and to meet the four design goals:</p>
+
+<ul>
+  <li>Fast: make users upload their videos super fast</li>
+  <li>Flexible: usable for different Facebook products</li>
+  <li>Scalable: everything at Facebook has to scale</li>
+  <li>Efficient: storage efficiency, processing efficiency, and more importantly consume less bytes of users’ data plan</li>
+</ul>
+
+<p>These four design goals, in my opinion, are also the most common goals applicable to most engineering infrastructure systems.</p>
+
+<p>Let’s take a deep dive to see how SVE was designed to meet these goals.</p>
+
+<h1 id="fast">Fast</h1>
+
+<ul>
+  <li>First step is build a common library (for video uploading) that could be used for the clients cross platforms (Web, Mobile, Android, etc.). With the common library, optimizations on video uploading can be applied to all platforms.</li>
+  <li>The uploading library has functions to split a video by GOP (Group of Pictures, a GOP roughly is a scene in the video) alignment. So any given video can be split to segments, which can have multiple GOPs.</li>
+  <li>Uploading process starts as soon as the clients split a video into segaments. The <strong>client</strong> uploads one segment a time to the <strong>web server</strong>.</li>
+  <li>Web server sends out segments to the <strong>preprocessor</strong>, which is a write-through cache.</li>
+  <li>Proprocessor handles:
+    <ul>
+      <li>Normalize the video (segment) if it needs to</li>
+      <li>Notify the <strong>scheduler</strong> that there are video segments available to be encoded</li>
+      <li>Write the video (segment) to the <strong>original storage</strong></li>
+      <li>Further split the video segment into GOPs</li>
+    </ul>
+  </li>
+  <li>Scheduler will find workers to encode videos. Multiple works can be utilized and each worker will process one or multiple GOPs.</li>
+  <li>Overlapped upload and encoding process: While proprocessor, scheduler and works are working, the uploading process is still ongoing. Clients continues splitting videos into segments and uploading to the web server.</li>
+</ul>
+
+<p><img class="center" src="/images/post_images/2017/20170627-fb_00.png" width="600"></p>
+
+<p>With this design, the process speedup reached 2.3x (small videos &lt; 3MB) ~ 9.3x (large videos &gt; 1G).</p>
+
+<h1 id="flexible">Flexible</h1>
+
+<ul>
+  <li>The key insight that allows SVE to be flexible is, all the video processing pipelines can be represented as a DAG (Directed Acyclic Graph).</li>
+  <li>Arbitrary dependencies can be added between the tasks in the video processing pipepline. The added tasks can be executed in parallel while the main pipeline tasks are running.</li>
+  <li>SVE provides very simple API functions for the video pipeline (Ideally, you can add a video processing pipeline in your product in less than 10 lines of code).</li>
+</ul>
+
+<p><img class="center" src="/images/post_images/2017/20170627-fb_01.png" width="600"></p>
+
+<h1 id="scalable">Scalable</h1>
+
+<ul>
+  <li>SVE was designed to prepare for overloads, such as handling the worldwide uploading “spike” on New Year’s Eve (could be 3x video uploads).</li>
+  <li>Building a scalable system is relevant only when the system is <strong>robust</strong>. When the system gets overloaded, it must <strong>gracefully degrade</strong>. It cannot crash and burn.</li>
+  <li>Prepare for overload along two dimensions: at the pipeline level, and the task level.</li>
+  <li>Pipeline level, when uploads overwhelm the system:
+    <ul>
+      <li>Do not cache original videos in upload: Preprocessor stops caching original videos. Workers then need fetch videos from the original storage, not from preprocessor. The cost here is disk latency is added to the critical path.</li>
+      <li>Delay pipeline generation for incoming video. Distinguish the critical video pipeline requests and the non-critical ones, then delay the non-critical ones.</li>
+      <li>Reroute traffic to a different (less busy) region (Asia, Europe, US west, etc.)</li>
+    </ul>
+  </li>
+  <li>Task level (the tasks executed by <strong>workers</strong> in the pipeline), when too many tasks are running:
+    <ul>
+      <li>Push back non latency-sensitive jobs</li>
+      <li>Turn off A/B tests, which try to figure out the best encoding for the given video</li>
+      <li>Add more workers (this requires making it easy to add capacity to SVE)</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="efficient">Efficient</h1>
+
+<ul>
+  <li>The high level problem statement here is: If we could use 100% CPU, how can we make the encoded video as small as possible?</li>
+  <li>Find the optimal encoding settings to get the best balance between encoded video file size and time spent on encoding. The difficult part is modern encoders can have hundreds of settings for one video. Chance of picking optimal combination is extremely low.</li>
+  <li>The adopted solution is:
+    <ul>
+      <li>Categorize each scene such as “minimal motion”, “rapid movement”, and “complex crowded scene”.</li>
+      <li>Build a Neural Network Model and a large training data set to train the network.</li>
+      <li>In SVE, video scene segments are sent to a Fingerprint generator, which generates fingerprints and sends them to the Neural Network Model.</li>
+      <li>The neural network figures out optimal encoding settings (could be multiple) for each scene, and sends the encoding settings to encoders.</li>
+      <li>the encoder takes the settings, and encodes the video scenes in multiple ways. Then discard the encoded videos which are below quality bar.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img class="center" src="/images/post_images/2017/20170627-fb_02.png" width="600"></p>
+
+<p>SVE achieved 20% smaller video file sizes. This is a huge saving of user’s data plans.</p>
+
+<p>This Streaming Video Engine was designed, coded and tested in roughly 9 months. The most important learnings are:</p>
+
+<ul>
+  <li>E2E view: To find an optimal solution, we need look at the flow end to end</li>
+  <li>Multi-dimensional flexibility is a key for making the system most useful</li>
+  <li>Parallel and shadow mode testing to find correctness and scalability issues before production</li>
+  <li>Design the ability to handle extreme products such as 360 videos</li>
+  <li>Track direct measures (latency, reliability, etc.) and indirect measures (number of videos uploaded, watch times, etc.). Mapping indirect measures to direct measures could give you a good view in figuring out what you could do better next.</li>
+</ul>
 
 ]]></content>
   </entry>
@@ -158,45 +346,6 @@
 <p>When the solutions from the previous three levels are not good enough, you’ll need some magic to get a better one. This can be hard. You will need some clever new ideas and unique insights of the problem you’re trying to solve. Even if you don’t get a magic solution in the end, the thought process will be beneficial.</p>
 
 <p>Sometimes when I finish a project, I do have the feeling that the way I do it is just not good enough, even though the project has been proved to be successful, useful and solved a particular technical challenge we faced. Looking at the “Levels of Design”, I believe what I need to do is spending more efforts on the higher levels. Actually what you really need for getting a really good solution is not magic. What you need is mastering more existing good standard techniques, exploring the possibility for optimization, and a deep understanding of the problem you want to solve.</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[GTAC: The Uber Challenge of Cross-Application Testing]]></title>
-    <link href="http://euccas.github.io/blog/20160928/the-uber-challenge-of-cross-application-testinng.html"/>
-    <updated>2016-09-28T23:17:30-07:00</updated>
-    <id>http://euccas.github.io/blog/20160928/the-uber-challenge-of-cross-application-testinng</id>
-    <content type="html"><![CDATA[<p>Inspired by Matt Cutts’ TED talk: <a href="https://www.ted.com/talks/matt_cutts_try_something_new_for_30_days?language=en">Try something new for 30 days</a>, I’m starting a “30 Days of GTAC” project. Google’s Test Automation Conference <a href="https://developers.google.com/google-test-automation-conference/">GTAC</a> is an annual test automation conference which brings together engineers from industry and academia to discuss advances in test automation and related engineering tools. In my “30 Days of GTAC” project, I’ll review the topics presented on GTAC. My goal is having a better and deeper understanding in modern testing technologies, methodologies, strategies, and practices.</p>
-
-<p>Get it started! Day#1 topic is:</p>
-
-<p><strong>The Uber Challenge of Cross-Application/Cross-Device Testing</strong></p>
-
-<!--more-->
-
-<ul>
-  <li>Presenter: Apple Chow (Uber), Bian Jiang (Uber)</li>
-  <li><a href="https://www.youtube.com/watch?v=p6gsssppeT0&amp;list=PLSIUOFhnxEiCWGsN9t5A-XOhRbmz54IS1&amp;index=3">Video</a></li>
-  <li><a href="https://docs.google.com/presentation/d/1vYXhkvgLKun72Ix91LQDDWZQdcY5VOBqKVvI1Y6riYo/pub">Slides</a></li>
-</ul>
-
-<p><strong>My takeaways</strong></p>
-
-<ul>
-  <li>The challenge: End-to-end tests require cross application communication (between rider app and driver app)</li>
-  <li>Uber’s solution: Octopus
-    <ul>
-      <li>Octopus coordinates communication across different apps running on different devices</li>
-      <li>This solution can be adopted for any tests that require coordination/communication across different apps or devices</li>
-    </ul>
-  </li>
-  <li>What makes testing Uber’s mobile apps significantly different from testing Google Maps?</li>
-  <li>Why (built) Octopus? Unified (iOS and Android). Extensible (Integrate with different UI testing frameworks). Parallelized. Signaling (enabling cross-app and cross-device testing).</li>
-  <li>What does Octopus do? Prepare test targets. Run tests (handles signaling). Create test results reports. Pull test artifacts. Perform clean ups. All from simple command line.</li>
-  <li>Signaling between driver test and rider test: Conducted with Test Host to improve the consistency. API readSignal (blocking), writeSignal (nonblocking). Test hosts and test targets are connected via USB (reliable).</li>
-  <li>Apple Chow wrote about Octopus on <a href="http://eng.uber.com/rescued-by-octopus/">Uber Engineering</a></li>
-</ul>
 
 ]]></content>
   </entry>
