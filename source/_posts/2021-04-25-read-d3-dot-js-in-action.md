@@ -14,6 +14,8 @@ Recently at work, I have been working on developing a few features on top of [Ap
 
 Overall I find this book is easy to read as long as you have some knowledge in JavaScript.  In this book, a few key concepts in D3.js are clearly laid out,  and the examples cover a good set of common usages and tactics you need to know for building data visualization features using D3.js.
 
+<!--more--> 
+
 This book has 11 chapters. Chapter 1, 2 and 3 are introduction to D3.js, the high level flow and common operations of using D3.js for information visualization, and how to structure a data visualization project with D3.js. 
 
 In the first three chapters, alongside with the basic concepts, a few tactics I find worth learning from the very beginning are:

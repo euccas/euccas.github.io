@@ -14,6 +14,8 @@ Earlier this year I started to learn Golang. There were three good reasons why I
 2. For better understanding cloud infrastructure: Some of the key cloud infrastructure open source projects, including Kubernetes and Docker, are written in Golang.
 3. For using it to easily create multithreaded and concurrent programs.
 
+<!--more-->
+
 One thing I did when learning Golang was creating a mind mapping diagram. The mind map helps me to organize the different topics of Golang that I need to learn about, and to dig into each part without getting lost in too many details. It also makes it much easier to remember information.
 
 {% img center /images/post_images/2018/20181227-golang.png 600px %}
