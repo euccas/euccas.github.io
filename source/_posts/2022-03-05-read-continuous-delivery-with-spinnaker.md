@@ -21,6 +21,8 @@ Important things to consider:
 - Using multiple clouds
 - Abstracting cloud operations from users
 
+<!--more--> 
+
 When you work on designing a CD platform, pay attention to where do you focus on. When I joined Pinterest back in 2019, I was working on the Continuous Delivery Platform team initially and I started designing Pinterest's new CD platform. For that project, the team and I put a lot of focus on the developer experience and making the new system easy to use. While I think that was good, I also think we should have put more thoughts into the other areas such as credentials management, autoscaling, deploy policy support, different ways of triggering a deployment, in the design phase.
 
 ## Structuring Deployments as Pipelines
