@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>euccas.github.io</title>
+  <title>Abstract: The Art of Design - euccas.github.io</title>
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="Python’s GIL (Global Interpreter Lock) was designed to be a thread-safe mechanism, and it effectively prevents conflicts between multiple threads. &hellip;">
-  
+  <meta name="description" content="recommend a documentary about designers and their work">
+  <meta name="keywords" content="product design abstract art design netflix documentary">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://euccas.github.io/posts/5/index.html">
+  <link rel="canonical" href="http://euccas.github.io/blog/20220403/abstract-the-art-of-design.html">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="euccas.github.io" type="application/atom+xml">
@@ -98,15 +98,14 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/20161231/python-multiprocessing.html">Python Multiprocessing</a></h1>
+      
+        <h1 class="entry-title">Abstract: The Art of Design</h1>
+      
     
     
       <p class="meta">
@@ -115,9 +114,9 @@
 
 
 
-<time class='entry-date' datetime='2016-12-31T09:37:01-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>9:37 am</span></time>
+<time class='entry-date' datetime='2022-04-03T23:48:22-07:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2022</span></span> <span class='time'>11:48 pm</span></time>
         
-         | <a href="/blog/20161231/python-multiprocessing.html#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
         
       </p>
@@ -125,213 +124,77 @@
   </header>
 
 
-  <div class="entry-content"><p>Python’s GIL (Global Interpreter Lock) was designed to be a thread-safe mechanism, and it effectively prevents conflicts between multiple threads. GIL makes it easy to implemente multi-threading with Python. However, it also prevents Python multi-threading from utilizing the multiple cores of a computer to achieve improved execution speed. This is why using the <code>threading</code> module in Python won’t help your program run faster through parallelism.</p>
+<div class="entry-content"><p>A few years ago, I watched the documentary series “<a href="https://www.netflix.com/title/80057883">Abstract: the Art of Design</a>” when it was originally released on Netflix. This documentary is composed of stories about designers in a variety of displines: Their work, how they create them and how they think about design. This series is very well produced, I enjoyed it and still find it inspiring even after years. So here I’d like to write down some notes about it for myself, and for anyone else who might be interested in this documentary.</p>
 
-<p>The good thing is Python provides a <a href="https://docs.python.org/3.4/library/multiprocessing.html"><code>multiprocessing</code> module</a> since Python 2.6. With the <code>multiprocessing</code> module we can spawn subprocesses and effectively avoid some of the limitations that GIL brings, on both Unix and Windows platforms.</p>
+<h2 id="what-this-documentary-is-about">What this documentary is about</h2>
+<p>This documentary has two seasons. In total it has fourteen episodes and each one of them introduces one designer in a different fields, for example graphic design, footware design, architecture, automotive, digital product, and more. I feel each episode is made in a way that is customized to the designer: it tells their stories, shows their work and speaks their minds in a particular way they choose. You can watch the <a href="https://www.youtube.com/watch?v=DYaq2sWTWAA">official trailer</a> here to get a feeling about it, and on <a href="https://en.wikipedia.org/wiki/Abstract:_The_Art_of_Design">this wiki</a> you can find more information about the designers get highlighted in each episode.</p>
 
-<p>In this post I’ll briefly introduce <code>multiprocess</code> module and show how it can be used for parallel programming.</p>
+<h2 id="what-i-like-about-it">What I like about it</h2>
+<p>Many things I like about it, to describe it in a few short words: creative, insightful, thoughful, and encouraging.</p>
 
+<h2 id="where-you-can-watch-it">Where you can watch it</h2>
+<p>Netflix has put this series <a href="https://www.youtube.com/watch?v=q_k8fVNzbGU&amp;list=PLuctemCzX-m4svPpBctWUp0oG__Lhglq9">on Youtube</a> so you can watch it for free now.</p>
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20161231/python-multiprocessing.html">Read on &rarr;</a>
-    </footer>
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20161224/levels-of-design.html">Levels of Design</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2016-12-24T09:52:07-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>9:52 am</span></time>
-        
-         | <a href="/blog/20161224/levels-of-design.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Recently I’m taking a course <a href="https://www.coursera.org/learn/algorithmic-toolbox/home/welcome">“Algorithm Toolbox”</a> on Coursera. This course provides me a good chance to review and enhance my knowledge in the fundamental algorithms, which usually would help on achieving better system design. This morning I came across one slide of this course and thought it could be very useful. Sharing it here.</p>
-
-<p><img class="center" src="/images/post_images/2016/20161224-levels-of-design-1.png" width="600" /></p>
-
-<p>It’s important to keep the <strong>levels of (algorithm) design</strong> in mind when solving a problem.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20161224/levels-of-design.html">Read on &rarr;</a>
-    </footer>
   
 
 
-    </article>
+
+  <span class="byline author vcard">Authored by <span class="fn">
   
+    euccas
   
-    <article>
+  </span></span>
+
+
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20161223/python-generators.html">Python Generators</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
 
-<time class='entry-date' datetime='2016-12-23T08:48:45-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2016</span></span> <span class='time'>8:48 am</span></time>
-        
-         | <a href="/blog/20161223/python-generators.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Generators is a powerful weapon of Python. Generators help you write concise code, give you lazy evaluation, and improve the efficience for calculating large sets of results. Personally I think it’s a good habit to use generators in Python whenever you can, if you really want your code to be Pythonic.</p>
-
-<h1 id="how-to-create-a-generator">How to create a generator</h1>
-
-<p>There are mainly two ways to create a generator: using the <code>yield</code> keyword in the function, or using the <code>()</code> as a generator expression.</p>
-
-<ul>
-  <li>The <code>yield</code> keyword makes the function yields control back to the calling function on every iteration</li>
-  <li>The <code>()</code> expression returns a generator object</li>
-</ul>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20161223/python-generators.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
+<time class='entry-date' datetime='2022-04-03T23:48:22-07:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2022</span></span> <span class='time'>11:48 pm</span></time>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20161217/postgresql-understand-pg-errors.html">PostgreSQL: Understand PG Errors</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2016-12-17T09:06:21-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>9:06 am</span></time>
-        
-         | <a href="/blog/20161217/postgresql-understand-pg-errors.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>When using Ruby Gem <code>pg</code> and establish database connections to a PostgreSQL database, you’ll see PG errors when the database connection becomes problematic. In my experience, two typical PG errors are <code>PG::AdminShutdown</code> and <code>PG::UnableToSend</code>.</p>
-
-<h1 id="error-pgadminshutdown">Error PG::AdminShutdown</h1>
-
-<p>The error message contains the following information:</p>
-
-<p><code>
-FATAL:  terminating connection due to administrator command (PG::AdminShutdown) server closed the connection unexpectedly
-      This probably means the server terminated abnormally
-      before or while processing the request.
-</code></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20161217/postgresql-understand-pg-errors.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
+
+<span class="categories">
+  
+    <a class='category' href='/categories/product-design/'>product-design</a>
+  
+</span>
+
+
+    </p>
     
-      <h1 class="entry-title"><a href="/blog/20161216/jenkins-user-habits-5.html">高效Jenkins用户的第5个习惯</a></h1>
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://euccas.github.io/blog/20220403/abstract-the-art-of-design.html" data-via="" data-counturl="http://euccas.github.io/blog/20220403/abstract-the-art-of-design.html" >Tweet</a>
+  
+  
+  
+</div>
+
     
-    
-      <p class="meta">
-        
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/20220305/read-continuous-delivery-with-spinnaker.html" title="Previous Post: Read Continuous Delivery with Spinnaker">&laquo; Read Continuous Delivery with Spinnaker</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
-
-
-<time class='entry-date' datetime='2016-12-16T15:49:51-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>3:49 pm</span></time>
-        
-         | <a href="/blog/20161216/jenkins-user-habits-5.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>本文内容部分来源于<strong>Andrew Bayer</strong>发布在SlideShare上的 <a href="http://www.slideshare.net/andrewbayer/seven-habits-of-highly-effective-jenkins-users-2014-edition"><em>7 habits of highly productive Jenkins Users (2014 Edition)</em></a>.</p>
-
-<h1 id="section">习惯 5: 集成第三方工具和服务</h1>
-
-<p>Jenkin可以和许多第三方工具和服务集成，实现强大又实用的功能。常见的集成方式包括使用REST API和一些Jenkins功能插件。可以实现的功能比如：由GitHub pull requests触发builds，当builds成功或失败时根据结果更新JIRA等等。</p>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20161216/jenkins-user-habits-5.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/posts/6">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-    <a class="next" href="/posts/4">Newer &rarr;</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    
-  
-</aside>
 
     </div>
   </div>
@@ -347,7 +210,10 @@ FATAL:  terminating connection due to administrator command (PG::AdminShutdown) 
       var disqus_shortname = 'euccas-github-io';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://euccas.github.io/blog/20220403/abstract-the-art-of-design.html';
+        var disqus_url = 'http://euccas.github.io/blog/20220403/abstract-the-art-of-design.html';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

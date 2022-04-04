@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Product-design | euccas.github.io]]></title>
   <link href="http://euccas.github.io/categories/product-design/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2022-03-06T15:22:36-08:00</updated>
+  <updated>2022-04-04T00:56:04-07:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Abstract: The Art of Design]]></title>
+    <link href="http://euccas.github.io/blog/20220403/abstract-the-art-of-design.html"/>
+    <updated>2022-04-03T23:48:22-07:00</updated>
+    <id>http://euccas.github.io/blog/20220403/abstract-the-art-of-design</id>
+    <content type="html"><![CDATA[<p>A few years ago, I watched the documentary series “<a href="https://www.netflix.com/title/80057883">Abstract: the Art of Design</a>” when it was originally released on Netflix. This documentary is composed of stories about designers in a variety of displines: Their work, how they create them and how they think about design. This series is very well produced, I enjoyed it and still find it inspiring even after years. So here I’d like to write down some notes about it for myself, and for anyone else who might be interested in this documentary.</p>
+
+<h2 id="what-this-documentary-is-about">What this documentary is about</h2>
+<p>This documentary has two seasons. In total it has fourteen episodes and each one of them introduces one designer in a different fields, for example graphic design, footware design, architecture, automotive, digital product, and more. I feel each episode is made in a way that is customized to the designer: it tells their stories, shows their work and speaks their minds in a particular way they choose. You can watch the <a href="https://www.youtube.com/watch?v=DYaq2sWTWAA">official trailer</a> here to get a feeling about it, and on <a href="https://en.wikipedia.org/wiki/Abstract:_The_Art_of_Design">this wiki</a> you can find more information about the designers get highlighted in each episode.</p>
+
+<h2 id="what-i-like-about-it">What I like about it</h2>
+<p>Many things I like about it, to describe it in a few short words: creative, insightful, thoughful, and encouraging.</p>
+
+<h2 id="where-you-can-watch-it">Where you can watch it</h2>
+<p>Netflix has put this series <a href="https://www.youtube.com/watch?v=q_k8fVNzbGU&amp;list=PLuctemCzX-m4svPpBctWUp0oG__Lhglq9">on Youtube</a> so you can watch it for free now.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[谈谈微信小程序的入口设计 | on WeChat Design for Mini Programs]]></title>

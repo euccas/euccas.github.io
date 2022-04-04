@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="Recently I’m doing a review on C++ programming language. During the process, I found a few topics which are worth paying more attention to. I’ll &hellip;">
+  <meta name="description" content="Pointers and references are two fundamental data types in C++. They are useful, common and somewhat dangerous. Using them correctly, they could &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,59 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20170205/c-plus-plus-pointer-and-reference.html">C++ Pointers and References</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-02-05T22:18:59-08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>10:18 pm</span></time>
+        
+         | <a href="/blog/20170205/c-plus-plus-pointer-and-reference.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Pointers and references are two fundamental data types in C++. They are useful, common and somewhat dangerous. Using them correctly, they could greatly improve the efficiency and performance of your program. On the other hand, using them incorrectly could lead to many problems such as memory leaks and buffer overflow.</p>
+
+<h1 id="pointers">Pointers</h1>
+
+<p>A pointer holds the address of a variable and can be used to perform any operation that could be directly done on the variable, such as accessing and modifying it. Here are a few facts of pointers:</p>
+
+<ul>
+  <li>
+    <p>When a pointer is defined, memory is allocated in the size of a pointer.</p>
+  </li>
+  <li>
+    <p>The pointer is strongly typed, meaning the compiler retains an association with a pointer that it points to a type of value.</p>
+  </li>
+  <li>
+    <p>Two pointers can equal to each other, such that changing one’s value also changes the other’s value.</p>
+  </li>
+</ul>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/20170205/c-plus-plus-pointer-and-reference.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -270,47 +323,6 @@
   
     <footer>
       <a rel="full-article" href="/blog/20170106/get-start-on-machine-learning.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20161231/python-multiprocessing.html">Python Multiprocessing</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2016-12-31T09:37:01-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>9:37 am</span></time>
-        
-         | <a href="/blog/20161231/python-multiprocessing.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Python’s GIL (Global Interpreter Lock) was designed to be a thread-safe mechanism, and it effectively prevents conflicts between multiple threads. GIL makes it easy to implemente multi-threading with Python. However, it also prevents Python multi-threading from utilizing the multiple cores of a computer to achieve improved execution speed. This is why using the <code>threading</code> module in Python won’t help your program run faster through parallelism.</p>
-
-<p>The good thing is Python provides a <a href="https://docs.python.org/3.4/library/multiprocessing.html"><code>multiprocessing</code> module</a> since Python 2.6. With the <code>multiprocessing</code> module we can spawn subprocesses and effectively avoid some of the limitations that GIL brings, on both Unix and Windows platforms.</p>
-
-<p>In this post I’ll briefly introduce <code>multiprocess</code> module and show how it can be used for parallel programming.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20161231/python-multiprocessing.html">Read on &rarr;</a>
     </footer>
   
 

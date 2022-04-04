@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="本文内容部分来源于Andrew Bayer发布在SlideShare上的 7 habits of highly productive Jenkins Users (2014 Edition). 习惯 1: 保持Jenkins Master的稳定与可恢复 1. 使用LTS Release LTS &hellip;">
+  <meta name="description" content="本文内容部分来源于Andrew Bayer发布在SlideShare上的 7 habits of highly productive Jenkins Users (2014 Edition). 习惯 2: 大而化小 1. 使用多个Masters 在存在多个project与team的情况下， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,63 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20151215/jenkins-user-habits-2.html">高效Jenkins用户的第2个习惯</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-12-15T20:15:38-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:15 pm</span></time>
+        
+         | <a href="/blog/20151215/jenkins-user-habits-2.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>本文内容部分来源于<strong>Andrew Bayer</strong>发布在SlideShare上的 <a href="http://www.slideshare.net/andrewbayer/seven-habits-of-highly-effective-jenkins-users-2014-edition"><em>7 habits of highly productive Jenkins Users (2014 Edition)</em></a>.</p>
+
+<h1 id="section">习惯 2: 大而化小</h1>
+
+<h2 id="masters">1. 使用多个Masters</h2>
+
+<p>在存在多个project与team的情况下，多个master可以使jenkins jobs的管理更加敏捷和可控</p>
+
+<p>建议根据team, function, access(访问权限) 来划分master</p>
+
+<p>多个master使安装和升级plugin时需要的重启过程变得容易——不需要重启的master不会受到影响</p>
+
+<p>提高系统的稳定性：多个master, 每个master上分配较少数量的jobs，可以使整个系统更为稳定，减少遇到边界情况bug的几率</p>
+
+<h2 id="jobs">2. 分解jobs</h2>
+
+<p>建议在Jenkins中使用模块化和重用，这一点的好处类似于在编程中使用模块化和重用</p>
+
+<p>多job的Build可以方便地在不同的project, release等等中重用</p>
+
+<p>分解job可以避免长时间运行的job在最后阶段出错，导致整个job需要被重新运行：多job的Build可以实现从其中任何一个子job处重新执行</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/20151215/jenkins-user-habits-2.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>

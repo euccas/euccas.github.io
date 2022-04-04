@@ -4,7 +4,7 @@
   <title><![CDATA[euccas.github.io]]></title>
   <link href="http://euccas.github.io/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2022-03-06T15:22:36-08:00</updated>
+  <updated>2022-04-04T00:56:04-07:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Abstract: The Art of Design]]></title>
+    <link href="http://euccas.github.io/blog/20220403/abstract-the-art-of-design.html"/>
+    <updated>2022-04-03T23:48:22-07:00</updated>
+    <id>http://euccas.github.io/blog/20220403/abstract-the-art-of-design</id>
+    <content type="html"><![CDATA[<p>A few years ago, I watched the documentary series “<a href="https://www.netflix.com/title/80057883">Abstract: the Art of Design</a>” when it was originally released on Netflix. This documentary is composed of stories about designers in a variety of displines: Their work, how they create them and how they think about design. This series is very well produced, I enjoyed it and still find it inspiring even after years. So here I’d like to write down some notes about it for myself, and for anyone else who might be interested in this documentary.</p>
+
+<h2 id="what-this-documentary-is-about">What this documentary is about</h2>
+<p>This documentary has two seasons. In total it has fourteen episodes and each one of them introduces one designer in a different fields, for example graphic design, footware design, architecture, automotive, digital product, and more. I feel each episode is made in a way that is customized to the designer: it tells their stories, shows their work and speaks their minds in a particular way they choose. You can watch the <a href="https://www.youtube.com/watch?v=DYaq2sWTWAA">official trailer</a> here to get a feeling about it, and on <a href="https://en.wikipedia.org/wiki/Abstract:_The_Art_of_Design">this wiki</a> you can find more information about the designers get highlighted in each episode.</p>
+
+<h2 id="what-i-like-about-it">What I like about it</h2>
+<p>Many things I like about it, to describe it in a few short words: creative, insightful, thoughful, and encouraging.</p>
+
+<h2 id="where-you-can-watch-it">Where you can watch it</h2>
+<p>Netflix has put this series <a href="https://www.youtube.com/watch?v=q_k8fVNzbGU&amp;list=PLuctemCzX-m4svPpBctWUp0oG__Lhglq9">on Youtube</a> so you can watch it for free now.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Read Continuous Delivery With Spinnaker]]></title>
@@ -1944,195 +1962,6 @@ The second time when you call function <code>is_prime</code> with the same input
 <p><img class="center" src="http://euccas.github.io/images/post_images/2017/20170107-larrypage.jpg" width="640" /></p>
 
 <p><em>Image source: Medium <a href="https://medium.com/the-mission/20-things-i-ve-learned-from-larry-page-4f83674a1a52#.elpww9snf">“20 things I’ve learned from Larry Page”</a></em></p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Python Multiprocessing]]></title>
-    <link href="http://euccas.github.io/blog/20161231/python-multiprocessing.html"/>
-    <updated>2016-12-31T09:37:01-08:00</updated>
-    <id>http://euccas.github.io/blog/20161231/python-multiprocessing</id>
-    <content type="html"><![CDATA[<p>Python’s GIL (Global Interpreter Lock) was designed to be a thread-safe mechanism, and it effectively prevents conflicts between multiple threads. GIL makes it easy to implemente multi-threading with Python. However, it also prevents Python multi-threading from utilizing the multiple cores of a computer to achieve improved execution speed. This is why using the <code>threading</code> module in Python won’t help your program run faster through parallelism.</p>
-
-<p>The good thing is Python provides a <a href="https://docs.python.org/3.4/library/multiprocessing.html"><code>multiprocessing</code> module</a> since Python 2.6. With the <code>multiprocessing</code> module we can spawn subprocesses and effectively avoid some of the limitations that GIL brings, on both Unix and Windows platforms.</p>
-
-<p>In this post I’ll briefly introduce <code>multiprocess</code> module and show how it can be used for parallel programming.</p>
-
-<!--more-->
-
-<h1 id="a-simple-example-of-multiprocessing">A simple example of <em>multiprocessing</em></h1>
-
-<p>In the following example, we use <code>multiprocessing</code> module to spawn a child process from a parent process using a <code>Process</code> object.</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-<span class="line-number">19</span>
-<span class="line-number">20</span>
-<span class="line-number">21</span>
-<span class="line-number">22</span>
-<span class="line-number">23</span>
-<span class="line-number">24</span>
-</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span>
-</span><span class="line"><span class="kn">import</span> <span class="nn">os</span>
-</span><span class="line"><span class="kn">import</span> <span class="nn">time</span>
-</span><span class="line">
-</span><span class="line"><span class="k">def</span> <span class="nf">task</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-</span><span class="line">    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Starting child process with id: &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()))</span>
-</span><span class="line">    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Parent process: &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">()))</span>
-</span><span class="line">    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Task start: just sleeps 5 seconds ...&quot;</span><span class="p">)</span>
-</span><span class="line">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</span><span class="line">    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Task done&quot;</span><span class="p">)</span>
-</span><span class="line">
-</span><span class="line"><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
-</span><span class="line">    <span class="k">print</span><span class="p">(</span><span class="s">&quot;In parent process, id: &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>
-</span><span class="line">    <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">task</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;firstone&#39;</span><span class="p">))</span>
-</span><span class="line">
-</span><span class="line">    <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-</span><span class="line">    <span class="k">print</span><span class="p">(</span><span class="s">&quot;In parent process, after child process start&quot;</span><span class="p">)</span>
-</span><span class="line">    <span class="k">print</span><span class="p">(</span><span class="s">&quot;parent process about to join child process&quot;</span><span class="p">)</span>
-</span><span class="line">
-</span><span class="line">    <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
-</span><span class="line">    <span class="k">print</span><span class="p">(</span><span class="s">&quot;In parent process, after child process join&quot;</span><span class="p">)</span>
-</span><span class="line">    <span class="k">print</span><span class="p">(</span><span class="s">&quot;parent process exiting with id &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()))</span>
-</span><span class="line">    <span class="k">print</span><span class="p">(</span><span class="s">&quot;the parent&#39;s parent process: &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">()))</span>
-</span><span class="line">
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>The output of this program will be:</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="n">In</span> <span class="n">parent</span> <span class="n">process</span><span class="p">,</span> <span class="nb">id</span> <span class="mi">5245</span>
-</span><span class="line"><span class="n">In</span> <span class="n">parent</span> <span class="n">process</span><span class="p">,</span> <span class="n">after</span> <span class="n">child</span> <span class="n">process</span> <span class="n">start</span>
-</span><span class="line"><span class="n">parent</span> <span class="n">process</span> <span class="n">about</span> <span class="n">to</span> <span class="n">join</span> <span class="n">child</span> <span class="n">process</span>
-</span><span class="line"><span class="n">Starting</span> <span class="n">child</span> <span class="n">process</span> <span class="k">with</span> <span class="nb">id</span><span class="p">:</span> <span class="mi">5246</span>
-</span><span class="line"><span class="n">Parent</span> <span class="n">process</span><span class="p">:</span> <span class="mi">5245</span>
-</span><span class="line"><span class="n">Task</span> <span class="n">start</span><span class="p">:</span> <span class="n">just</span> <span class="n">sleeps</span> <span class="mi">5</span> <span class="n">seconds</span> <span class="o">...</span>
-</span><span class="line"><span class="n">Task</span> <span class="n">done</span>
-</span><span class="line"><span class="n">In</span> <span class="n">parent</span> <span class="n">process</span><span class="p">,</span> <span class="n">after</span> <span class="n">child</span> <span class="n">process</span> <span class="n">join</span>
-</span><span class="line"><span class="n">parent</span> <span class="n">process</span> <span class="n">exiting</span> <span class="k">with</span> <span class="nb">id</span> <span class="mi">5245</span>
-</span><span class="line"><span class="n">the</span> <span class="n">parent</span><span class="s">&#39;s parent process: 5231</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>The program starts the subprocess using <code>p.start()</code></p>
-
-<h1 id="three-ways-to-start-a-process">Three ways to start a process</h1>
-
-<p>Depending on the platform, <code>multiprocessing</code> supports three ways to start a process.</p>
-
-<ul>
-  <li><strong>spawn</strong></li>
-</ul>
-
-<p>Available on both Unix and Windows. The default on Windows. The parent process starts a fresh python interpreter process. Slower comparing with <code>fork</code> or <code>forkserver</code>.</p>
-
-<ul>
-  <li><strong>fork</strong></li>
-</ul>
-
-<p>Parent process uses <code>os.fork()</code> to fork the Python interpreter. The child process is identical to the parent process, with inheritating all resources of the parent process. Available on Unix only. The default of Unix.</p>
-
-<ul>
-  <li><strong>forkserver</strong></li>
-</ul>
-
-<p>Starts a server process. Whenever a new process is needed, the parent process connects to the server and requests that it fork a new process. Available on Unix.</p>
-
-<p>To select a start method, you can use <code>set_start_method()</code>. This method should be used only once in the program.</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="n">mp</span><span class="o">.</span><span class="n">set_start_method</span><span class="p">(</span><span class="s">&#39;spawn&#39;</span><span class="p">)</span>
-</span><span class="line"><span class="n">p</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">foo</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">())</span>
-</span><span class="line"><span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-</span><span class="line"><span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h1 id="two-ways-to-exchange-objects-between-processes">Two ways to exchange objects between processes</h1>
-
-<p>Two types of communication channel between processes are supported in <code>multiprocessing</code>, and they are:</p>
-
-<ul>
-  <li>class Queue</li>
-  <li>function Pipe()</li>
-</ul>
-
-<p>If you need know more details, the Python document <a href="https://docs.python.org/3.4/library/multiprocessing.html#exchanging-objects-between-processes">here</a> will provide help.</p>
-
-<h1 id="use-a-pool-of-workers">Use a pool of workers</h1>
-
-<p>The <code>Pool</code> class is a quite useful one in the <code>multiprocessing</code> module, as in real life you’ll often need multiple workers to execute the tasks in your program in parallel. What the <code>Pool</code> class represents is a pool of workers. The following example shows how to create a pool with 4 processes as workers, and assign tasks to the workers.</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-</pre></td><td class="code"><pre><code class="python"><span class="line"><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
-</span><span class="line"><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
-</span><span class="line">
-</span><span class="line"><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span><span class="line">    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
-</span><span class="line">
-</span><span class="line"><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
-</span><span class="line">    <span class="c"># start 4 worker processes</span>
-</span><span class="line">    <span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
-</span><span class="line">        <span class="n">res</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">])</span>
-</span><span class="line">        <span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-</span><span class="line">
-</span><span class="line">    <span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span><span class="line">    <span class="n">pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
-</span><span class="line">
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>The <code>apply_async(f, args, kwargs)</code> method calls a function for many times, or calls a number of different functions asynchronously with arguments arguments. Each process will NOT block other processes. The order of the multiple processes are not guaranteed.</p>
-
-<p>The <code>close()</code> prevents any more tasks from being submitted to the pool. Once all the tasks have been completed, the worker process will exit.</p>
-
-<p>The <code>join()</code> method waits for the worker processes to exit. It is required to call <code>close()</code> or <code>terminate()</code> before using <code>join()</code> method.</p>
-
-<p>Both <code>close()</code> and <code>terminate()</code> will stop all the worker processes. The difference is <code>close()</code> will wait for worker process to finish, and <code>terminate()</code> immediately shut down worker processes without completing outstanding work.</p>
-
-<p>Another useful method provided by <code>multiprocessing</code> module is <code>cpu_count()</code>, which returns the number of CPUs in the current system. You can use this value to decide how many processes to create in a pool.</p>
-
-<p><em>This post is my last post in 2016. Happy new year!</em></p>
 
 ]]></content>
   </entry>
