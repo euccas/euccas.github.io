@@ -127,6 +127,8 @@
 
   <div class="entry-content"><p>A few years ago, I watched the documentary series “<a href="https://www.netflix.com/title/80057883">Abstract: the Art of Design</a>” when it was originally released on Netflix. This documentary is composed of stories about designers in a variety of displines: Their work, how they create them and how they think about design. This series is very well produced, I enjoyed it and still find it inspiring even after years. So here I’d like to write down some notes about it for myself, and for anyone else who might be interested in this documentary.</p>
 
+<p><img class="center" src="/images/post_images/2022/20220404-netflix-abstract.png" width="800" /></p>
+
 <h2 id="what-this-documentary-is-about">What this documentary is about</h2>
 <p>This documentary has two seasons. In total it has fourteen episodes and each one of them introduces one designer in a different fields, for example graphic design, footware design, architecture, automotive, digital product, and more. I feel each episode is made in a way that is customized to the designer: it tells their stories, shows their work and speaks their minds in a particular way they choose. You can watch the <a href="https://www.youtube.com/watch?v=DYaq2sWTWAA">official trailer</a> here to get a feeling about it, and on <a href="https://en.wikipedia.org/wiki/Abstract:_The_Art_of_Design">this wiki</a> you can find more information about the designers get highlighted in each episode.</p>
 
@@ -182,51 +184,12 @@
   <li>Abstracting cloud operations from users</li>
 </ul>
 
-<p>When you work on designing a CD platform, pay attention to where do you focus on. When I joined Pinterest back in 2019, I was working on the Continuous Delivery Platform team initially and I started designing Pinterest’s new CD platform. For that project, the team and I put a lot of focus on the developer experience and making the new system easy to use. While I think that was good, I also think we should have put more thoughts into the other areas such as credentials management, autoscaling, deploy policy support, different ways of triggering a deployment, in the design phase.</p>
-
-<h2 id="structuring-deployments-as-pipelines">Structuring Deployments as Pipelines</h2>
-
-<p>Benefits of flexible user-defined pipelines: allowing each team to build and maintain their own deployment pipeline from the building blocks the platform provides lets engineers experiment freely according to their needs.</p>
-
-<p>Encapsulate the built-in features as platform defined pipeline stages:</p>
-
-<ul>
-  <li>Infrastructure stages: operate on the underlying cloud infrastructure by creating, updating, or deleting resources.</li>
-  <li>External systems integration stages: examples are integrations with CI (Jenkins/Travis CI), run job, webhook.</li>
-  <li>Testing stages: Chaos automation platform, Canary + ACA</li>
-  <li>Controlling flow stages: allows to control the flow of pipelines, whether that is authorization, timing, or branching logic.</li>
-  <li>Triggers stages: controls how a pipeline is started, eg. time-based triggers, event-based triggers.</li>
-</ul>
-
-<p>Continuous delivery is a complex process. I think using <em>pipeline</em> and <em>stage</em> as the two core concepts in Spinnaker’s design is an awesome idea. It abstracts the complexity of various type of deployments, and allows enough flexibility and extensibility by having both the <em>managed stages</em> and <em>customized stages</em>. On a side note, <a href="https://airflow.apache.org/">Apache Airflow</a>, the data pipeline orchestration system uses a similar principle in its design by providing <em>operators</em>. I may delve into the design of Airflow in another post later.</p>
-
-<h2 id="working-with-cloud-vms-and-kubernetes">Working with Cloud VMs and Kubernetes</h2>
-
-<p>For continuous deployment into Amazon’s EC2 virtual machine–based cloud, Spinnaker models a well-known set of operations as pipeline stages. Other VMbased cloud providers have similar functionality. Those operations mainly include:</p>
-
-<ul>
-  <li>Baking AMIs</li>
-  <li>Tagging AMIs</li>
-  <li>Deploying in EC2</li>
-  <li>Availability zones</li>
-  <li>Health checks</li>
-  <li>Autoscaling</li>
-</ul>
-
-<p>Kubernetes makes deployment to the cloud much easier because of some of its advantages comparing to the VM-based cloud platform:</p>
-
-<ul>
-  <li>Faster: provisioning resources in Kubernetes takes seconds, while provisioning a VM can take minutes.</li>
-  <li>Declarative: Kubernetes uses manifest files (YAML) to provide a declarative description of your infrastructure, and this is central to how Kubernetes works.</li>
-  <li>Multi-cloud: whether Kubernetes is running in Google’s cloud or Amazon’s, in your on-premise datacenter or on your laptop, it exposes the same interface and behavior for running your workloads. This makes it trivial to deploy the same application to multiple clouds and regions, when you can treat each as being identical.</li>
-  <li>Native deployment orchestration: when a change is submitted to a running Kubernetes workload, it orchestrates a rollout of your change according to policies you specify. In some cases, this becomes the only deployment orchestration that you need.</li>
-</ul>
-
-<p>Pinterest has an internal deployment system <a href="https://github.com/pinterest/teletraan">Teletraan</a>, and it was designed and used for deploying services to VMs (Amazon EC2). After joining Pinterest, I learned that a major user pain point of Teletraan was the complicated configurations needed for setting up a deployment environment for user’s services. For example, in Teletraan users need to configure AMI, place AZs, etc. I agree that Teletraan’s UI can be improved to make the experience better, but I think this problem is a result of the complexity of VM deployment. To solve it, we could either choose to move to Kubernetes, or redesign some parts of Teletraan to have a better abstraction model, similar to what Spinnaker did. In short, reducing the complexity in developer experience cannot be done just by fixing the UI.</p>
-
-<p>Right now I’m no longer working on the Continuous delivery platform, but I still like to think about the problems and solutions in this area because I used to work on it, built a new system from scratch when I didn’t really have much knowledge in the cloud deployment space, had many questions and learned lessons (and got some wins too). If you happen to read this and want to continue the discussion with me on a specific topic, please feel free to drop me a line.</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/20220305/read-continuous-delivery-with-spinnaker.html">Read on &rarr;</a>
+    </footer>
   
 
 
