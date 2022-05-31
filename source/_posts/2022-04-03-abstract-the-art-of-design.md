@@ -11,6 +11,8 @@ A few years ago, I watched the documentary series "[Abstract: the Art of Design]
 
 {% img center /images/post_images/2022/20220404-netflix-abstract.png 800px %}
 
+<!--more-->
+
 ## What this documentary is about
 This documentary has two seasons. In total it has fourteen episodes and each one of them introduces one designer in a different fields, for example graphic design, footware design, architecture, automotive, digital product, and more. I feel each episode is made in a way that is customized to the designer: it tells their stories, shows their work and speaks their minds in a particular way they choose. You can watch the [official trailer](https://www.youtube.com/watch?v=DYaq2sWTWAA) here to get a feeling about it, and on [this wiki](https://en.wikipedia.org/wiki/Abstract:_The_Art_of_Design) you can find more information about the designers get highlighted in each episode.
 

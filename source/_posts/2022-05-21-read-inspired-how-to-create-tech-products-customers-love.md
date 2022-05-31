@@ -7,7 +7,9 @@ categories:
 keywords: Reading Product-Design
 description: Reading book Inspired How to Create Tech Products Customers Love by Marty Cagan
 ---
-Last month I read this book: [Inspired - How to Create Tech Products Customers Love](https://www.svpg.com/books/inspired-how-to-create-tech-products-customers-love-2nd-edition/), by Marty Cagan. Before reading it, I thought this book was a collection of product case studies. But it's not. This book writes about the principles and techniques needed for creating a successful tech product. I find it to be a pragmatic guide, and it can be more useful to people who already have some experience in designing and developing products in the tech world. This will be a book that I keep with me and read again.
+Last month I read this book: [Inspired - How to Create Tech Products Customers Love](https://www.svpg.com/books/inspired-how-to-create-tech-products-customers-love-2nd-edition/), by Marty Cagan. Before reading it, I thought this book was a collection of product case studies. But it's not. This book writes about the principles, processes and techniques needed for creating a successful tech product. I find it to be a pragmatic guide, and it can be more useful to people who already have some experience in designing and developing products in the tech world. This will be a book that I keep with me and read again.
+
+{% img center /images/post_images/2022/20220521-book-inspired.jpeg %}
 
 The book contains four parts. Part 1 is a strong opening, in this part the author discussed the key concepts that form the foundation of modern product work, the core principles that behind great products, and possible causes of the failed product efforts. Part 2 are sections on product teams, different roles that a successful product team needs, and how each role should work in order to lead to product success. Part 3 are sections on principles and techniques of product roadmaps, product vision, and objectives. I find this part especially valuable. Part 4 describes the right process from product discovery to delivery. In the last part, the author shared his view on the right culture that great products rely on. 
 
