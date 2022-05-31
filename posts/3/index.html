@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="Instagram, the famous brunch sharing app, presented in PyCon 2017 and gave a talk in the keynote session on “How Instagram moves to Python 3”. If you &hellip;">
+  <meta name="description" content="In last year’s Facebook F8 conference, Sachin Kulkarni, who worked on Facebook’s Video Infrastructure, gave a talk (watch it here) to introduce the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,47 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20170627/facebook-infrastructure-streaming-video-engine-sve.html">Facebook Infrastructure: Streaming Video Engine (SVE)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-06-27T22:16:02-07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>10:16 pm</span></time>
+        
+         | <a href="/blog/20170627/facebook-infrastructure-streaming-video-engine-sve.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In last year’s <a href="https://developers.facebook.com/videos/?category=f8_2016"><strong>Facebook F8 conference</strong></a>, Sachin Kulkarni, who worked on Facebook’s Video Infrastructure, gave a talk (<a href="https://developers.facebook.com/videos/f8-2016/inside-look-at-facebook-media-infrastructure/">watch it here</a>) to introduce the design of Facebook’s <strong>Streaming Video Engine System (SVE)</strong>. I found this talk particularly interesting because it revealed, in a very well structured, concise yet informative way, how Facebook infrastructure team came up with a solution to build a video system solving user frustrations by reviewing the end-to-end process, and how such a design meet the goal of being <strong>fast</strong>, <strong>flexible</strong>, <strong>scalable</strong>, and <strong>efficient</strong>. After watching the presentation video for a few times, I thought it would be helpful to write down some notes here, for my own reviewing in the future, and for people who might be interested in Facebook’s media infrastructure.</p>
+
+<p>Sharing on Facebook started from largely text, and quickly changed to be largely photos. Since 2014, more videos started to be posted and shared among users. The challenge was, building a video processing system is much harder than building a text or image processing system. Videos are greedy, they will consume all your resources: CPU, memory, disk, network, and anything else.</p>
+
+<p>Before building the Streaming Video Engine system, the team started by reviewing Facebook’s existing video uploading and processing process, which was slow and not scalable. They found several problems need change or improvement:</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/20170627/facebook-infrastructure-streaming-video-engine-sve.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -287,47 +328,6 @@
   
     <footer>
       <a rel="full-article" href="/blog/20170227/string-in-c-plus-plus.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20170212/a-list-of-soc-design-and-verification-infrastructure-needs.html">A List of SoC Design and Verification Infrastructure Needs - Tools/Automation Flows (2013)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-02-12T15:53:19-08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>3:53 pm</span></time>
-        
-         | <a href="/blog/20170212/a-list-of-soc-design-and-verification-infrastructure-needs.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><em>This post was written in 2013, when I thought it was necessary to summarize infrastructure tools and flows needed in SoC design and verification, according to all my experience. Today when I checked on my old notes I found this one and would like to share it here. Later on I’ll update and expand this list according to my latest experience and knowledge in engineering tools and infrastructure for software and hardware development.</em></p>
-
-<p>System-on-Chip design and verification process is a complicated one. Unlike the world of Web and Internet, the design and development of hardware products have higher risk and lower tolerance to any mistakes. SoC design and verification process requires collaborations from multiple teams and vendors. Lots of hard decisions to make. Lots of trade-offs to consider. Moreover, the nonrecurring-engineering (NRE) charge makes sufficient and solid verification a must with limited time and resource. Tools and automated flows are an essential part of any design house.</p>
-
-<p>Here is a list of areas that need tools and flows for SoC software and hardware design and verification according to my experience.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20170212/a-list-of-soc-design-and-verification-infrastructure-needs.html">Read on &rarr;</a>
     </footer>
   
 

@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="Last year, I wrote a blog post about CPU Profiling and the tools on Linux. Today I’m going to write about a few Performance profiling tools on &hellip;">
+  <meta name="description" content="Recently I read a book Designing Distributed Systems, which is written by Brendan Burns, and published by O’Reilly earlier this year. This book &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,55 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20180513/read-designing-distributed-systems.html">Reading Notes - Designing Distributed Systems</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-05-13T18:22:12-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>6:22 pm</span></time>
+        
+         | <a href="/blog/20180513/read-designing-distributed-systems.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Recently I read a book <a href="http://shop.oreilly.com/product/0636920072768.do">Designing Distributed Systems</a>, which is written by <a href="https://twitter.com/brendandburns">Brendan Burns</a>, and published by O’Reilly earlier this year. This book introduces the patterns and components used in the development of distributed systems.</p>
+
+<p>Before I started to read this book, I had three questions in my mind, and try to find the answers from the book. Those three questions are:</p>
+
+<ol>
+  <li>What’s the most important difference between designing distributed systems and single machine systems?</li>
+  <li>Why container technology, such as docker, kubernates, is so popular? How could it be helpful?</li>
+  <li>What are the common patterns used in distributed systems design, and when shall I use them?</li>
+</ol>
+
+<p>This book does give me the answers, at least partial ones. I put my reading notes into a Google Slides, and  <a href="https://docs.google.com/presentation/d/1srX9hRS9tbtrEx7T1abxbHiD1gASkvllf1_W2SjuadA/edit?usp=sharing">you can find it here to read the details</a>. A PDF version in light background color is <a href="https://github.com/euccas/euccas.github.io/blob/source/data/read-2018-design_distributed_systems_lightver.pdf">available here</a>.</p>
+
+<p>The short answers to my questions are as in the following:</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/20180513/read-designing-distributed-systems.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -275,47 +324,6 @@
   
     <footer>
       <a rel="full-article" href="/blog/20170827/cpu-profiling-tools-on-linux.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20170627/facebook-infrastructure-streaming-video-engine-sve.html">Facebook Infrastructure: Streaming Video Engine (SVE)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-06-27T22:16:02-07:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>10:16 pm</span></time>
-        
-         | <a href="/blog/20170627/facebook-infrastructure-streaming-video-engine-sve.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In last year’s <a href="https://developers.facebook.com/videos/?category=f8_2016"><strong>Facebook F8 conference</strong></a>, Sachin Kulkarni, who worked on Facebook’s Video Infrastructure, gave a talk (<a href="https://developers.facebook.com/videos/f8-2016/inside-look-at-facebook-media-infrastructure/">watch it here</a>) to introduce the design of Facebook’s <strong>Streaming Video Engine System (SVE)</strong>. I found this talk particularly interesting because it revealed, in a very well structured, concise yet informative way, how Facebook infrastructure team came up with a solution to build a video system solving user frustrations by reviewing the end-to-end process, and how such a design meet the goal of being <strong>fast</strong>, <strong>flexible</strong>, <strong>scalable</strong>, and <strong>efficient</strong>. After watching the presentation video for a few times, I thought it would be helpful to write down some notes here, for my own reviewing in the future, and for people who might be interested in Facebook’s media infrastructure.</p>
-
-<p>Sharing on Facebook started from largely text, and quickly changed to be largely photos. Since 2014, more videos started to be posted and shared among users. The challenge was, building a video processing system is much harder than building a text or image processing system. Videos are greedy, they will consume all your resources: CPU, memory, disk, network, and anything else.</p>
-
-<p>Before building the Streaming Video Engine system, the team started by reviewing Facebook’s existing video uploading and processing process, which was slow and not scalable. They found several problems need change or improvement:</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20170627/facebook-infrastructure-streaming-video-engine-sve.html">Read on &rarr;</a>
     </footer>
   
 
