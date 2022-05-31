@@ -3,7 +3,7 @@ layout: post
 title: "Read Inspired: How to Create Tech Products Customers Love"
 date: 2022-05-21 20:45:56 -0700
 comments: true
-categories: 
+categories: product-design
 keywords: Reading Product-Design
 description: Reading book Inspired How to Create Tech Products Customers Love by Marty Cagan
 ---
