@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Product-design | euccas.github.io]]></title>
   <link href="http://euccas.github.io/categories/product-design/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2022-05-30T18:18:55-07:00</updated>
+  <updated>2022-05-31T22:59:13-07:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Read Inspired: How to Create Tech Products Customers Love]]></title>
-    <link href="http://euccas.github.io/blog/20220521/read-inspired-how-to-create-tech-products-customers-love.html"/>
-    <updated>2022-05-21T20:45:56-07:00</updated>
-    <id>http://euccas.github.io/blog/20220521/read-inspired-how-to-create-tech-products-customers-love</id>
+    <link href="http://euccas.github.io/blog/20220529/read-inspired-how-to-create-tech-products-customers-love.html"/>
+    <updated>2022-05-29T20:45:56-07:00</updated>
+    <id>http://euccas.github.io/blog/20220529/read-inspired-how-to-create-tech-products-customers-love</id>
     <content type="html"><![CDATA[<p>Last month I read this book: <a href="https://www.svpg.com/books/inspired-how-to-create-tech-products-customers-love-2nd-edition/">Inspired - How to Create Tech Products Customers Love</a>, by Marty Cagan. Before reading it, I thought this book was a collection of product case studies. But it’s not. This book writes about the principles, processes and techniques needed for creating a successful tech product. I find it to be a pragmatic guide, and it can be more useful to people who already have some experience in designing and developing products in the tech world. This will be a book that I keep with me and read again.</p>
 
 <p><img class="center" src="/images/post_images/2022/20220521-book-inspired.jpeg" width="360"></p>
@@ -28,7 +28,14 @@
 
 <h2 id="one">One</h2>
 
-<p>Behind every great product there is someone - usually someone behind the scenes, working tirelessly - who led the product team to combine technology and design to solve real customer problems in a way that met the needs of the business.</p>
+<ul>
+  <li>
+    <p>Behind every great product there is someone - usually someone behind the scenes, working tirelessly - who led the product team to combine technology and design to solve real customer problems in a way that met the needs of the business.</p>
+  </li>
+  <li>
+    <p>In a startup, the product manager role is usually covered by one of the co-founders. Typically, there are fewer than 25 engineers, covering a range of from one product team up to maybe four or five.</p>
+  </li>
+</ul>
 
 <h2 id="two">Two</h2>
 
@@ -70,7 +77,7 @@
 <p>Good product strategies have these five principles in common:</p>
 
 <ul>
-  <li>Focus on one target margaret or persona at a time.</li>
+  <li>Focus on one target market persona at a time.</li>
   <li>Product strategy needs to be aligned with business strategy.</li>
   <li>Product strategy needs to be aligned with sales and go-to-market strategy.</li>
   <li>Obsess over customers, not over competitors.</li>
