@@ -7,3 +7,19 @@ categories: system-design infrastructure data-infrastructure
 keywords: airflow architecture data infrastructure data pipeline scheduler
 description: Intro to Airflow architecture from an experienced user's and developer's perspective
 ---
+
+# Architecture Overview
+
+# Scheduler
+
+# Executor
+
+# Operator
+
+# Web Server
+
+# API
+
+# Open Source
+
+# Migrate to Airflow
