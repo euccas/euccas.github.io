@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Read Inspired: How to Create Tech Products Customers Love"
-date: 2022-05-21 20:45:56 -0700
+date: 2022-05-29 20:45:56 -0700
 comments: true
 categories: product-design
 keywords: Reading Product-Design
@@ -17,7 +17,9 @@ Here I'll jog down five notes covering a few topics discussed in this book.
 
 ## One
 
-Behind every great product there is someone - usually someone behind the scenes, working tirelessly - who led the product team to combine technology and design to solve real customer problems in a way that met the needs of the business.
+- Behind every great product there is someone - usually someone behind the scenes, working tirelessly - who led the product team to combine technology and design to solve real customer problems in a way that met the needs of the business.
+
+- In a startup, the product manager role is usually covered by one of the co-founders. Typically, there are fewer than 25 engineers, covering a range of from one product team up to maybe four or five.
 
 ## Two
 
@@ -49,7 +51,7 @@ The purpose of product discovery is to address these four critical risks:
 ## Five
 Good product strategies have these five principles in common:
 
-- Focus on one target margaret or persona at a time.
+- Focus on one target market persona at a time.
 - Product strategy needs to be aligned with business strategy.
 - Product strategy needs to be aligned with sales and go-to-market strategy.
 - Obsess over customers, not over competitors.
