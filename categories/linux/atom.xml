@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | euccas.github.io]]></title>
   <link href="http://euccas.github.io/categories/linux/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2022-05-31T22:59:13-07:00</updated>
+  <updated>2023-01-07T23:18:00-08:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -12,6 +12,79 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Tmux Cheatsheet]]></title>
+    <link href="http://euccas.github.io/blog/20230107/tmux-cheatsheet.html"/>
+    <updated>2023-01-07T20:37:11-08:00</updated>
+    <id>http://euccas.github.io/blog/20230107/tmux-cheatsheet</id>
+    <content type="html"><![CDATA[<p><em>Note: This post is written with the help of <a href="https://chat.openai.com/chat">ChatGPT</a> (Dec 15 version).</em></p>
+
+<h1 id="what-is-tmux">What is Tmux</h1>
+
+<p><a href="https://github.com/tmux/tmux/wiki">Tmux</a> is a terminal multiplexer for Unix-like systems. Similar to <a href="https://linux.die.net/man/1/screen">Linux Screen</a>, Tmux allows you to create, manage, and easily switch between multiple terminal sessions within one single terminal window or console. It also has features such as the ability to detach and reattach sessions, split terminal windows into panes, and more. It is useful for managing multiple terminal sessions and for running long-running commands in the background while you do other work in the same terminal window.</p>
+
+<h1 id="tmux-vs-screen">Tmux vs. Screen</h1>
+
+<p>One difference between the Tmux and Screen is that Tmux is more modern and has a more user-friendly interface, with support for mouse operations and better window and pane management. Screen, on the other hand, is an older tool that is more lightweight and simple, and does not have as many features as Tmux.</p>
+
+<p>Another difference is that Tmux is more configurable and extensible, with support for custom scripts and plugins, while Screen is more bare-bones and does not have as much support for customization.</p>
+
+<p>Ultimately, the choice between Tmux and Screen depends on your personal preferences and needs. Both are powerful tools that can be useful in different situations.</p>
+
+<p>To learn more about the usage of Screen, please read another post in this blog: <a href="https://euccas.github.io/blog/20140531/the-elements-of-linux-screen.html">The Element of Linux Screen</a>.</p>
+
+<h1 id="tmux-common-usages">Tmux common usages</h1>
+
+<h3 id="install-tmux-on-mac">Install tmux on Mac</h3>
+
+<ul>
+  <li><code>brew install tmux</code></li>
+</ul>
+
+<h3 id="start-a-new-session">Start a new session</h3>
+
+<ul>
+  <li><code>tmux new</code>: start a session, the session gets an automatically generated name.</li>
+  <li><code>tmux new -s &lt;session name&gt;</code>: start a session with specified name.</li>
+</ul>
+
+<h3 id="list-tmux-sessions">List tmux sessions</h3>
+
+<ul>
+  <li><code>tmux ls</code></li>
+</ul>
+
+<h3 id="kill-a-tmux-session">Kill a tmux session</h3>
+
+<ul>
+  <li><code>tmux kill-session</code>: kill the last session.</li>
+  <li><code>tmux kill-session -t &lt;session name&gt;</code>: kill the session with specified name.</li>
+</ul>
+
+<h3 id="attach-to-session">Attach to session</h3>
+
+<ul>
+  <li><code>tmux attach-session</code>: attach to the last session.</li>
+  <li><code>tmux attach-session -t &lt;session name&gt;</code>: kill the session with specified name.</li>
+  <li><code>tmux a</code>: shortcut of tmux attach-session</li>
+</ul>
+
+<h3 id="working-with-tmux-windows">Working with tmux windows</h3>
+
+<p>When you start a new Tmux session, by default, it creates a single window with a shell in it. You can create more windows and switch between them.</p>
+
+<ul>
+  <li><code>Ctrl+b c</code>: Create a new window</li>
+  <li><code>Ctrl+b w</code>: Show window list and choose from it</li>
+  <li><code>Ctrl+b n</code>: Move to the next window</li>
+  <li><code>Ctrl+b p</code>: Move to the previous window</li>
+  <li><code>Ctrl+b 0</code>: Switch to window 0</li>
+  <li><code>Ctrl+b ,</code>: Rename the current window</li>
+  <li><code>Ctrl+b &amp;</code>; Kill the current window</li>
+</ul>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[CPU Profiling Tools on Linux]]></title>

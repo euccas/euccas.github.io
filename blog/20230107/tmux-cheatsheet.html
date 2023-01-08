@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>高效Jenkins用户的第4个习惯 - euccas.github.io</title>
+  <title>Tmux Cheatsheet - euccas.github.io</title>
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="本文内容部分来源于Andrew Bayer发布在SlideShare上的 7 habits of highly productive Jenkins Users (2014 Edition). 习惯 4: 精选你所使用的Jenkins功能插件(Plugin) &hellip;">
-  
+  <meta name="description" content="Tmux common usages, Tmux vs. Screen">
+  <meta name="keywords" content="Tmux Screen">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://euccas.github.io/blog/20161010/jenkins-user-habits-4.html">
+  <link rel="canonical" href="http://euccas.github.io/blog/20230107/tmux-cheatsheet.html">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="euccas.github.io" type="application/atom+xml">
@@ -104,7 +104,7 @@
   <header>
     
       
-        <h1 class="entry-title">高效Jenkins用户的第4个习惯</h1>
+        <h1 class="entry-title">Tmux Cheatsheet</h1>
       
     
     
@@ -114,7 +114,7 @@
 
 
 
-<time class='entry-date' datetime='2016-10-10T20:32:01-08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>8:32 pm</span></time>
+<time class='entry-date' datetime='2023-01-07T20:37:11-08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2023</span></span> <span class='time'>8:37 pm</span></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -124,121 +124,70 @@
   </header>
 
 
-<div class="entry-content"><p>本文内容部分来源于<strong>Andrew Bayer</strong>发布在SlideShare上的 <a href="http://www.slideshare.net/andrewbayer/seven-habits-of-highly-effective-jenkins-users-2014-edition"><em>7 habits of highly productive Jenkins Users (2014 Edition)</em></a>.</p>
+<div class="entry-content"><p><em>Note: This post is written with the help of <a href="https://chat.openai.com/chat">ChatGPT</a> (Dec 15 version).</em></p>
 
-<h1 id="jenkinsplugin">习惯 4: 精选你所使用的Jenkins功能插件(Plugin)</h1>
+<h1 id="what-is-tmux">What is Tmux</h1>
 
-<p>当你使用了越来越多的Jenkins功能插件时，就需要花一些时间和精力来维护和清理所有的功能插件。 因为当你安装了太多的Jenkins插件时，有可能会带来一些不好的效果，诸如减慢系统速度，占用多过资源，产生无效的记录文件等等。为了避免使用过多的Jenkins插件造成的各种问题，你应该注意下面几个方面。</p>
+<p><a href="https://github.com/tmux/tmux/wiki">Tmux</a> is a terminal multiplexer for Unix-like systems. Similar to <a href="https://linux.die.net/man/1/screen">Linux Screen</a>, Tmux allows you to create, manage, and easily switch between multiple terminal sessions within one single terminal window or console. It also has features such as the ability to detach and reattach sessions, split terminal windows into panes, and more. It is useful for managing multiple terminal sessions and for running long-running commands in the background while you do other work in the same terminal window.</p>
 
-<h2 id="section">1. 只安装你真正需要的功能插件</h2>
+<h1 id="tmux-vs-screen">Tmux vs. Screen</h1>
 
-<p>在安装一个功能插件之前，你都应该问一个问题：我真的需要这个插件吗？</p>
+<p>One difference between the Tmux and Screen is that Tmux is more modern and has a more user-friendly interface, with support for mouse operations and better window and pane management. Screen, on the other hand, is an older tool that is more lightweight and simple, and does not have as many features as Tmux.</p>
 
-<p>如果你并不打算真正使用一个插件，就不要安装在Jenkins Master上。</p>
+<p>Another difference is that Tmux is more configurable and extensible, with support for custom scripts and plugins, while Screen is more bare-bones and does not have as much support for customization.</p>
 
-<p>不同的插件可能包含有一些类似的功能，你所需要完成的事情，也不仅仅只有一个插件可以实现。这时就需要在一些功能类似的插件中选择你真正所需的。</p>
+<p>Ultimately, the choice between Tmux and Screen depends on your personal preferences and needs. Both are powerful tools that can be useful in different situations.</p>
 
-<p>功能插件可能会给Jenkins service的稳定性造成预期之外的影响，并且可能增加系统的负载和每一个job运行的时间。充分考虑到这些可能的负作用，尽量避免安装你并不是真正需要的插件。</p>
+<p>To learn more about the usage of Screen, please read another post in this blog: <a href="https://euccas.github.io/blog/20140531/the-elements-of-linux-screen.html">The Element of Linux Screen</a>.</p>
 
-<!--more-->
+<h1 id="tmux-common-usages">Tmux common usages</h1>
 
-<h2 id="section-1">2. 清理旧的插件和数据</h2>
-
-<p>定期检查和删除你不再使用的Jenkins功能插件。</p>
-
-<p>在Jenkins管理页面 (Manage Jenkins) 中，注意关于old data的描述。当你删除一个Jenkins插件后，要把有关的历史数据也同时删除。</p>
-
-<p>及时删除不需要的数据，可以加速Jenkins Master启动时加载配置和所有jobs的过程。</p>
-
-<h2 id="section-2">3. 建立你的必备插件列表</h2>
-
-<p>根据你的使用需求和经验，选择你所需要的Jenkins功能插件。这些功能插件应该是满足你所需要的功能，并且性能良好稳定。为你的这些插件建立一个列表并且维护它。</p>
-
-<p><strong>Andrew Bayer</strong>推荐了一些他所使用的Jenkins功能插件。所有这些提供的插件都可以通过Jenkins插件管理功能(Manage Plugins)来查找和安装。</p>
+<h3 id="install-tmux-on-mac">Install tmux on Mac</h3>
 
 <ul>
-  <li>
-    <p><strong>Job Config History</strong></p>
-
-    <ul>
-      <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/JobConfigHistory+Plugin">插件介绍</a></li>
-      <li>功能：保存job configuration的历史，记录每一次改动的信息。对于job configuration每一次的改变，保存一个config.xml文件。提供overview页面，方便查看全部的改变。可以对比查看两次改动之间的区别。</li>
-    </ul>
-  </li>
-  <li>
-    <p><strong>Static Analysis Plugins</strong></p>
-
-    <ul>
-      <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Static+Code+Analysis+Plug-ins">插件介绍</a></li>
-      <li>功能：处理各种静态代码分析结果数据，生成可视化报告（包括趋势图，Build Summary，结果汇总分析等等）</li>
-    </ul>
-  </li>
-  <li>
-    <p><strong>xUnit</strong></p>
-
-    <ul>
-      <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/xUnit+Plugin">插件介绍</a></li>
-      <li>功能：生成和发布单元测试报告。可以把各种测试结果转化为jnit格式。</li>
-    </ul>
-  </li>
-  <li>
-    <p><strong>Parameterized Trigger</strong></p>
-
-    <ul>
-      <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Trigger+Plugin">插件介绍</a></li>
-      <li>功能：参数化配置trigger build. 对于一个build job，可以定义多个配置，用于不同的条件和参数。</li>
-    </ul>
-  </li>
-  <li>
-    <p><strong>Conditional Build Step</strong></p>
-
-    <ul>
-      <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Conditional+BuildStep+Plugin">插件介绍</a></li>
-      <li>功能：可以灵活配置的build step。通常和Parameterized Trigger配合使用。</li>
-    </ul>
-  </li>
-  <li>
-    <p><strong>Tool Environment</strong></p>
-
-    <ul>
-      <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Tool+Environment+Plugin">插件介绍</a></li>
-      <li>功能：让你可以自定义使用Jenkin tool的自动安装。在一个job的执行过程中安装指定的tools，供这个job使用。</li>
-    </ul>
-  </li>
-  <li>
-    <p><strong>EnvInject</strong></p>
-
-    <ul>
-      <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin">插件介绍</a></li>
-      <li>功能：帮助你管理环境变量，包括删除Jenkins Java process引入的一些环境变量，在一个node启动时设置所需的环境变量，设置密码值等等。</li>
-    </ul>
-  </li>
-  <li>
-    <p><strong>Rebuild</strong></p>
-
-    <ul>
-      <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Rebuild+Plugin">插件介绍</a></li>
-      <li>功能：可以rerun每一个被执行过的parameterized build，保存了parameterized build每一次使用的参数，并且允许你在执行rebuild时修改这些参数。</li>
-    </ul>
-  </li>
-  <li>
-    <p><strong>Build Timeout</strong></p>
-
-    <ul>
-      <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Build-timeout+Plugin">插件介绍</a></li>
-      <li>功能：设置build的时间限制，当一个build时间超过预设时，会自动被停止。这个插件不能用于Jenkins pipelines.</li>
-    </ul>
-  </li>
+  <li><code>brew install tmux</code></li>
 </ul>
 
-<p><strong>阅读同主题内容</strong></p>
+<h3 id="start-a-new-session">Start a new session</h3>
 
 <ul>
-  <li><a href="http://euccas.github.io/blog/20151210/jenkins-user-habits-1.html">高效Jenkins用户的第1个习惯</a></li>
-  <li><a href="http://euccas.github.io/blog/20151215/jenkins-user-habits-2.html">高效Jenkins用户的第2个习惯</a></li>
-  <li><a href="http://euccas.github.io/blog/20160523/jenkins-user-habits-3.html">高效Jenkins用户的第3个习惯</a></li>
-  <li><a href="http://euccas.github.io/blog/20161010/jenkins-user-habits-4.html">高效Jenkins用户的第4个习惯</a></li>
-  <li><a href="http://euccas.github.io/blog/20161216/jenkins-user-habits-5.html">高效Jenkins用户的第5个习惯</a></li>
+  <li><code>tmux new</code>: start a session, the session gets an automatically generated name.</li>
+  <li><code>tmux new -s &lt;session name&gt;</code>: start a session with specified name.</li>
+</ul>
+
+<h3 id="list-tmux-sessions">List tmux sessions</h3>
+
+<ul>
+  <li><code>tmux ls</code></li>
+</ul>
+
+<h3 id="kill-a-tmux-session">Kill a tmux session</h3>
+
+<ul>
+  <li><code>tmux kill-session</code>: kill the last session.</li>
+  <li><code>tmux kill-session -t &lt;session name&gt;</code>: kill the session with specified name.</li>
+</ul>
+
+<h3 id="attach-to-session">Attach to session</h3>
+
+<ul>
+  <li><code>tmux attach-session</code>: attach to the last session.</li>
+  <li><code>tmux attach-session -t &lt;session name&gt;</code>: kill the session with specified name.</li>
+  <li><code>tmux a</code>: shortcut of tmux attach-session</li>
+</ul>
+
+<h3 id="working-with-tmux-windows">Working with tmux windows</h3>
+
+<p>When you start a new Tmux session, by default, it creates a single window with a shell in it. You can create more windows and switch between them.</p>
+
+<ul>
+  <li><code>Ctrl+b c</code>: Create a new window</li>
+  <li><code>Ctrl+b w</code>: Show window list and choose from it</li>
+  <li><code>Ctrl+b n</code>: Move to the next window</li>
+  <li><code>Ctrl+b p</code>: Move to the previous window</li>
+  <li><code>Ctrl+b 0</code>: Switch to window 0</li>
+  <li><code>Ctrl+b ,</code>: Rename the current window</li>
+  <li><code>Ctrl+b &amp;</code>; Kill the current window</li>
 </ul>
 </div>
 
@@ -262,13 +211,13 @@
 
 
 
-<time class='entry-date' datetime='2016-10-10T20:32:01-08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>8:32 pm</span></time>
+<time class='entry-date' datetime='2023-01-07T20:37:11-08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2023</span></span> <span class='time'>8:37 pm</span></time>
       
       
 
 <span class="categories">
   
-    <a class='category' href='/categories/continuous-delivery/'>continuous-delivery</a>, <a class='category' href='/categories/jenkins/'>jenkins</a>, <a class='category' href='/categories/zhong-wen/'>中文</a>
+    <a class='category' href='/categories/linux/'>linux</a>, <a class='category' href='/categories/tools/'>tools</a>
   
 </span>
 
@@ -277,7 +226,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://euccas.github.io/blog/20161010/jenkins-user-habits-4.html" data-via="" data-counturl="http://euccas.github.io/blog/20161010/jenkins-user-habits-4.html" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://euccas.github.io/blog/20230107/tmux-cheatsheet.html" data-via="" data-counturl="http://euccas.github.io/blog/20230107/tmux-cheatsheet.html" >Tweet</a>
   
   
   
@@ -286,10 +235,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/20160928/the-uber-challenge-of-cross-application-testinng.html" title="Previous Post: GTAC: The Uber Challenge of Cross-Application Testing">&laquo; GTAC: The Uber Challenge of Cross-Application Testing</a>
+        <a class="basic-alignment left" href="/blog/20220529/read-inspired-how-to-create-tech-products-customers-love.html" title="Previous Post: Read Inspired: How to Create Tech Products Customers Love">&laquo; Read Inspired: How to Create Tech Products Customers Love</a>
       
-      
-        <a class="basic-alignment right" href="/blog/20161011/install-additional-packages-in-winpython.html" title="Next Post: Install additional packages in WinPython">Install additional packages in WinPython &raquo;</a>
       
     </p>
   </footer>
@@ -319,8 +266,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://euccas.github.io/blog/20161010/jenkins-user-habits-4.html';
-        var disqus_url = 'http://euccas.github.io/blog/20161010/jenkins-user-habits-4.html';
+        var disqus_identifier = 'http://euccas.github.io/blog/20230107/tmux-cheatsheet.html';
+        var disqus_url = 'http://euccas.github.io/blog/20230107/tmux-cheatsheet.html';
         var disqus_script = 'embed.js';
       
     (function () {

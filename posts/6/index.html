@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="本文内容部分来源于Andrew Bayer发布在SlideShare上的 7 habits of highly productive Jenkins Users (2014 Edition). 习惯 5: 集成第三方工具和服务 Jenkin可以和许多第三方工具和服务集成，实现强大又实用的功能。 &hellip;">
+  <meta name="description" content="When using Ruby Gem pg and establish database connections to a PostgreSQL database, you’ll see PG errors when the database connection becomes &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,53 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20161217/postgresql-understand-pg-errors.html">PostgreSQL: Understand PG Errors</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-12-17T09:06:21-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>9:06 am</span></time>
+        
+         | <a href="/blog/20161217/postgresql-understand-pg-errors.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When using Ruby Gem <code>pg</code> and establish database connections to a PostgreSQL database, you’ll see PG errors when the database connection becomes problematic. In my experience, two typical PG errors are <code>PG::AdminShutdown</code> and <code>PG::UnableToSend</code>.</p>
+
+<h1 id="error-pgadminshutdown">Error PG::AdminShutdown</h1>
+
+<p>The error message contains the following information:</p>
+
+<p><code>
+FATAL:  terminating connection due to administrator command (PG::AdminShutdown) server closed the connection unexpectedly
+      This probably means the server terminated abnormally
+      before or while processing the request.
+</code></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/20161217/postgresql-understand-pg-errors.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -272,57 +319,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20161010/jenkins-user-habits-4.html">高效Jenkins用户的第4个习惯</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2016-10-10T20:32:01-08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>8:32 pm</span></time>
-        
-         | <a href="/blog/20161010/jenkins-user-habits-4.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>本文内容部分来源于<strong>Andrew Bayer</strong>发布在SlideShare上的 <a href="http://www.slideshare.net/andrewbayer/seven-habits-of-highly-effective-jenkins-users-2014-edition"><em>7 habits of highly productive Jenkins Users (2014 Edition)</em></a>.</p>
-
-<h1 id="jenkinsplugin">习惯 4: 精选你所使用的Jenkins功能插件(Plugin)</h1>
-
-<p>当你使用了越来越多的Jenkins功能插件时，就需要花一些时间和精力来维护和清理所有的功能插件。 因为当你安装了太多的Jenkins插件时，有可能会带来一些不好的效果，诸如减慢系统速度，占用多过资源，产生无效的记录文件等等。为了避免使用过多的Jenkins插件造成的各种问题，你应该注意下面几个方面。</p>
-
-<h2 id="section">1. 只安装你真正需要的功能插件</h2>
-
-<p>在安装一个功能插件之前，你都应该问一个问题：我真的需要这个插件吗？</p>
-
-<p>如果你并不打算真正使用一个插件，就不要安装在Jenkins Master上。</p>
-
-<p>不同的插件可能包含有一些类似的功能，你所需要完成的事情，也不仅仅只有一个插件可以实现。这时就需要在一些功能类似的插件中选择你真正所需的。</p>
-
-<p>功能插件可能会给Jenkins service的稳定性造成预期之外的影响，并且可能增加系统的负载和每一个job运行的时间。充分考虑到这些可能的负作用，尽量避免安装你并不是真正需要的插件。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20161010/jenkins-user-habits-4.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/7">&larr; Older</a>
@@ -342,7 +338,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014-2022 - <a href="http://www.euccas.me">Euccas Chen</a> -
+  Copyright &copy; 2014-2023 - <a href="http://www.euccas.me">Euccas Chen</a> -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
 </p>
 

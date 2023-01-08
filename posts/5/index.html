@@ -9,7 +9,7 @@
   <meta name="author" content="euccas">
 
   
-  <meta name="description" content="So here comes 2017, a year when you hear people talk about the words Machine Learning, Reinforcement Learning, and Artificial Intelligence everywhere &hellip;">
+  <meta name="description" content="A functor is a powerful C++ entity that everyone who wants to master C++ needs to know. A functor, which is short for “function object”, is a C++ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20170115/c-plus-plus-functors.html">C++ Functors</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-01-15T20:20:07-08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>8:20 pm</span></time>
+        
+         | <a href="/blog/20170115/c-plus-plus-functors.html#disqus_thread">Comments</a>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A <strong>functor</strong> is a powerful C++ entity that everyone who wants to master C++ needs to know. A functor, which is short for “<strong>function object</strong>”, is a C++ class that acts like a function. Functors can be called using the familiar function call syntax, and can yield values and accept parameters just like regular functions.</p>
+
+<p>To create a functor, we create a class (or a struct) that overloads the function <code>operator()</code>. Note here the function is called <code>operator()</code>, and it’s not the <code>operator</code> function, i.e. <code>()</code>. We then create an instance of this class (or struct) to use the created functor.</p>
+
+<h1 id="create-and-use-functors">Create and use functors</h1>
+
+<p>Let’s look at two examples of creating and using a functor. In the first example, a functor is created with a <code>class</code>, and in the second example we use a <code>struct</code> to create the functor.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/20170115/c-plus-plus-functors.html">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -270,53 +313,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20161217/postgresql-understand-pg-errors.html">PostgreSQL: Understand PG Errors</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2016-12-17T09:06:21-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>9:06 am</span></time>
-        
-         | <a href="/blog/20161217/postgresql-understand-pg-errors.html#disqus_thread">Comments</a>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>When using Ruby Gem <code>pg</code> and establish database connections to a PostgreSQL database, you’ll see PG errors when the database connection becomes problematic. In my experience, two typical PG errors are <code>PG::AdminShutdown</code> and <code>PG::UnableToSend</code>.</p>
-
-<h1 id="error-pgadminshutdown">Error PG::AdminShutdown</h1>
-
-<p>The error message contains the following information:</p>
-
-<p><code>
-FATAL:  terminating connection due to administrator command (PG::AdminShutdown) server closed the connection unexpectedly
-      This probably means the server terminated abnormally
-      before or while processing the request.
-</code></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20161217/postgresql-understand-pg-errors.html">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/6">&larr; Older</a>
@@ -336,7 +332,7 @@ FATAL:  terminating connection due to administrator command (PG::AdminShutdown) 
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014-2022 - <a href="http://www.euccas.me">Euccas Chen</a> -
+  Copyright &copy; 2014-2023 - <a href="http://www.euccas.me">Euccas Chen</a> -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
 </p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[euccas.github.io]]></title>
   <link href="http://euccas.github.io/atom.xml" rel="self"/>
   <link href="http://euccas.github.io/"/>
-  <updated>2022-05-31T22:59:13-07:00</updated>
+  <updated>2023-01-07T23:18:00-08:00</updated>
   <id>http://euccas.github.io/</id>
   <author>
     <name><![CDATA[euccas]]></name>
@@ -12,6 +12,79 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Tmux Cheatsheet]]></title>
+    <link href="http://euccas.github.io/blog/20230107/tmux-cheatsheet.html"/>
+    <updated>2023-01-07T20:37:11-08:00</updated>
+    <id>http://euccas.github.io/blog/20230107/tmux-cheatsheet</id>
+    <content type="html"><![CDATA[<p><em>Note: This post is written with the help of <a href="https://chat.openai.com/chat">ChatGPT</a> (Dec 15 version).</em></p>
+
+<h1 id="what-is-tmux">What is Tmux</h1>
+
+<p><a href="https://github.com/tmux/tmux/wiki">Tmux</a> is a terminal multiplexer for Unix-like systems. Similar to <a href="https://linux.die.net/man/1/screen">Linux Screen</a>, Tmux allows you to create, manage, and easily switch between multiple terminal sessions within one single terminal window or console. It also has features such as the ability to detach and reattach sessions, split terminal windows into panes, and more. It is useful for managing multiple terminal sessions and for running long-running commands in the background while you do other work in the same terminal window.</p>
+
+<h1 id="tmux-vs-screen">Tmux vs. Screen</h1>
+
+<p>One difference between the Tmux and Screen is that Tmux is more modern and has a more user-friendly interface, with support for mouse operations and better window and pane management. Screen, on the other hand, is an older tool that is more lightweight and simple, and does not have as many features as Tmux.</p>
+
+<p>Another difference is that Tmux is more configurable and extensible, with support for custom scripts and plugins, while Screen is more bare-bones and does not have as much support for customization.</p>
+
+<p>Ultimately, the choice between Tmux and Screen depends on your personal preferences and needs. Both are powerful tools that can be useful in different situations.</p>
+
+<p>To learn more about the usage of Screen, please read another post in this blog: <a href="https://euccas.github.io/blog/20140531/the-elements-of-linux-screen.html">The Element of Linux Screen</a>.</p>
+
+<h1 id="tmux-common-usages">Tmux common usages</h1>
+
+<h3 id="install-tmux-on-mac">Install tmux on Mac</h3>
+
+<ul>
+  <li><code>brew install tmux</code></li>
+</ul>
+
+<h3 id="start-a-new-session">Start a new session</h3>
+
+<ul>
+  <li><code>tmux new</code>: start a session, the session gets an automatically generated name.</li>
+  <li><code>tmux new -s &lt;session name&gt;</code>: start a session with specified name.</li>
+</ul>
+
+<h3 id="list-tmux-sessions">List tmux sessions</h3>
+
+<ul>
+  <li><code>tmux ls</code></li>
+</ul>
+
+<h3 id="kill-a-tmux-session">Kill a tmux session</h3>
+
+<ul>
+  <li><code>tmux kill-session</code>: kill the last session.</li>
+  <li><code>tmux kill-session -t &lt;session name&gt;</code>: kill the session with specified name.</li>
+</ul>
+
+<h3 id="attach-to-session">Attach to session</h3>
+
+<ul>
+  <li><code>tmux attach-session</code>: attach to the last session.</li>
+  <li><code>tmux attach-session -t &lt;session name&gt;</code>: kill the session with specified name.</li>
+  <li><code>tmux a</code>: shortcut of tmux attach-session</li>
+</ul>
+
+<h3 id="working-with-tmux-windows">Working with tmux windows</h3>
+
+<p>When you start a new Tmux session, by default, it creates a single window with a shell in it. You can create more windows and switch between them.</p>
+
+<ul>
+  <li><code>Ctrl+b c</code>: Create a new window</li>
+  <li><code>Ctrl+b w</code>: Show window list and choose from it</li>
+  <li><code>Ctrl+b n</code>: Move to the next window</li>
+  <li><code>Ctrl+b p</code>: Move to the previous window</li>
+  <li><code>Ctrl+b 0</code>: Switch to window 0</li>
+  <li><code>Ctrl+b ,</code>: Rename the current window</li>
+  <li><code>Ctrl+b &amp;</code>; Kill the current window</li>
+</ul>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Read Inspired: How to Create Tech Products Customers Love]]></title>
@@ -1817,198 +1890,6 @@ The second time when you call function <code>is_prime</code> with the same input
 <p>Cheers,</p>
 
 <p>Euccas</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[C++ Functors]]></title>
-    <link href="http://euccas.github.io/blog/20170115/c-plus-plus-functors.html"/>
-    <updated>2017-01-15T20:20:07-08:00</updated>
-    <id>http://euccas.github.io/blog/20170115/c-plus-plus-functors</id>
-    <content type="html"><![CDATA[<p>A <strong>functor</strong> is a powerful C++ entity that everyone who wants to master C++ needs to know. A functor, which is short for “<strong>function object</strong>”, is a C++ class that acts like a function. Functors can be called using the familiar function call syntax, and can yield values and accept parameters just like regular functions.</p>
-
-<p>To create a functor, we create a class (or a struct) that overloads the function <code>operator()</code>. Note here the function is called <code>operator()</code>, and it’s not the <code>operator</code> function, i.e. <code>()</code>. We then create an instance of this class (or struct) to use the created functor.</p>
-
-<h1 id="create-and-use-functors">Create and use functors</h1>
-
-<p>Let’s look at two examples of creating and using a functor. In the first example, a functor is created with a <code>class</code>, and in the second example we use a <code>struct</code> to create the functor.</p>
-
-<!--more-->
-
-<h2 id="example-create-a-functor-with-a-class">Example: Create a functor with a Class</h2>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-</pre></td><td class="code"><pre><code class="c"><span class="line"><span class="n">class</span> <span class="n">MyFunctor</span> <span class="p">{</span>
-</span><span class="line"><span class="nl">public</span><span class="p">:</span>
-</span><span class="line">    <span class="kt">void</span> <span class="n">operator</span><span class="p">()</span> <span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">str</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
-</span><span class="line">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span><span class="line">    <span class="p">}</span>
-</span><span class="line"><span class="p">}</span>
-</span><span class="line">
-</span><span class="line"><span class="c1">// Using functor:</span>
-</span><span class="line">
-</span><span class="line"><span class="n">MyFunctor</span> <span class="n">functor</span><span class="p">;</span> <span class="c1">// create an instance of the functor class</span>
-</span><span class="line"><span class="n">functor</span><span class="p">(</span><span class="s">&quot;This is a functor!&quot;</span><span class="p">);</span> <span class="c1">// and &quot;call&quot; it</span>
-</span><span class="line">
-</span><span class="line"><span class="c1">// equivalence:</span>
-</span><span class="line"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">functor</span><span class="p">.</span><span class="n">operator</span><span class="p">()(</span><span class="mi">23</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span><span class="line">
-</span><span class="line"><span class="c1">// You&#39;ll see &quot;This is a functor&quot; printed out.</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="example-create-a-functor-with-a-struct">Example: Create a functor with a Struct</h2>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-<span class="line-number">19</span>
-</pre></td><td class="code"><pre><code class="c"><span class="line"><span class="k">struct</span> <span class="n">add_x</span> <span class="p">{</span>
-</span><span class="line">  <span class="n">add_x</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{}</span>
-</span><span class="line">  <span class="kt">int</span> <span class="n">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span> <span class="p">}</span>
-</span><span class="line"><span class="nl">private</span><span class="p">:</span>
-</span><span class="line">  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-</span><span class="line"><span class="p">};</span>
-</span><span class="line">
-</span><span class="line"><span class="c1">// Using functor:</span>
-</span><span class="line">
-</span><span class="line"><span class="n">add_x</span> <span class="nf">add42</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span> <span class="c1">// create an instance of the functor class</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">add42</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span> <span class="c1">// and &quot;call&quot; it</span>
-</span><span class="line"><span class="n">assert</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">50</span><span class="p">);</span> <span class="c1">// and it added 42 to its argument</span>
-</span><span class="line">
-</span><span class="line"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">in</span><span class="p">;</span>
-</span><span class="line"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">out</span><span class="p">;</span>
-</span><span class="line"><span class="c1">// Pass a functor to std::transform, which calls the functor on every element </span>
-</span><span class="line"><span class="c1">// in the input sequence, and stores the result to the output sequence</span>
-</span><span class="line"><span class="n">std</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">in</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">in</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">out</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">add_x</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
-</span><span class="line"><span class="n">assert</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">in</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// for all i</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h1 id="functors-access-class-data-members">Functors access class data members</h1>
-
-<p>The key difference between a function and a functor is that a functor’s function call operator is a <em>member function</em> whereas a raw C++ function is a <em>free</em> function. This means that a functor can access the following information when being called:</p>
-
-<ul>
-  <li>Its local variables</li>
-  <li>Its parameters</li>
-  <li>Global variables</li>
-  <li><strong>Class data members</strong></li>
-</ul>
-
-<p>If a functor’s <code>operator()</code> member function requires access to data beyond what can be communicated by its parameters, we can store that information as a data member inside the functor class. Since <code>operator()</code> is a member of the functor class, it can then access that data freely. The following example shows how a functor’s <code>operator()</code> function access the class’s private member <code>toAppend</code>.</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-<span class="line-number">19</span>
-</pre></td><td class="code"><pre><code class="c"><span class="line"><span class="n">class</span> <span class="n">StringAppender</span> <span class="p">{</span>
-</span><span class="line"><span class="nl">public</span><span class="p">:</span>
-</span><span class="line">    <span class="c1">// Constructor takes and stores a string.</span>
-</span><span class="line">    <span class="n">explicit</span> <span class="n">StringAppender</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span> <span class="o">&amp;</span><span class="n">str</span><span class="p">)</span> <span class="o">:</span> <span class="n">toAppend</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="p">{}</span>
-</span><span class="line">
-</span><span class="line">    <span class="c1">// Operator() prints out a string, plus the stored suffix.</span>
-</span><span class="line">    <span class="kt">void</span> <span class="n">operator</span><span class="p">()</span> <span class="p">(</span><span class="k">const</span> <span class="n">string</span> <span class="o">&amp;</span><span class="n">str</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
-</span><span class="line">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span> <span class="o">&lt;&lt;</span> <span class="n">toAppend</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span><span class="line">    <span class="p">}</span>
-</span><span class="line">
-</span><span class="line"><span class="nl">private</span><span class="p">:</span>
-</span><span class="line">    <span class="k">const</span> <span class="n">string</span> <span class="n">toAppend</span><span class="p">;</span>
-</span><span class="line"><span class="p">};</span>
-</span><span class="line">
-</span><span class="line"><span class="c1">// Usage:</span>
-</span><span class="line"><span class="n">StringAppender</span> <span class="nf">myFunctor</span><span class="p">(</span><span class="s">&quot;is awesome&quot;</span><span class="p">);</span>
-</span><span class="line"><span class="n">myFunctor</span><span class="p">(</span><span class="s">&quot;C++&quot;</span><span class="p">);</span>
-</span><span class="line">
-</span><span class="line"><span class="c1">// You&#39;ll see &quot;C++ is awesome&quot; is printed out.</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h1 id="functors-are-useful-in-stl-algorithms">Functors are useful in STL algorithms</h1>
-
-<p>C++ STL algorithms use functors to increase the flexibility and efficiency. The most common uses for function objects are for generating data, for testing data, and for applying operations to data. here is an example of how STL <code>for_each</code> uses functors.</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-</pre></td><td class="code"><pre><code class="c"><span class="line"><span class="k">struct</span> <span class="n">sum</span>
-</span><span class="line"><span class="p">{</span>
-</span><span class="line">    <span class="n">sum</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">t</span><span class="p">)</span><span class="o">:</span><span class="n">total</span><span class="p">(</span><span class="n">t</span><span class="p">){};</span>
-</span><span class="line">    <span class="kt">int</span><span class="o">*</span> <span class="n">total</span><span class="p">;</span>
-</span><span class="line">    <span class="kt">void</span> <span class="nf">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">element</span><span class="p">)</span>
-</span><span class="line">    <span class="p">{</span>
-</span><span class="line">       <span class="o">*</span><span class="n">total</span> <span class="o">+=</span> <span class="n">element</span><span class="p">;</span>
-</span><span class="line">    <span class="p">}</span>
-</span><span class="line"><span class="p">};</span>
-</span><span class="line">
-</span><span class="line"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-</span><span class="line"><span class="p">{</span>
-</span><span class="line">    <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line">    <span class="n">sum</span> <span class="n">s</span><span class="p">(</span><span class="o">&amp;</span><span class="n">total</span><span class="p">);</span>
-</span><span class="line">    <span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
-</span><span class="line">    <span class="n">std</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">arr</span><span class="o">+</span><span class="mi">6</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
-</span><span class="line">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">total</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// prints total = 15;</span>
-</span><span class="line"><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p><em>The reader of <a href="http://web.stanford.edu/class/cs106l/course-reader/Ch13_Functors.pdf">Stanford course CS106l</a> explains functors in detail.</em></p>
 ]]></content>
   </entry>
   
