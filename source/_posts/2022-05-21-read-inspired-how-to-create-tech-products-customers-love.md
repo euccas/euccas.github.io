@@ -13,6 +13,8 @@ Last month I read this book: [Inspired - How to Create Tech Products Customers L
 
 The book contains four parts. Part 1 is a strong opening, in this part the author discussed the key concepts that form the foundation of modern product work, the core principles that behind great products, and possible causes of the failed product efforts. Part 2 are sections on product teams, different roles that a successful product team needs, and how each role should work in order to lead to product success. Part 3 are sections on principles and techniques of product roadmaps, product vision, and objectives. I find this part especially valuable. Part 4 describes the right process from product discovery to delivery. In the last part, the author shared his view on the right culture that great products rely on. 
 
+<!--more-->
+
 Here I'll jog down five notes covering a few topics discussed in this book.
 
 ## One
